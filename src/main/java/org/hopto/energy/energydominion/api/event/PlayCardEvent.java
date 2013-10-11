@@ -2,7 +2,7 @@ package org.hopto.energy.energydominion.api.event;
 
 import org.hopto.energy.energydominion.api.Player;
 
-public class PlayCardEvent implements PlayEvent {
+public class PlayCardEvent extends PlayEvent {
 
     @Override
     public Player getCardOwner() {

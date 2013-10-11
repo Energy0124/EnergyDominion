@@ -6,6 +6,9 @@ public abstract class DominionCardEvent implements CardEvent {
     private Player trigger;
     private Player owner;
 
+    protected DominionCardEvent() {
+        this(null);
+    }
 
     protected DominionCardEvent(Player trigger) {
         this(trigger,null);
