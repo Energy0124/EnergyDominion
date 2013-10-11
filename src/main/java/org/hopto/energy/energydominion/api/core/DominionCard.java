@@ -126,15 +126,15 @@ public abstract class DominionCard implements Card, Buyable, Discardable, Drawab
     }
 
     @Override
+    public void setCardTypes(List<CardType> cardTypes) {
+        this.cardTypes = cardTypes;
+    }
+
+    @Override
     public void setCardTypes(CardType cardType) {
         List<CardType> cardTypes = new ArrayList<>();
         cardTypes.add(cardType);
         setCardTypes(cardTypes);
-    }
-
-    @Override
-    public void setCardTypes(List<CardType> cardTypes) {
-        this.cardTypes = cardTypes;
     }
 
     @Override
@@ -146,7 +146,6 @@ public abstract class DominionCard implements Card, Buyable, Discardable, Drawab
     public void setOwner(Player owner) {
         this.owner = owner;
     }
-
 
     @Override
     public void onBuy(BuyEvent event) {
