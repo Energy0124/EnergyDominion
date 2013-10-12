@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: org.hopto.energy.energydominion.EnergyDominion
-Class-Path: EnergyDominion.jar expansions/ lib/jspf.core-1.0.3.jar lib/jspf.core-1.0.2.jar   lib/jspf.remote-1.0.2.jar  lib/jspf.remote.ermi-1.0.2.jar lib/jspf.remote.json-1.0.2.jar lib/jspf.remote.xmlrpc-1.0.2.jar lib/jspf.remote.lipermi-1.0.2.jar lib/jspf.remote.javascript-1.0.2.jar lib/jspf.remote.xmlrpcdelight-1.0.2.jar
-
-
