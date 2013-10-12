@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.hopto.energy.energydominion</groupId>
+    <artifactId>EnergyDominion</artifactId>
+    <description>Dominion with Energy!</description>
+    <version>0.0.1</version>
+
+    <!-- <modules>
+         <module>BaseSet</module>
+     </modules>-->
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>project.local</id>
+            <name>project</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+
+        <repository>
+            <id>spout-repo</id>
+            <url>http://repo.spout.org</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spout-repo</id>
+            <url>http://repo.spout.org</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <dependencies>
+
+        <!-- <dependency>
+                 <groupId>org.reflections</groupId>
+                 <artifactId>reflections</artifactId>
+                 <version>0.9.8</version>
+             </dependency>-->
+
+        <dependency>
+            <groupId>net.xeoh.plugins</groupId>
+            <artifactId>jspf.core</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <!-- <dependency>
+             <groupId>org.net.jcores</groupId>
+             <artifactId>jcores-core</artifactId>
+             <version>0.9.1</version>
+         </dependency>-->
+
+        <dependency>
+            <groupId>ro.fortsoft.pf4j</groupId>
+            <artifactId>pf4j</artifactId>
+            <version>0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.net.jcores</groupId>
+            <artifactId>jcores</artifactId>
+            <version>0.8.0</version>
+
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <directory>F:\Users\Energy\Documents\GitHub\EnergyDominion\build</directory>
+
+        <resources>
+
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!--<version>3.1</version>-->
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <!--<version>2.4</version>-->
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <mainClass>org.hopto.energy.energydominion.EnergyDominion</mainClass>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <!--<version>2.1</version>-->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <minimizeJar>false</minimizeJar>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>deploy</phase>
+                        <configuration>
+                            <tasks>
+
+
+                                <!--
+                                  Place any Ant task here. You can add anything
+                                  you can add between <target> and </target> in a
+                                  build.xml.
+                                -->
+
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+</project>

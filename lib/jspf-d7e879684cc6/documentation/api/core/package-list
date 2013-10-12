@@ -1,0 +1,11 @@
+net.xeoh.plugins.base
+net.xeoh.plugins.base.annotations
+net.xeoh.plugins.base.annotations.configuration
+net.xeoh.plugins.base.annotations.events
+net.xeoh.plugins.base.annotations.injections
+net.xeoh.plugins.base.annotations.meta
+net.xeoh.plugins.base.options
+net.xeoh.plugins.base.options.addpluginsfrom
+net.xeoh.plugins.base.options.getinformation
+net.xeoh.plugins.base.options.getplugin
+net.xeoh.plugins.informationbroker

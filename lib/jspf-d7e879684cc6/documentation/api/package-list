@@ -1,0 +1,17 @@
+net.xeoh.plugins.base
+net.xeoh.plugins.base.annotations
+net.xeoh.plugins.base.annotations.configuration
+net.xeoh.plugins.base.annotations.events
+net.xeoh.plugins.base.annotations.injections
+net.xeoh.plugins.base.annotations.meta
+net.xeoh.plugins.base.impl
+net.xeoh.plugins.base.options
+net.xeoh.plugins.base.options.addpluginsfrom
+net.xeoh.plugins.base.options.getplugin
+net.xeoh.plugins.base.util
+net.xeoh.plugins.base.util.uri
+net.xeoh.plugins.informationbroker
+net.xeoh.plugins.informationbroker.options
+net.xeoh.plugins.informationbroker.options.publish
+net.xeoh.plugins.informationbroker.options.subscribe
+net.xeoh.plugins.informationbroker.util
