@@ -24,6 +24,7 @@ public class EnergyDominion {
         PluginManager pm = PluginManagerFactory.createPluginManager();
 
         try {
+
            pm.addPluginsFrom(ClassURI.CLASSPATH);
            pm.addPluginsFrom(new File("expansions/").toURI());
         } catch (Exception e) {
