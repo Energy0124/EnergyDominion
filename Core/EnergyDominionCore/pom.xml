@@ -5,13 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.hopto.energy.energydominion</groupId>
-    <artifactId>EnergyDominion</artifactId>
+    <artifactId>EnergyDominionCore</artifactId>
     <description>Dominion with Energy!</description>
     <version>0.0.1</version>
+    <!--<packaging>jar</packaging>-->
 
     <!-- <modules>
          <module>BaseSet</module>
      </modules>-->
+    <parent>
+        <groupId>org.hopto.energy.energydominion</groupId>
+        <artifactId>EnergyDominion</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
 
 
     <properties>

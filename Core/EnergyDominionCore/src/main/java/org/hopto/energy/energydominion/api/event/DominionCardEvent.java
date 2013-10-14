@@ -11,12 +11,12 @@ public abstract class DominionCardEvent implements CardEvent {
     }
 
     protected DominionCardEvent(Player trigger) {
-        this(trigger,null);
+        this(trigger, null);
     }
 
-    protected DominionCardEvent(Player trigger,Player owner) {
-        this.trigger=trigger;
-        this.owner=owner;
+    protected DominionCardEvent(Player trigger, Player owner) {
+        this.trigger = trigger;
+        this.owner = owner;
     }
 
     @Override

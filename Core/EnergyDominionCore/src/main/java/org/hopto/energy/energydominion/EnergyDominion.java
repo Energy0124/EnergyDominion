@@ -25,18 +25,14 @@ public class EnergyDominion {
 
         try {
 
-           pm.addPluginsFrom(ClassURI.CLASSPATH);
-           pm.addPluginsFrom(new File("expansions/").toURI());
+            pm.addPluginsFrom(ClassURI.CLASSPATH);
+            pm.addPluginsFrom(new File("expansions/").toURI());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-            test(pm);
-
-
-
+        test(pm);
 
 
     }

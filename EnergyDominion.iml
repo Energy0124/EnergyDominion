@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/../../target/classes" />
-    <output-test url="file://$MODULE_DIR$/../../target/test-classes" />
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/${F:/Users/Energy/Documents/GitHub/EnergyDominion/build" />
-      <excludeFolder url="file://$MODULE_DIR$/${ProF:/Users/Energy/Documents/GitHub/EnergyDominion/build" />
-      <excludeFolder url="file://$MODULE_DIR$/${project.basedirF:/Users/Energy/Documents/GitHub/EnergyDominion/build" />
-      <excludeFolder url="file://$MODULE_DIR$/F:/Users/Energy/Documents/GitHub/EnergyDominion/build" />
-      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: net.xeoh.plugins:jspf.core:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: classworlds:classworlds:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.net.jcores:jcores:0.8.0" level="project" />
-    <orderEntry type="library" name="Maven: xpp3:xpp3:1.1.4c" level="project" />
-    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.3.1" level="project" />
-    <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.4c" level="project" />
-    <orderEntry type="library" name="Maven: net.xeoh:nexus:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: ro.fortsoft.pf4j:pf4j:0.4" level="project" />
-    <orderEntry type="library" name="Maven: net.java.sezpoz:sezpoz:1.9" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">
