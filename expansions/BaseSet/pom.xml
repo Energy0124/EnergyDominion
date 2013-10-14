@@ -8,6 +8,7 @@
     <artifactId>BaseSet</artifactId>
     <description>Dominion Base</description>
     <version>0.0.1</version>
+    <!--<packaging>jar</packaging>-->
     <!--
         <parent>
             <groupId>org.hopto.energy.energydominion</groupId>
@@ -15,6 +16,12 @@
             <version>0.0.1</version>
         </parent>
     -->
+    <parent>
+        <groupId>org.hopto.energy.energydominion</groupId>
+        <artifactId>EnergyDominion</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
 
 
     <properties>
@@ -88,7 +95,7 @@
 
 
     <build>
-        <directory>F:\Users\Energy\Documents\GitHub\EnergyDominion\build\expansions</directory>
+        <directory>${project.basedir}/../../target/expansions</directory>
 
         <resources>
 
@@ -120,6 +127,11 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.1</version>
             </plugin>
             <!--           <plugin>
                            <groupId>org.apache.maven.plugins</groupId>
