@@ -6,8 +6,8 @@
   <version>0.0.1</version>
   <description>Dominion with Energy!</description>
   <build>
-    <directory>F:\Users\Energy\Documents\GitHub\EnergyDominion\build</directory>
-    <plugins>
+      <directory>${project.basedir}/../../target</directory>
+      <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>

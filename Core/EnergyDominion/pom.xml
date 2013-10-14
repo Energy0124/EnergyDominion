@@ -80,7 +80,7 @@
 
 
     <build>
-        <directory>F:\Users\Energy\Documents\GitHub\EnergyDominion\build</directory>
+        <directory>${project.basedir}/../../target</directory>
 
         <resources>
 
