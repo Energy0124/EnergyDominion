@@ -12,7 +12,7 @@ import java.util.Set;
 public abstract class DominionExpansion implements Expansion {
     //private static String name = "BaseSet";
     //private static List<Card> cardSet = new ArrayList<Card>();
-    private  Set<Class<? extends Card>> cardSet = new HashSet<>();
+    private Set<Class<? extends Card>> cardSet = new HashSet<>();
 
 
     public DominionExpansion() {
@@ -20,17 +20,14 @@ public abstract class DominionExpansion implements Expansion {
         cardSet = reflections.getSubTypesOf(Card.class);*/
 
 
-
-
     }
 
 
-
-    public  void addCard(Class<? extends Card> cardClass) {
+    public void addCard(Class<? extends Card> cardClass) {
         cardSet.add(cardClass);
     }
 
-    public  void removeCard(Class<? extends Card> card) {
+    public void removeCard(Class<? extends Card> card) {
         cardSet.remove(card);
 
     }

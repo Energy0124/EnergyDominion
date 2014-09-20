@@ -1,16 +1,14 @@
 package org.hopto.energy.energydominion.api.game;
 
 import org.hopto.energy.energydominion.EnergyDominion;
-import org.hopto.energy.energydominion.api.Card;
 import org.hopto.energy.energydominion.api.Expansion;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ExpansionManager {
     private List<Expansion> expansions;
-   // private Set<Class<? extends Card>> completeCardSet;
+    // private Set<Class<? extends Card>> completeCardSet;
 
 
     public ExpansionManager() {

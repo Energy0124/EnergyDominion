@@ -268,162 +268,162 @@ implements <a href="../../../../../net/xeoh/plugins/informationbroker/Informatio
     </ul>
 </div>
 <div class="details">
-    <ul class="blockList">
-        <li class="blockList">
-            <!-- ========= CONSTRUCTOR DETAIL ======== -->
-            <ul class="blockList">
-                <li class="blockList"><a name="constructor_detail">
-                    <!--   -->
-                </a>
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+    <li class="blockList"><a name="constructor_detail">
+        <!--   -->
+    </a>
 
-                    <h3>Constructor Detail</h3>
-                    <a name="InformationBrokerUtil(net.xeoh.plugins.informationbroker.InformationBroker)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockListLast">
-                        <li class="blockList">
-                            <h4>InformationBrokerUtil</h4>
+        <h3>Constructor Detail</h3>
+        <a name="InformationBrokerUtil(net.xeoh.plugins.informationbroker.InformationBroker)">
+            <!--   -->
+        </a>
+        <ul class="blockListLast">
+            <li class="blockList">
+                <h4>InformationBrokerUtil</h4>
                             <pre>public&nbsp;InformationBrokerUtil(<a
                                     href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
                                     title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a>&nbsp;broker)</pre>
-                            <div class="block">Creates a new InformationBrokerUtil.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>broker</code> -</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- ============ METHOD DETAIL ========== -->
-            <ul class="blockList">
-                <li class="blockList"><a name="method_detail">
-                    <!--   -->
-                </a>
+                <div class="block">Creates a new InformationBrokerUtil.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>broker</code> -</dd>
+                </dl>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+    <!--   -->
+</a>
 
-                    <h3>Method Detail</h3>
-                    <a name="get(java.lang.Class,java.lang.Object[])">
-                        <!--   -->
-                    </a><a name="get(java.lang.Class, T...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>get</h4>
+<h3>Method Detail</h3>
+<a name="get(java.lang.Class,java.lang.Object[])">
+    <!--   -->
+</a><a name="get(java.lang.Class, T...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>get</h4>
 <pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;get(java.lang.Class&lt;? extends <a
         href="../../../../../net/xeoh/plugins/informationbroker/InformationItem.html"
         title="interface in net.xeoh.plugins.informationbroker">InformationItem</a>&lt;T&gt;&gt;&nbsp;id,
         T...&nbsp;dflt)</pre>
-                            <div class="block">Returns the value for the given id or <code>dflt</code> if neither the
-                                key
-                                nor the default was present. For example, to retrieve the current user name
-                                and to get "unknown" if none was present, you could write:<br/>
-                                <br/>
+        <div class="block">Returns the value for the given id or <code>dflt</code> if neither the
+            key
+            nor the default was present. For example, to retrieve the current user name
+            and to get "unknown" if none was present, you could write:<br/>
+            <br/>
 
-                                <code>
-                                    get(UserName.class, "unknown");
-                                </code><br/>
-                                <br/></div>
-                            <dl>
-                                <dt><span class="strong">Type Parameters:</span></dt>
-                                <dd><code>T</code> - The type of the return value.</dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>id</code> - The ID to request.</dd>
-                                <dd><code>dflt</code> - The default value to return if no item was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>Returns the requested item, a default if the item was not present or null
-                                    in case neither was found.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="subscribeAll(net.xeoh.plugins.informationbroker.InformationListener, java.lang.Class...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>subscribeAll</h4>
+            <code>
+                get(UserName.class, "unknown");
+            </code><br/>
+            <br/></div>
+        <dl>
+            <dt><span class="strong">Type Parameters:</span></dt>
+            <dd><code>T</code> - The type of the return value.</dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>id</code> - The ID to request.</dd>
+            <dd><code>dflt</code> - The default value to return if no item was found.</dd>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>Returns the requested item, a default if the item was not present or null
+                in case neither was found.
+            </dd>
+        </dl>
+    </li>
+</ul>
+<a name="subscribeAll(net.xeoh.plugins.informationbroker.InformationListener, java.lang.Class...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>subscribeAll</h4>
 <pre>public&nbsp;void&nbsp;subscribeAll(<a
         href="../../../../../net/xeoh/plugins/informationbroker/InformationListener.html"
         title="interface in net.xeoh.plugins.informationbroker">InformationListener</a>&lt;java.lang.Void&gt;&nbsp;listener,
                 java.lang.Class&lt;?&gt;...&nbsp;all)</pre>
-                            <div class="block">Subscribes to a number of items. The listener is called only when all
-                                items are
-                                available or when all were available and a single item changed. For example, to
-                                subscribe to two items you could write:<br/>
-                                <br/>
-                                <code>
-                                    subscribeAll(listener, ItemA.class, ItemB.class);
-                                </code><br/>
-                                <br/>
+        <div class="block">Subscribes to a number of items. The listener is called only when all
+            items are
+            available or when all were available and a single item changed. For example, to
+            subscribe to two items you could write:<br/>
+            <br/>
+            <code>
+                subscribeAll(listener, ItemA.class, ItemB.class);
+            </code><br/>
+            <br/>
 
-                                Use <code>get()</code> from inside the listener to obtain the specific items.
-                            </div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>listener</code> - The listener called when all prerequisites are met. Note
-                                    that the
-                                    listener will be called <b>without</b> any object (i.e., <code>item</code> is
-                                    <code>null</code>). You must use the broker's <code>get()</code> function.
-                                </dd>
-                                <dd><code>all</code> - All IDs we should subscribe to.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="publish(java.lang.Class,java.lang.Object,net.xeoh.plugins.informationbroker.options.PublishOption[])">
-                        <!--   -->
-                    </a><a name="publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>publish</h4>
+            Use <code>get()</code> from inside the listener to obtain the specific items.
+        </div>
+        <dl>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>listener</code> - The listener called when all prerequisites are met. Note
+                that the
+                listener will be called <b>without</b> any object (i.e., <code>item</code> is
+                <code>null</code>). You must use the broker's <code>get()</code> function.
+            </dd>
+            <dd><code>all</code> - All IDs we should subscribe to.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="publish(java.lang.Class,java.lang.Object,net.xeoh.plugins.informationbroker.options.PublishOption[])">
+    <!--   -->
+</a><a name="publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>publish</h4>
 <pre>public&nbsp;&lt;T&gt;&nbsp;void&nbsp;publish(java.lang.Class&lt;? extends <a
         href="../../../../../net/xeoh/plugins/informationbroker/InformationItem.html"
         title="interface in net.xeoh.plugins.informationbroker">InformationItem</a>&lt;T&gt;&gt;&nbsp;channel,
                T&nbsp;item,
                <a href="../../../../../net/xeoh/plugins/informationbroker/options/PublishOption.html"
                   title="interface in net.xeoh.plugins.informationbroker.options">PublishOption</a>...&nbsp;options)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">InformationBroker</a></code></strong>
-                            </div>
-                            <div class="block">Publishes a new information item. The item will be made available to all
-                                listeners
-                                subscribed to the item, or requesting it later. For example, to publish the current
-                                user
-                                name you could write:<br/>
-                                <br/>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">InformationBroker</a></code></strong>
+        </div>
+        <div class="block">Publishes a new information item. The item will be made available to all
+            listeners
+            subscribed to the item, or requesting it later. For example, to publish the current
+            user
+            name you could write:<br/>
+            <br/>
 
-                                <code>
-                                    publish(UserName.class, "John Doe");
-                                </code><br/>
-                                <br/></div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">publish</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
-                                            title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
-                                </dd>
-                                <dt><span class="strong">Type Parameters:</span></dt>
-                                <dd><code>T</code> - The type of the item to wait for.</dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>channel</code> - The channel for which the new object should be published.
-                                </dd>
-                                <dd><code>item</code> - The items to publish.</dd>
-                                <dd><code>options</code> - A number of options the <code>publish()</code> method
-                                    understands.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>subscribe</h4>
+            <code>
+                publish(UserName.class, "John Doe");
+            </code><br/>
+            <br/></div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a
+                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#publish(java.lang.Class, T, net.xeoh.plugins.informationbroker.options.PublishOption...)">publish</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
+                        title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
+            </dd>
+            <dt><span class="strong">Type Parameters:</span></dt>
+            <dd><code>T</code> - The type of the item to wait for.</dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>channel</code> - The channel for which the new object should be published.
+            </dd>
+            <dd><code>item</code> - The items to publish.</dd>
+            <dd><code>options</code> - A number of options the <code>publish()</code> method
+                understands.
+            </dd>
+        </dl>
+    </li>
+</ul>
+<a name="subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>subscribe</h4>
 <pre>public&nbsp;&lt;T&gt;&nbsp;void&nbsp;subscribe(java.lang.Class&lt;? extends <a
         href="../../../../../net/xeoh/plugins/informationbroker/InformationItem.html"
         title="interface in net.xeoh.plugins.informationbroker">InformationItem</a>&lt;T&gt;&gt;&nbsp;channel,
@@ -431,87 +431,87 @@ implements <a href="../../../../../net/xeoh/plugins/informationbroker/Informatio
                     title="interface in net.xeoh.plugins.informationbroker">InformationListener</a>&lt;T&gt;&nbsp;listener,
                  <a href="../../../../../net/xeoh/plugins/informationbroker/options/SubscribeOption.html"
                     title="interface in net.xeoh.plugins.informationbroker.options">SubscribeOption</a>...&nbsp;options)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">InformationBroker</a></code></strong>
-                            </div>
-                            <div class="block">Subscribes to a given information item. The listener will be called as
-                                soon as the
-                                item changes. It will also be called when the item has already been set before. For
-                                example, to subscribe to the latest location of a device (provided as a String)
-                                you could write:<br/>
-                                <br/>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">InformationBroker</a></code></strong>
+        </div>
+        <div class="block">Subscribes to a given information item. The listener will be called as
+            soon as the
+            item changes. It will also be called when the item has already been set before. For
+            example, to subscribe to the latest location of a device (provided as a String)
+            you could write:<br/>
+            <br/>
 
-                                <code>
-                                    plugin.subscribe(UserName.class, new InformationListener&lt;String>() {<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;public void update(String item) {<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-                                    });
-                                </code><br/>
-                                <br/>
+            <code>
+                plugin.subscribe(UserName.class, new InformationListener&lt;String>() {<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;public void update(String item) {<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                });
+            </code><br/>
+            <br/>
 
-                                Also see the <a
-                                        href="../../../../../net/xeoh/plugins/informationbroker/util/InformationBrokerUtil.html"
-                                        title="class in net.xeoh.plugins.informationbroker.util"><code>InformationBrokerUtil</code></a>,
-                                it contains many useful convenience
-                                functions.
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">subscribe</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
-                                            title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
-                                </dd>
-                                <dt><span class="strong">Type Parameters:</span></dt>
-                                <dd><code>T</code> - The type of the item to wait for.</dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>channel</code> - The item / ID / channel to subscribe to</dd>
-                                <dd><code>listener</code> - The lister will be called whenever the value of the ID
-                                    changes; and
-                                    it will
-                                    be called right away if the information item has already been set before.
-                                </dd>
-                                <dd><code>options</code> - A number of options the <code>subscribe()</code> method
-                                    understands.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockListLast">
-                        <li class="blockList">
-                            <h4>unsubscribe</h4>
+            Also see the <a
+                    href="../../../../../net/xeoh/plugins/informationbroker/util/InformationBrokerUtil.html"
+                    title="class in net.xeoh.plugins.informationbroker.util"><code>InformationBrokerUtil</code></a>,
+            it contains many useful convenience
+            functions.
+        </div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a
+                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#subscribe(java.lang.Class, net.xeoh.plugins.informationbroker.InformationListener, net.xeoh.plugins.informationbroker.options.SubscribeOption...)">subscribe</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
+                        title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
+            </dd>
+            <dt><span class="strong">Type Parameters:</span></dt>
+            <dd><code>T</code> - The type of the item to wait for.</dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>channel</code> - The item / ID / channel to subscribe to</dd>
+            <dd><code>listener</code> - The lister will be called whenever the value of the ID
+                changes; and
+                it will
+                be called right away if the information item has already been set before.
+            </dd>
+            <dd><code>options</code> - A number of options the <code>subscribe()</code> method
+                understands.
+            </dd>
+        </dl>
+    </li>
+</ul>
+<a name="unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">
+    <!--   -->
+</a>
+<ul class="blockListLast">
+    <li class="blockList">
+        <h4>unsubscribe</h4>
                             <pre>public&nbsp;void&nbsp;unsubscribe(<a
                                     href="../../../../../net/xeoh/plugins/informationbroker/InformationListener.html"
                                     title="interface in net.xeoh.plugins.informationbroker">InformationListener</a>&lt;?&gt;&nbsp;listener)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">InformationBroker</a></code></strong>
-                            </div>
-                            <div class="block">Unsubscribes the given information listener. It will not be called
-                                anymore
-                                afterwards.
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">unsubscribe</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
-                                            title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
-                                </dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>listener</code> - The listener to unsubscribe.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">InformationBroker</a></code></strong>
+        </div>
+        <div class="block">Unsubscribes the given information listener. It will not be called
+            anymore
+            afterwards.
+        </div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a
+                    href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html#unsubscribe(net.xeoh.plugins.informationbroker.InformationListener)">unsubscribe</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/informationbroker/InformationBroker.html"
+                        title="interface in net.xeoh.plugins.informationbroker">InformationBroker</a></code>
+            </dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>listener</code> - The listener to unsubscribe.</dd>
+        </dl>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->

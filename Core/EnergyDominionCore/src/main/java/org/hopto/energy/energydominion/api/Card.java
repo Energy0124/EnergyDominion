@@ -6,7 +6,7 @@ import org.hopto.energy.energydominion.api.bahaviour.*;
 
 import java.util.List;
 
-public interface Card  extends Buyable, Discardable, Drawable, Gainable, Playable, Trashable, VPCountable, Plugin {
+public interface Card extends Buyable, Discardable, Drawable, Gainable, Playable, Trashable, VPCountable, Plugin {
 
     String getName();
 
@@ -33,8 +33,6 @@ public interface Card  extends Buyable, Discardable, Drawable, Gainable, Playabl
     Player getOwner();
 
     void setOwner(Player owner);
-
-
 
 
 }

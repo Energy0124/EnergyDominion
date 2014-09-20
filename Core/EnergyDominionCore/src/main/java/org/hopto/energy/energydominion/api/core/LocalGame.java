@@ -5,7 +5,6 @@ import org.hopto.energy.energydominion.api.Deck;
 import org.hopto.energy.energydominion.api.Game;
 import org.hopto.energy.energydominion.api.Player;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LocalGame implements Game {
@@ -20,9 +19,9 @@ public class LocalGame implements Game {
         this(new ArrayList<Player>());
     }*/
 
-    public LocalGame(List<Player> playerList,Deck startingDeck) {
+    public LocalGame(List<Player> playerList, Deck startingDeck) {
         this.playerList = playerList;
-        this.startingDeck=startingDeck;
+        this.startingDeck = startingDeck;
 
         setup();
     }

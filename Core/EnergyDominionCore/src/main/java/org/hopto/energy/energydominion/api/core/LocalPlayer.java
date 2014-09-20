@@ -2,8 +2,6 @@ package org.hopto.energy.energydominion.api.core;
 
 import org.hopto.energy.energydominion.api.*;
 
-import javax.swing.*;
-
 
 public class LocalPlayer implements Player {
     private Hand hand;
@@ -103,7 +101,7 @@ public class LocalPlayer implements Player {
     @Override
     public void onActionPhase() {
         //TODO: replace this with a better way for selecting card
-       // hand.playCard(hand.getCards().get(Integer.parseInt(JOptionPane.showInputDialog("Which card do you want play?"))));
+        // hand.playCard(hand.getCards().get(Integer.parseInt(JOptionPane.showInputDialog("Which card do you want play?"))));
 
     }
 
@@ -127,12 +125,12 @@ public class LocalPlayer implements Player {
 
     @Override
     public void addCoin(int i) {
-        setCoin(getCoin()+ i);
+        setCoin(getCoin() + i);
     }
 
     @Override
     public void addVictoryPoint(int i) {
-        setVictoryPoint(getVictoryPoint()+i);
+        setVictoryPoint(getVictoryPoint() + i);
     }
 
     @Override

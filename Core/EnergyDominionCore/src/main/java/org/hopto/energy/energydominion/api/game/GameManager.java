@@ -10,15 +10,16 @@ import java.util.List;
 
 public class GameManager {
 
-    private  List<Game> gameList = new ArrayList<>();
-    public  List<Game> getGameList() {
+    private List<Game> gameList = new ArrayList<>();
+
+    public List<Game> getGameList() {
         return gameList;
     }
 
     public Game createLocalGame(List<Player> playerList, Deck startingDeck) {
-           Game game=new LocalGame(playerList,startingDeck);
+        Game game = new LocalGame(playerList, startingDeck);
         gameList.add(game);
-         return game;
+        return game;
 
     }
 }

@@ -85,230 +85,230 @@ if (location.href.indexOf('is-external=true') == -1) {
     <h2 title="Class PluginUtil" class="title">Class PluginUtil</h2>
 </div>
 <div class="contentContainer">
-    <ul class="inheritance">
-        <li>java.lang.Object</li>
-        <li>
-            <ul class="inheritance">
-                <li>net.jcores.jre.utils.VanillaUtil&lt;T&gt;</li>
-                <li>
-                    <ul class="inheritance">
-                        <li><a href="../../../../../net/xeoh/plugins/base/util/VanillaPluginUtil.html"
-                               title="class in net.xeoh.plugins.base.util">net.xeoh.plugins.base.util.VanillaPluginUtil</a>&lt;<a
-                                href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                title="interface in net.xeoh.plugins.base">Plugin</a>&gt;</li>
-                        <li>
-                            <ul class="inheritance">
-                                <li>net.xeoh.plugins.base.util.PluginUtil</li>
-                            </ul>
+<ul class="inheritance">
+    <li>java.lang.Object</li>
+    <li>
+        <ul class="inheritance">
+            <li>net.jcores.jre.utils.VanillaUtil&lt;T&gt;</li>
+            <li>
+                <ul class="inheritance">
+                    <li><a href="../../../../../net/xeoh/plugins/base/util/VanillaPluginUtil.html"
+                           title="class in net.xeoh.plugins.base.util">net.xeoh.plugins.base.util.VanillaPluginUtil</a>&lt;<a
+                            href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                            title="interface in net.xeoh.plugins.base">Plugin</a>&gt;</li>
+                    <li>
+                        <ul class="inheritance">
+                            <li>net.xeoh.plugins.base.util.PluginUtil</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="description">
+    <ul class="blockList">
+        <li class="blockList">
+            <hr>
+            <br>
+<pre>public class <span class="strong">PluginUtil</span>
+extends <a href="../../../../../net/xeoh/plugins/base/util/VanillaPluginUtil.html"
+           title="class in net.xeoh.plugins.base.util">VanillaPluginUtil</a>&lt;<a
+            href="../../../../../net/xeoh/plugins/base/Plugin.html"
+            title="interface in net.xeoh.plugins.base">Plugin</a>&gt;</pre>
+            <div class="block">A set of inspection methods for an existing plugin. Should only be required
+                and used internally.
+            </div>
+            <dl>
+                <dt><span class="strong">Author:</span></dt>
+                <dd>Ralf Biedert</dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<div class="summary">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="constructor_summary">
+                    <!--   -->
+                </a>
+
+                    <h3>Constructor Summary</h3>
+                    <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+                           summary="Constructor Summary table, listing constructors, and an explanation">
+                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                        <tr>
+                            <th class="colOne" scope="col">Constructor and Description</th>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colOne"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#PluginUtil(net.xeoh.plugins.base.Plugin)">PluginUtil</a></strong>(<a
+                                    href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                    title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</code>
+
+                                <div class="block">The plugin to wrap.</div>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+            <!-- ========== METHOD SUMMARY =========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_summary">
+                    <!--   -->
+                </a>
+
+                    <h3>Method Summary</h3>
+                    <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+                           summary="Method Summary table, listing methods, and an explanation">
+                        <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+                        <tr>
+                            <th class="colFirst" scope="col">Modifier and Type</th>
+                            <th class="colLast" scope="col">Method and Description</th>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
+                                    href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                    title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getAllPluginInterfaces()">getAllPluginInterfaces</a></strong>()</code>
+
+                                <div class="block">Lists all plugin interfaces.</div>
+                            </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
+                                    href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                    title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getPluginInterfaces()">getPluginInterfaces</a></strong>()</code>
+
+                                <div class="block">Lists all toplevel plugin interfaces</div>
+                            </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
+                                    href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                    title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getPrimaryInterfaces()">getPrimaryInterfaces</a></strong>()</code>
+
+                                <div class="block">Lists all primary interfaces.</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <ul class="blockList">
+                        <li class="blockList"><a
+                                name="methods_inherited_from_class_net.jcores.jre.utils.VanillaUtil">
+                            <!--   -->
+                        </a>
+
+                            <h3>Methods inherited from class&nbsp;net.jcores.jre.utils.VanillaUtil</h3>
+                            <code>getObject</code></li>
+                    </ul>
+                    <ul class="blockList">
+                        <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+                            <!--   -->
+                        </a>
+
+                            <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                            <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
                         </li>
                     </ul>
                 </li>
             </ul>
         </li>
     </ul>
-    <div class="description">
-        <ul class="blockList">
-            <li class="blockList">
-                <hr>
-                <br>
-<pre>public class <span class="strong">PluginUtil</span>
-extends <a href="../../../../../net/xeoh/plugins/base/util/VanillaPluginUtil.html"
-           title="class in net.xeoh.plugins.base.util">VanillaPluginUtil</a>&lt;<a
-            href="../../../../../net/xeoh/plugins/base/Plugin.html"
-            title="interface in net.xeoh.plugins.base">Plugin</a>&gt;</pre>
-                <div class="block">A set of inspection methods for an existing plugin. Should only be required
-                    and used internally.
-                </div>
-                <dl>
-                    <dt><span class="strong">Author:</span></dt>
-                    <dd>Ralf Biedert</dd>
-                </dl>
-            </li>
-        </ul>
-    </div>
-    <div class="summary">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="constructor_summary">
+</div>
+<div class="details">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ========= CONSTRUCTOR DETAIL ======== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="constructor_detail">
+                    <!--   -->
+                </a>
+
+                    <h3>Constructor Detail</h3>
+                    <a name="PluginUtil(net.xeoh.plugins.base.Plugin)">
                         <!--   -->
                     </a>
-
-                        <h3>Constructor Summary</h3>
-                        <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
-                               summary="Constructor Summary table, listing constructors, and an explanation">
-                            <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-                            <tr>
-                                <th class="colOne" scope="col">Constructor and Description</th>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colOne"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#PluginUtil(net.xeoh.plugins.base.Plugin)">PluginUtil</a></strong>(<a
-                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                        title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</code>
-
-                                    <div class="block">The plugin to wrap.</div>
-                                </td>
-                            </tr>
-                        </table>
-                    </li>
-                </ul>
-                <!-- ========== METHOD SUMMARY =========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_summary">
-                        <!--   -->
-                    </a>
-
-                        <h3>Method Summary</h3>
-                        <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
-                               summary="Method Summary table, listing methods, and an explanation">
-                            <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
-                            <tr>
-                                <th class="colFirst" scope="col">Modifier and Type</th>
-                                <th class="colLast" scope="col">Method and Description</th>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
-                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                        title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getAllPluginInterfaces()">getAllPluginInterfaces</a></strong>()</code>
-
-                                    <div class="block">Lists all plugin interfaces.</div>
-                                </td>
-                            </tr>
-                            <tr class="rowColor">
-                                <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
-                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                        title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getPluginInterfaces()">getPluginInterfaces</a></strong>()</code>
-
-                                    <div class="block">Lists all toplevel plugin interfaces</div>
-                                </td>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code>java.util.Collection&lt;java.lang.Class&lt;? extends <a
-                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                        title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;</code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginUtil.html#getPrimaryInterfaces()">getPrimaryInterfaces</a></strong>()</code>
-
-                                    <div class="block">Lists all primary interfaces.</div>
-                                </td>
-                            </tr>
-                        </table>
-                        <ul class="blockList">
-                            <li class="blockList"><a
-                                    name="methods_inherited_from_class_net.jcores.jre.utils.VanillaUtil">
-                                <!--   -->
-                            </a>
-
-                                <h3>Methods inherited from class&nbsp;net.jcores.jre.utils.VanillaUtil</h3>
-                                <code>getObject</code></li>
-                        </ul>
-                        <ul class="blockList">
-                            <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
-                                <!--   -->
-                            </a>
-
-                                <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-                                <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="details">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ========= CONSTRUCTOR DETAIL ======== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="constructor_detail">
-                        <!--   -->
-                    </a>
-
-                        <h3>Constructor Detail</h3>
-                        <a name="PluginUtil(net.xeoh.plugins.base.Plugin)">
-                            <!--   -->
-                        </a>
-                        <ul class="blockListLast">
-                            <li class="blockList">
-                                <h4>PluginUtil</h4>
+                    <ul class="blockListLast">
+                        <li class="blockList">
+                            <h4>PluginUtil</h4>
                                 <pre>public&nbsp;PluginUtil(<a href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                                                title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</pre>
-                                <div class="block">The plugin to wrap.</div>
-                                <dl>
-                                    <dt><span class="strong">Parameters:</span></dt>
-                                    <dd><code>plugin</code> -</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- ============ METHOD DETAIL ========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_detail">
+                            <div class="block">The plugin to wrap.</div>
+                            <dl>
+                                <dt><span class="strong">Parameters:</span></dt>
+                                <dd><code>plugin</code> -</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- ============ METHOD DETAIL ========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_detail">
+                    <!--   -->
+                </a>
+
+                    <h3>Method Detail</h3>
+                    <a name="getPrimaryInterfaces()">
                         <!--   -->
                     </a>
-
-                        <h3>Method Detail</h3>
-                        <a name="getPrimaryInterfaces()">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>getPrimaryInterfaces</h4>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>getPrimaryInterfaces</h4>
                                 <pre>public&nbsp;java.util.Collection&lt;java.lang.Class&lt;? extends <a
                                         href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                         title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;&nbsp;getPrimaryInterfaces()</pre>
-                                <div class="block">Lists all primary interfaces.</div>
-                                <dl>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A list of primary interfaces.></dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="getPluginInterfaces()">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>getPluginInterfaces</h4>
+                            <div class="block">Lists all primary interfaces.</div>
+                            <dl>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A list of primary interfaces.></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="getPluginInterfaces()">
+                        <!--   -->
+                    </a>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>getPluginInterfaces</h4>
                                 <pre>public&nbsp;java.util.Collection&lt;java.lang.Class&lt;? extends <a
                                         href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                         title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;&nbsp;getPluginInterfaces()</pre>
-                                <div class="block">Lists all toplevel plugin interfaces</div>
-                                <dl>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>The list of all plugin interfaces.</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="getAllPluginInterfaces()">
-                            <!--   -->
-                        </a>
-                        <ul class="blockListLast">
-                            <li class="blockList">
-                                <h4>getAllPluginInterfaces</h4>
+                            <div class="block">Lists all toplevel plugin interfaces</div>
+                            <dl>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>The list of all plugin interfaces.</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="getAllPluginInterfaces()">
+                        <!--   -->
+                    </a>
+                    <ul class="blockListLast">
+                        <li class="blockList">
+                            <h4>getAllPluginInterfaces</h4>
                                 <pre>public&nbsp;java.util.Collection&lt;java.lang.Class&lt;? extends <a
                                         href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                         title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&gt;&nbsp;getAllPluginInterfaces()</pre>
-                                <div class="block">Lists all plugin interfaces.</div>
-                                <dl>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>Lists all primary interfaces.</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                            <div class="block">Lists all plugin interfaces.</div>
+                            <dl>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>Lists all primary interfaces.</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->

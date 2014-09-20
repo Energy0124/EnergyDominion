@@ -86,248 +86,107 @@ if (location.href.indexOf('is-external=true') == -1) {
     <h2 title="Class PluginManagerFactory" class="title">Class PluginManagerFactory</h2>
 </div>
 <div class="contentContainer">
-    <ul class="inheritance">
-        <li>java.lang.Object</li>
-        <li>
-            <ul class="inheritance">
-                <li>net.xeoh.plugins.base.impl.PluginManagerFactory</li>
-            </ul>
-        </li>
-    </ul>
-    <div class="description">
-        <ul class="blockList">
-            <li class="blockList">
-                <hr>
-                <br>
+<ul class="inheritance">
+    <li>java.lang.Object</li>
+    <li>
+        <ul class="inheritance">
+            <li>net.xeoh.plugins.base.impl.PluginManagerFactory</li>
+        </ul>
+    </li>
+</ul>
+<div class="description">
+    <ul class="blockList">
+        <li class="blockList">
+            <hr>
+            <br>
 <pre>public class <span class="strong">PluginManagerFactory</span>
 extends java.lang.Object</pre>
-                <div class="block">Factory class to create new <a
-                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>. This is your entry
-                    and starting point for
-                    using JSPF. Create a new manager by calling one of the enclosed methods.<br/><br/>
+            <div class="block">Factory class to create new <a
+                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                    title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>. This is your entry
+                and starting point for
+                using JSPF. Create a new manager by calling one of the enclosed methods.<br/><br/>
 
-                    There should be no need to access this class (or call any of its methods) more than once
-                    during the lifetime of your application.
-                </div>
-                <dl>
-                    <dt><span class="strong">Author:</span></dt>
-                    <dd>Ralf Biedert</dd>
-                </dl>
-            </li>
-        </ul>
-    </div>
-    <div class="summary">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ========== METHOD SUMMARY =========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_summary">
-                        <!--   -->
-                    </a>
+                There should be no need to access this class (or call any of its methods) more than once
+                during the lifetime of your application.
+            </div>
+            <dl>
+                <dt><span class="strong">Author:</span></dt>
+                <dd>Ralf Biedert</dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<div class="summary">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ========== METHOD SUMMARY =========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_summary">
+                    <!--   -->
+                </a>
 
-                        <h3>Method Summary</h3>
-                        <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
-                               summary="Method Summary table, listing methods, and an explanation">
-                            <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
-                            <tr>
-                                <th class="colFirst" scope="col">Modifier and Type</th>
-                                <th class="colLast" scope="col">Method and Description</th>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code>static <a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManager()">createPluginManager</a></strong>()</code>
+                    <h3>Method Summary</h3>
+                    <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+                           summary="Method Summary table, listing methods, and an explanation">
+                        <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+                        <tr>
+                            <th class="colFirst" scope="col">Modifier and Type</th>
+                            <th class="colLast" scope="col">Method and Description</th>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>static <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManager()">createPluginManager</a></strong>()</code>
 
-                                    <div class="block">Creates a new <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>,
-                                        no user configuration is used.
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="rowColor">
-                                <td class="colFirst"><code>static <a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManager(java.util.Properties)">createPluginManager</a></strong>(java.util.Properties&nbsp;initialProperties)</code>
-
-                                    <div class="block">Creates a new <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>
-                                        with a supplied user configuration.
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code>static <a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a></code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManagerX()">createPluginManagerX</a></strong>()</code>
-
-                                    <div class="block">Creates a new <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>
-                                        which will be wrapped in a <a
-                                                href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                                title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
-                                        object,
-                                        no user configuration is used.
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="rowColor">
-                                <td class="colFirst"><code>static <a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a></code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManagerX(java.util.Properties)">createPluginManagerX</a></strong>(java.util.Properties&nbsp;initialProperties)</code>
-
-                                    <div class="block">Creates a new <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>,
-                                        wrapped in a <a
-                                                href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                                title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
-                                        object, with a supplied user
-                                        configuration.
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <ul class="blockList">
-                            <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
-                                <!--   -->
-                            </a>
-
-                                <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-                                <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="details">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ============ METHOD DETAIL ========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_detail">
-                        <!--   -->
-                    </a>
-
-                        <h3>Method Detail</h3>
-                        <a name="createPluginManager()">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>createPluginManager</h4>
-                                <pre>public static&nbsp;<a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base">PluginManager</a>&nbsp;createPluginManager()</pre>
                                 <div class="block">Creates a new <a
                                         href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>, no
-                                    user configuration is used. The manager will
-                                    be (almost) empty, i.e., containing no <a
-                                            href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                            title="interface in net.xeoh.plugins.base"><code>Plugin</code></a>s except
-                                    some internal ones.<br/><br/>
-
-                                    The next thing you should probably do is adding your own plugins by calling
-                                    <code>addPluginsFrom()</code>.
+                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>,
+                                    no user configuration is used.
                                 </div>
-                                <dl>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A fresh plugin manager.</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="createPluginManagerX()">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>createPluginManagerX</h4>
-                                <pre>public static&nbsp;<a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a>&nbsp;createPluginManagerX()</pre>
+                            </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>static <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManager(java.util.Properties)">createPluginManager</a></strong>(java.util.Properties&nbsp;initialProperties)</code>
+
                                 <div class="block">Creates a new <a
                                         href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a> which
-                                    will be wrapped in a <a
+                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>
+                                    with a supplied user configuration.
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>static <a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                    title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a></code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManagerX()">createPluginManagerX</a></strong>()</code>
+
+                                <div class="block">Creates a new <a
+                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>
+                                    which will be wrapped in a <a
                                             href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
                                             title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
                                     object,
-                                    no user configuration is used. The manager will be (almost) empty, i.e., containing
-                                    no <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                          title="interface in net.xeoh.plugins.base"><code>Plugin</code></a>s
-                                    except some internal ones.<br/><br/>
-
-                                    The next thing you should probably do is adding your own plugins by calling
-                                    <code>addPluginsFrom()</code>.
+                                    no user configuration is used.
                                 </div>
-                                <dl>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A freshly wrapped plugin manager.</dd>
-                                    <dt><span class="strong">Since:</span></dt>
-                                    <dd>1.0.3</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="createPluginManager(java.util.Properties)">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>createPluginManager</h4>
-                                <pre>public static&nbsp;<a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base">PluginManager</a>&nbsp;createPluginManager(java.util.Properties&nbsp;initialProperties)</pre>
-                                <div class="block">Creates a new <a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a> with a
-                                    supplied user configuration. The user configuration
-                                    can be obtained by using the <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginConfiguration</code></a>.
-                                    <br/><br/>
+                            </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>static <a
+                                    href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                    title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a></code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html#createPluginManagerX(java.util.Properties)">createPluginManagerX</a></strong>(java.util.Properties&nbsp;initialProperties)</code>
 
-                                    The next thing you should probably do is adding your own plugins by calling
-                                    <code>addPluginsFrom()</code>.<br/><br/>
-
-                                    In order to assist debugging, you can set one of <a
-                                            href="../../../../../net/xeoh/plugins/base/util/JSPFProperties.html"
-                                            title="class in net.xeoh.plugins.base.util"><code>JSPFProperties</code></a>'s
-                                    preferences by
-                                    calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code>
-                                    (INFO
-                                    can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
-                                </div>
-                                <dl>
-                                    <dt><span class="strong">Parameters:</span></dt>
-                                    <dd><code>initialProperties</code> - Initial properties to use.</dd>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A fresh manager with the supplied configuration.</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="createPluginManagerX(java.util.Properties)">
-                            <!--   -->
-                        </a>
-                        <ul class="blockListLast">
-                            <li class="blockList">
-                                <h4>createPluginManagerX</h4>
-                                <pre>public static&nbsp;<a
-                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
-                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a>&nbsp;createPluginManagerX(java.util.Properties&nbsp;initialProperties)</pre>
                                 <div class="block">Creates a new <a
                                         href="../../../../../net/xeoh/plugins/base/PluginManager.html"
                                         title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>,
@@ -335,37 +194,178 @@ extends java.lang.Object</pre>
                                             href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
                                             title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
                                     object, with a supplied user
-                                    configuration. The user configuration can be obtained by using the <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
-                                            title="interface in net.xeoh.plugins.base"><code>PluginConfiguration</code></a>.
-                                    <br/><br/>
-
-                                    The next thing you should probably do is adding your own plugins by calling
-                                    <code>addPluginsFrom()</code>.<br/><br/>
-
-                                    In order to assist debugging, you can set one of <a
-                                            href="../../../../../net/xeoh/plugins/base/util/JSPFProperties.html"
-                                            title="class in net.xeoh.plugins.base.util"><code>JSPFProperties</code></a>'s
-                                    preferences by
-                                    calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code>
-                                    (INFO
-                                    can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
+                                    configuration.
                                 </div>
-                                <dl>
-                                    <dt><span class="strong">Parameters:</span></dt>
-                                    <dd><code>initialProperties</code> - Initial properties to use.</dd>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A freshly wrapped manager with the supplied configuration.</dd>
-                                    <dt><span class="strong">Since:</span></dt>
-                                    <dd>1.0.3</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <ul class="blockList">
+                        <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+                            <!--   -->
+                        </a>
+
+                            <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                            <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="details">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ============ METHOD DETAIL ========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_detail">
+                    <!--   -->
+                </a>
+
+                    <h3>Method Detail</h3>
+                    <a name="createPluginManager()">
+                        <!--   -->
+                    </a>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>createPluginManager</h4>
+                                <pre>public static&nbsp;<a
+                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                        title="interface in net.xeoh.plugins.base">PluginManager</a>&nbsp;createPluginManager()</pre>
+                            <div class="block">Creates a new <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>, no
+                                user configuration is used. The manager will
+                                be (almost) empty, i.e., containing no <a
+                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                        title="interface in net.xeoh.plugins.base"><code>Plugin</code></a>s except
+                                some internal ones.<br/><br/>
+
+                                The next thing you should probably do is adding your own plugins by calling
+                                <code>addPluginsFrom()</code>.
+                            </div>
+                            <dl>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A fresh plugin manager.</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="createPluginManagerX()">
+                        <!--   -->
+                    </a>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>createPluginManagerX</h4>
+                                <pre>public static&nbsp;<a
+                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a>&nbsp;createPluginManagerX()</pre>
+                            <div class="block">Creates a new <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a> which
+                                will be wrapped in a <a
+                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                        title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
+                                object,
+                                no user configuration is used. The manager will be (almost) empty, i.e., containing
+                                no <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                      title="interface in net.xeoh.plugins.base"><code>Plugin</code></a>s
+                                except some internal ones.<br/><br/>
+
+                                The next thing you should probably do is adding your own plugins by calling
+                                <code>addPluginsFrom()</code>.
+                            </div>
+                            <dl>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A freshly wrapped plugin manager.</dd>
+                                <dt><span class="strong">Since:</span></dt>
+                                <dd>1.0.3</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="createPluginManager(java.util.Properties)">
+                        <!--   -->
+                    </a>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>createPluginManager</h4>
+                                <pre>public static&nbsp;<a
+                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                        title="interface in net.xeoh.plugins.base">PluginManager</a>&nbsp;createPluginManager(java.util.Properties&nbsp;initialProperties)</pre>
+                            <div class="block">Creates a new <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a> with a
+                                supplied user configuration. The user configuration
+                                can be obtained by using the <a
+                                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
+                                        title="interface in net.xeoh.plugins.base"><code>PluginConfiguration</code></a>.
+                                <br/><br/>
+
+                                The next thing you should probably do is adding your own plugins by calling
+                                <code>addPluginsFrom()</code>.<br/><br/>
+
+                                In order to assist debugging, you can set one of <a
+                                        href="../../../../../net/xeoh/plugins/base/util/JSPFProperties.html"
+                                        title="class in net.xeoh.plugins.base.util"><code>JSPFProperties</code></a>'s
+                                preferences by
+                                calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code>
+                                (INFO
+                                can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
+                            </div>
+                            <dl>
+                                <dt><span class="strong">Parameters:</span></dt>
+                                <dd><code>initialProperties</code> - Initial properties to use.</dd>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A fresh manager with the supplied configuration.</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="createPluginManagerX(java.util.Properties)">
+                        <!--   -->
+                    </a>
+                    <ul class="blockListLast">
+                        <li class="blockList">
+                            <h4>createPluginManagerX</h4>
+                                <pre>public static&nbsp;<a
+                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                        title="class in net.xeoh.plugins.base.util">PluginManagerUtil</a>&nbsp;createPluginManagerX(java.util.Properties&nbsp;initialProperties)</pre>
+                            <div class="block">Creates a new <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base"><code>PluginManager</code></a>,
+                                wrapped in a <a
+                                        href="../../../../../net/xeoh/plugins/base/util/PluginManagerUtil.html"
+                                        title="class in net.xeoh.plugins.base.util"><code>PluginManagerUtil</code></a>
+                                object, with a supplied user
+                                configuration. The user configuration can be obtained by using the <a
+                                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
+                                        title="interface in net.xeoh.plugins.base"><code>PluginConfiguration</code></a>.
+                                <br/><br/>
+
+                                The next thing you should probably do is adding your own plugins by calling
+                                <code>addPluginsFrom()</code>.<br/><br/>
+
+                                In order to assist debugging, you can set one of <a
+                                        href="../../../../../net/xeoh/plugins/base/util/JSPFProperties.html"
+                                        title="class in net.xeoh.plugins.base.util"><code>JSPFProperties</code></a>'s
+                                preferences by
+                                calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code>
+                                (INFO
+                                can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
+                            </div>
+                            <dl>
+                                <dt><span class="strong">Parameters:</span></dt>
+                                <dd><code>initialProperties</code> - Initial properties to use.</dd>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A freshly wrapped manager with the supplied configuration.</dd>
+                                <dt><span class="strong">Since:</span></dt>
+                                <dd>1.0.3</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->

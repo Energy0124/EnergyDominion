@@ -86,267 +86,267 @@ if (location.href.indexOf('is-external=true') == -1) {
     <h2 title="Class PluginInformationImpl" class="title">Class PluginInformationImpl</h2>
 </div>
 <div class="contentContainer">
-    <ul class="inheritance">
-        <li>java.lang.Object</li>
-        <li>
-            <ul class="inheritance">
-                <li>net.xeoh.plugins.base.impl.PluginInformationImpl</li>
-            </ul>
-        </li>
-    </ul>
-    <div class="description">
-        <ul class="blockList">
-            <li class="blockList">
-                <dl>
-                    <dt>All Implemented Interfaces:</dt>
-                    <dd><a href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                           title="interface in net.xeoh.plugins.base">Plugin</a>, <a
-                            href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
-                            title="interface in net.xeoh.plugins.base">PluginInformation</a></dd>
-                </dl>
-                <hr>
-                <br>
+<ul class="inheritance">
+    <li>java.lang.Object</li>
+    <li>
+        <ul class="inheritance">
+            <li>net.xeoh.plugins.base.impl.PluginInformationImpl</li>
+        </ul>
+    </li>
+</ul>
+<div class="description">
+    <ul class="blockList">
+        <li class="blockList">
+            <dl>
+                <dt>All Implemented Interfaces:</dt>
+                <dd><a href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                       title="interface in net.xeoh.plugins.base">Plugin</a>, <a
+                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
+                        title="interface in net.xeoh.plugins.base">PluginInformation</a></dd>
+            </dl>
+            <hr>
+            <br>
 <pre>public class <span class="strong">PluginInformationImpl</span>
 extends java.lang.Object
 implements <a href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
               title="interface in net.xeoh.plugins.base">PluginInformation</a></pre>
-                <div class="block">TODO: Make plugin threadsafe</div>
-                <dl>
-                    <dt><span class="strong">Author:</span></dt>
-                    <dd>Ralf Biedert</dd>
-                </dl>
-            </li>
-        </ul>
-    </div>
-    <div class="summary">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ======== NESTED CLASS SUMMARY ======== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="nested_class_summary">
-                        <!--   -->
-                    </a>
+            <div class="block">TODO: Make plugin threadsafe</div>
+            <dl>
+                <dt><span class="strong">Author:</span></dt>
+                <dd>Ralf Biedert</dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<div class="summary">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ======== NESTED CLASS SUMMARY ======== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="nested_class_summary">
+                    <!--   -->
+                </a>
 
-                        <h3>Nested Class Summary</h3>
-                        <ul class="blockList">
-                            <li class="blockList"><a
-                                    name="nested_classes_inherited_from_class_net.xeoh.plugins.base.PluginInformation">
-                                <!--   -->
-                            </a>
-
-                                <h3>Nested classes/interfaces inherited from interface&nbsp;net.xeoh.plugins.base.<a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
-                                        title="interface in net.xeoh.plugins.base">PluginInformation</a></h3>
-                                <code><a href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                         title="enum in net.xeoh.plugins.base">PluginInformation.Information</a></code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- =========== FIELD SUMMARY =========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="field_summary">
-                        <!--   -->
-                    </a>
-
-                        <h3>Field Summary</h3>
-                        <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
-                               summary="Field Summary table, listing fields, and an explanation">
-                            <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-                            <tr>
-                                <th class="colFirst" scope="col">Modifier and Type</th>
-                                <th class="colLast" scope="col">Field and Description</th>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#pluginManager">pluginManager</a></strong></code>&nbsp;
-                                </td>
-                            </tr>
-                        </table>
-                    </li>
-                </ul>
-                <!-- ========== METHOD SUMMARY =========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_summary">
-                        <!--   -->
-                    </a>
-
-                        <h3>Method Summary</h3>
-                        <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
-                               summary="Method Summary table, listing methods, and an explanation">
-                            <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
-                            <tr>
-                                <th class="colFirst" scope="col">Modifier and Type</th>
-                                <th class="colLast" scope="col">Method and Description</th>
-                            </tr>
-                            <tr class="altColor">
-                                <td class="colFirst"><code>&lt;T extends <a
-                                        href="../../../../../net/xeoh/plugins/base/options/GetInformationOption.html"
-                                        title="interface in net.xeoh.plugins.base.options">GetInformationOption</a>&gt;&nbsp;<br>T</code>
-                                </td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">getInformation</a></strong>(<a
-                                        href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                        title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin,
-                                    java.lang.Class&lt;T&gt;&nbsp;query)</code>
-
-                                    <div class="block">Returns an <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                            title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
-                                        item about a plugin.
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="rowColor">
-                                <td class="colFirst"><code>java.util.Collection&lt;java.lang.String&gt;</code></td>
-                                <td class="colLast"><code><strong><a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">getInformation</a></strong>(<a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                        title="enum in net.xeoh.plugins.base">PluginInformation.Information</a>&nbsp;item,
-                                    <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
-                                       title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</code>
-
-                                    <div class="block">Returns an <a
-                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                            title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
-                                        item about a plugin.
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <ul class="blockList">
-                            <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
-                                <!--   -->
-                            </a>
-
-                                <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-                                <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="details">
-        <ul class="blockList">
-            <li class="blockList">
-                <!-- ============ FIELD DETAIL =========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="field_detail">
-                        <!--   -->
-                    </a>
-
-                        <h3>Field Detail</h3>
-                        <a name="pluginManager">
+                    <h3>Nested Class Summary</h3>
+                    <ul class="blockList">
+                        <li class="blockList"><a
+                                name="nested_classes_inherited_from_class_net.xeoh.plugins.base.PluginInformation">
                             <!--   -->
                         </a>
-                        <ul class="blockListLast">
-                            <li class="blockList">
-                                <h4>pluginManager</h4>
+
+                            <h3>Nested classes/interfaces inherited from interface&nbsp;net.xeoh.plugins.base.<a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
+                                    title="interface in net.xeoh.plugins.base">PluginInformation</a></h3>
+                            <code><a href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                     title="enum in net.xeoh.plugins.base">PluginInformation.Information</a></code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- =========== FIELD SUMMARY =========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="field_summary">
+                    <!--   -->
+                </a>
+
+                    <h3>Field Summary</h3>
+                    <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+                           summary="Field Summary table, listing fields, and an explanation">
+                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                        <tr>
+                            <th class="colFirst" scope="col">Modifier and Type</th>
+                            <th class="colLast" scope="col">Field and Description</th>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code><a
+                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                                    title="interface in net.xeoh.plugins.base">PluginManager</a></code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#pluginManager">pluginManager</a></strong></code>&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+            <!-- ========== METHOD SUMMARY =========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_summary">
+                    <!--   -->
+                </a>
+
+                    <h3>Method Summary</h3>
+                    <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+                           summary="Method Summary table, listing methods, and an explanation">
+                        <caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+                        <tr>
+                            <th class="colFirst" scope="col">Modifier and Type</th>
+                            <th class="colLast" scope="col">Method and Description</th>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>&lt;T extends <a
+                                    href="../../../../../net/xeoh/plugins/base/options/GetInformationOption.html"
+                                    title="interface in net.xeoh.plugins.base.options">GetInformationOption</a>&gt;&nbsp;<br>T</code>
+                            </td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">getInformation</a></strong>(<a
+                                    href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                    title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin,
+                                java.lang.Class&lt;T&gt;&nbsp;query)</code>
+
+                                <div class="block">Returns an <a
+                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                        title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
+                                    item about a plugin.
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Collection&lt;java.lang.String&gt;</code></td>
+                            <td class="colLast"><code><strong><a
+                                    href="../../../../../net/xeoh/plugins/base/impl/PluginInformationImpl.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">getInformation</a></strong>(<a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                    title="enum in net.xeoh.plugins.base">PluginInformation.Information</a>&nbsp;item,
+                                <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
+                                   title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</code>
+
+                                <div class="block">Returns an <a
+                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                        title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
+                                    item about a plugin.
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <ul class="blockList">
+                        <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+                            <!--   -->
+                        </a>
+
+                            <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                            <code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="details">
+    <ul class="blockList">
+        <li class="blockList">
+            <!-- ============ FIELD DETAIL =========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="field_detail">
+                    <!--   -->
+                </a>
+
+                    <h3>Field Detail</h3>
+                    <a name="pluginManager">
+                        <!--   -->
+                    </a>
+                    <ul class="blockListLast">
+                        <li class="blockList">
+                            <h4>pluginManager</h4>
                                 <pre>public&nbsp;<a href="../../../../../net/xeoh/plugins/base/PluginManager.html"
                                                     title="interface in net.xeoh.plugins.base">PluginManager</a> pluginManager</pre>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- ============ METHOD DETAIL ========== -->
-                <ul class="blockList">
-                    <li class="blockList"><a name="method_detail">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- ============ METHOD DETAIL ========== -->
+            <ul class="blockList">
+                <li class="blockList"><a name="method_detail">
+                    <!--   -->
+                </a>
+
+                    <h3>Method Detail</h3>
+                    <a name="getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">
                         <!--   -->
                     </a>
-
-                        <h3>Method Detail</h3>
-                        <a name="getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">
-                            <!--   -->
-                        </a>
-                        <ul class="blockList">
-                            <li class="blockList">
-                                <h4>getInformation</h4>
+                    <ul class="blockList">
+                        <li class="blockList">
+                            <h4>getInformation</h4>
 <pre>public&nbsp;java.util.Collection&lt;java.lang.String&gt;&nbsp;getInformation(<a
         href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
         title="enum in net.xeoh.plugins.base">PluginInformation.Information</a>&nbsp;item,
                                                     <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                                        title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin)</pre>
-                                <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">PluginInformation</a></code></strong>
-                                </div>
-                                <div class="block">Returns an <a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                        title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
-                                    item about a plugin. For example, to query a plugin's
-                                    classpath origin you would write:<br/><br/>
+                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">PluginInformation</a></code></strong>
+                            </div>
+                            <div class="block">Returns an <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                    title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
+                                item about a plugin. For example, to query a plugin's
+                                classpath origin you would write:<br/><br/>
 
-                                    <code>
-                                        getInformation(Information.CLASSPATH_ORIGIN, plugin);
-                                    </code></div>
-                                <dl>
-                                    <dt><strong>Specified by:</strong></dt>
-                                    <dd><code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">getInformation</a></code>&nbsp;in
-                                        interface&nbsp;<code><a
-                                                href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
-                                                title="interface in net.xeoh.plugins.base">PluginInformation</a></code>
-                                    </dd>
-                                    <dt><span class="strong">Parameters:</span></dt>
-                                    <dd><code>item</code> - The information item to request.</dd>
-                                    <dd><code>plugin</code> - The plugin for which the information is requested.</dd>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>A collection of strings containing the requested information. The the specific
-                                        <a href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                           title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
-                                        item for more details. If nothing sensible was found, an empty collection is
-                                        returned.
-                                    </dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <a name="getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">
-                            <!--   -->
-                        </a>
-                        <ul class="blockListLast">
-                            <li class="blockList">
-                                <h4>getInformation</h4>
+                                <code>
+                                    getInformation(Information.CLASSPATH_ORIGIN, plugin);
+                                </code></div>
+                            <dl>
+                                <dt><strong>Specified by:</strong></dt>
+                                <dd><code><a
+                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.PluginInformation.Information, net.xeoh.plugins.base.Plugin)">getInformation</a></code>&nbsp;in
+                                    interface&nbsp;<code><a
+                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
+                                            title="interface in net.xeoh.plugins.base">PluginInformation</a></code>
+                                </dd>
+                                <dt><span class="strong">Parameters:</span></dt>
+                                <dd><code>item</code> - The information item to request.</dd>
+                                <dd><code>plugin</code> - The plugin for which the information is requested.</dd>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>A collection of strings containing the requested information. The the specific
+                                    <a href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                       title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
+                                    item for more details. If nothing sensible was found, an empty collection is
+                                    returned.
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <a name="getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">
+                        <!--   -->
+                    </a>
+                    <ul class="blockListLast">
+                        <li class="blockList">
+                            <h4>getInformation</h4>
 <pre>public&nbsp;&lt;T extends <a href="../../../../../net/xeoh/plugins/base/options/GetInformationOption.html"
                                   title="interface in net.xeoh.plugins.base.options">GetInformationOption</a>&gt;&nbsp;T&nbsp;getInformation(<a
         href="../../../../../net/xeoh/plugins/base/Plugin.html" title="interface in net.xeoh.plugins.base">Plugin</a>&nbsp;plugin,
                                                 java.lang.Class&lt;T&gt;&nbsp;query)</pre>
-                                <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">PluginInformation</a></code></strong>
-                                </div>
-                                <div class="block">Returns an <a
-                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
-                                        title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
-                                    item about a plugin. For example, to query a plugin's
-                                    classpath origin you would write:<br/><br/>
+                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">PluginInformation</a></code></strong>
+                            </div>
+                            <div class="block">Returns an <a
+                                    href="../../../../../net/xeoh/plugins/base/PluginInformation.Information.html"
+                                    title="enum in net.xeoh.plugins.base"><code>PluginInformation.Information</code></a>
+                                item about a plugin. For example, to query a plugin's
+                                classpath origin you would write:<br/><br/>
 
-                                    <code>
-                                        getInformation(plugin, InformationOrigin.class);
-                                    </code></div>
-                                <dl>
-                                    <dt><strong>Specified by:</strong></dt>
-                                    <dd><code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">getInformation</a></code>&nbsp;in
-                                        interface&nbsp;<code><a
-                                                href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
-                                                title="interface in net.xeoh.plugins.base">PluginInformation</a></code>
-                                    </dd>
-                                    <dt><span class="strong">Parameters:</span></dt>
-                                    <dd><code>plugin</code> - The plugin for which the information is requested.</dd>
-                                    <dd><code>query</code> - The information item to request.</dd>
-                                    <dt><span class="strong">Returns:</span></dt>
-                                    <dd>The appropriate query result.</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                                <code>
+                                    getInformation(plugin, InformationOrigin.class);
+                                </code></div>
+                            <dl>
+                                <dt><strong>Specified by:</strong></dt>
+                                <dd><code><a
+                                        href="../../../../../net/xeoh/plugins/base/PluginInformation.html#getInformation(net.xeoh.plugins.base.Plugin, java.lang.Class)">getInformation</a></code>&nbsp;in
+                                    interface&nbsp;<code><a
+                                            href="../../../../../net/xeoh/plugins/base/PluginInformation.html"
+                                            title="interface in net.xeoh.plugins.base">PluginInformation</a></code>
+                                </dd>
+                                <dt><span class="strong">Parameters:</span></dt>
+                                <dd><code>plugin</code> - The plugin for which the information is requested.</dd>
+                                <dd><code>query</code> - The information item to request.</dd>
+                                <dt><span class="strong">Returns:</span></dt>
+                                <dd>The appropriate query result.</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->

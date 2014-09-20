@@ -1,6 +1,5 @@
 package org.hopto.energy.energydominion.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface Game {
@@ -8,7 +7,7 @@ public interface Game {
 
     void setPlayerList(List<Player> playerList);
 
-  //  void setPlayerList(ArrayList<Player> playerList);
+    //  void setPlayerList(ArrayList<Player> playerList);
 
     void start();
 

@@ -1,19 +1,18 @@
 package org.hopto.energy.energydominion.expansion.base.cards;
 
-import net.xeoh.plugins.base.annotations.PluginImplementation;
 import org.hopto.energy.energydominion.api.CardType;
 import org.hopto.energy.energydominion.api.Cost;
 import org.hopto.energy.energydominion.api.bahaviour.Playable;
 import org.hopto.energy.energydominion.api.core.DominionCard;
 import org.hopto.energy.energydominion.api.event.PlayEvent;
 
-public class Smithy extends DominionCard implements Playable{
+public class Smithy extends DominionCard implements Playable {
 //    private String name="Smithy";
 //    private ArrayList<CardType> cardTypes=new ArrayList<>();
 //    private String description="+3 Cards";
 //    private Cost cost= new Cost(4);
 
-    public Smithy()  {
+    public Smithy() {
 
         super("Smithy", CardType.Action, new Cost(4), "+3 Cards");
 

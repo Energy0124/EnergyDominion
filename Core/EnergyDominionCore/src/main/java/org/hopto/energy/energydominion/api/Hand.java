@@ -53,7 +53,7 @@ public class Hand {
 
     public Hand playCard(Card card) {
 
-        if(!cards.contains(card)){
+        if (!cards.contains(card)) {
             return this;
         }
 

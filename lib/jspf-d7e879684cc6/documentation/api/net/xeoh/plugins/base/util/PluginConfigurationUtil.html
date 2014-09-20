@@ -273,228 +273,229 @@ implements <a href="../../../../../net/xeoh/plugins/base/PluginConfiguration.htm
     </ul>
 </div>
 <div class="details">
-    <ul class="blockList">
-        <li class="blockList">
-            <!-- ========= CONSTRUCTOR DETAIL ======== -->
-            <ul class="blockList">
-                <li class="blockList"><a name="constructor_detail">
-                    <!--   -->
-                </a>
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+    <li class="blockList"><a name="constructor_detail">
+        <!--   -->
+    </a>
 
-                    <h3>Constructor Detail</h3>
-                    <a name="PluginConfigurationUtil(net.xeoh.plugins.base.PluginConfiguration)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockListLast">
-                        <li class="blockList">
-                            <h4>PluginConfigurationUtil</h4>
+        <h3>Constructor Detail</h3>
+        <a name="PluginConfigurationUtil(net.xeoh.plugins.base.PluginConfiguration)">
+            <!--   -->
+        </a>
+        <ul class="blockListLast">
+            <li class="blockList">
+                <h4>PluginConfigurationUtil</h4>
                             <pre>public&nbsp;PluginConfigurationUtil(<a
                                     href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
                                     title="interface in net.xeoh.plugins.base">PluginConfiguration</a>&nbsp;pc)</pre>
-                            <div class="block">Creates a new util for the given interface.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>pc</code> - The interface to create the utils for.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- ============ METHOD DETAIL ========== -->
-            <ul class="blockList">
-                <li class="blockList"><a name="method_detail">
-                    <!--   -->
-                </a>
+                <div class="block">Creates a new util for the given interface.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>pc</code> - The interface to create the utils for.</dd>
+                </dl>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+    <li class="blockList"><a name="method_detail">
+        <!--   -->
+    </a>
 
-                    <h3>Method Detail</h3>
-                    <a name="getInt(java.lang.Class, java.lang.String, java.lang.Integer...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getInt</h4>
+        <h3>Method Detail</h3>
+        <a name="getInt(java.lang.Class, java.lang.String, java.lang.Integer...)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getInt</h4>
 <pre>public&nbsp;int&nbsp;getInt(java.lang.Class&lt;?&gt;&nbsp;root,
          java.lang.String&nbsp;subkey,
          java.lang.Integer...&nbsp;defautvalue)</pre>
-                            <div class="block">Returns the requested key as an integer.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - Root class to request.</dd>
-                                <dd><code>subkey</code> - Subkey to return.</dd>
-                                <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The requested key, or the default value if the key was not found, or 0 if neither
-                                    was present.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getString(java.lang.Class, java.lang.String, java.lang.String...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getString</h4>
+                <div class="block">Returns the requested key as an integer.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - Root class to request.</dd>
+                    <dd><code>subkey</code> - Subkey to return.</dd>
+                    <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The requested key, or the default value if the key was not found, or 0 if neither
+                        was present.
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="getString(java.lang.Class, java.lang.String, java.lang.String...)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getString</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getString(java.lang.Class&lt;?&gt;&nbsp;root,
                          java.lang.String&nbsp;subkey,
                          java.lang.String...&nbsp;defautvalue)</pre>
-                            <div class="block">Returns the reqeusted key or a default string.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - Root class to request.</dd>
-                                <dd><code>subkey</code> - Subkey to return.</dd>
-                                <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The requested key, or the default value if the key was not found, or "" if neither
-                                    was present.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getFloat(java.lang.Class, java.lang.String, java.lang.Float...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getFloat</h4>
+                <div class="block">Returns the reqeusted key or a default string.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - Root class to request.</dd>
+                    <dd><code>subkey</code> - Subkey to return.</dd>
+                    <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The requested key, or the default value if the key was not found, or "" if neither
+                        was present.
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="getFloat(java.lang.Class, java.lang.String, java.lang.Float...)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getFloat</h4>
 <pre>public&nbsp;float&nbsp;getFloat(java.lang.Class&lt;?&gt;&nbsp;root,
              java.lang.String&nbsp;subkey,
              java.lang.Float...&nbsp;defautvalue)</pre>
-                            <div class="block">Returns the reqeusted key or a default float.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - Root class to request.</dd>
-                                <dd><code>subkey</code> - Subkey to return.</dd>
-                                <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The requested key, or the default value if the key was not found, or 0.0 if neither
-                                    was present.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getBoolean(java.lang.Class, java.lang.String, java.lang.Boolean...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getBoolean</h4>
+                <div class="block">Returns the reqeusted key or a default float.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - Root class to request.</dd>
+                    <dd><code>subkey</code> - Subkey to return.</dd>
+                    <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The requested key, or the default value if the key was not found, or 0.0 if neither
+                        was present.
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="getBoolean(java.lang.Class, java.lang.String, java.lang.Boolean...)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getBoolean</h4>
 <pre>public&nbsp;boolean&nbsp;getBoolean(java.lang.Class&lt;?&gt;&nbsp;root,
                  java.lang.String&nbsp;subkey,
                  java.lang.Boolean...&nbsp;defautvalue)</pre>
-                            <div class="block">Returns the reqeusted key or a default boolean.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - Root class to request.</dd>
-                                <dd><code>subkey</code> - Subkey to return.</dd>
-                                <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The requested key, or the default value if the key was not found, or
-                                    <code>false</code> if neither was
-                                    present.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getDouble(java.lang.Class, java.lang.String, java.lang.Double...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getDouble</h4>
+                <div class="block">Returns the reqeusted key or a default boolean.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - Root class to request.</dd>
+                    <dd><code>subkey</code> - Subkey to return.</dd>
+                    <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The requested key, or the default value if the key was not found, or
+                        <code>false</code> if neither was
+                        present.
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="getDouble(java.lang.Class, java.lang.String, java.lang.Double...)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getDouble</h4>
 <pre>public&nbsp;double&nbsp;getDouble(java.lang.Class&lt;?&gt;&nbsp;root,
                java.lang.String&nbsp;subkey,
                java.lang.Double...&nbsp;defautvalue)</pre>
-                            <div class="block">Returns the reqeusted key or a default double.</div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - Root class to request.</dd>
-                                <dd><code>subkey</code> - Subkey to return.</dd>
-                                <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The requested key, or the default value if the key was not found, or 0.0 if neither
-                                    was present.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getConfiguration(java.lang.Class, java.lang.String)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getConfiguration</h4>
+                <div class="block">Returns the reqeusted key or a default double.</div>
+                <dl>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - Root class to request.</dd>
+                    <dd><code>subkey</code> - Subkey to return.</dd>
+                    <dd><code>defautvalue</code> - Default value to return if nothing was found.</dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The requested key, or the default value if the key was not found, or 0.0 if neither
+                        was present.
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="getConfiguration(java.lang.Class, java.lang.String)">
+            <!--   -->
+        </a>
+        <ul class="blockList">
+            <li class="blockList">
+                <h4>getConfiguration</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getConfiguration(java.lang.Class&lt;?&gt;&nbsp;root,
                                 java.lang.String&nbsp;subkey)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#getConfiguration(java.lang.Class, java.lang.String)">PluginConfiguration</a></code></strong>
-                            </div>
-                            <div class="block">Gets a configuration key. Root may be added for convenience and will
-                                prefix the subkey with its fully qualified name. Thus, if there is an interface
-                                <code>GeoService</code> in the package <code>com.company.plugins.geoservice</code>
-                                the following call:<br/><br/>
-                                <code>
-                                    getConfiguration(GeoService.class, "remote.url")
-                                </code><br/><br/>
-                                would try to return the configuration key <code>com.company.plugins.geoservice.GeoService.remote.url</code>.
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#getConfiguration(java.lang.Class, java.lang.String)">getConfiguration</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
-                                            title="interface in net.xeoh.plugins.base">PluginConfiguration</a></code>
-                                </dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - May also be null.</dd>
-                                <dd><code>subkey</code> - If used in conjunction with root it should not be prefixed
-                                    with a dot (".")
-                                </dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The corresponding value or null if nothing was found.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockListLast">
-                        <li class="blockList">
-                            <h4>setConfiguration</h4>
+                <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#getConfiguration(java.lang.Class, java.lang.String)">PluginConfiguration</a></code></strong>
+                </div>
+                <div class="block">Gets a configuration key. Root may be added for convenience and will
+                    prefix the subkey with its fully qualified name. Thus, if there is an interface
+                    <code>GeoService</code> in the package <code>com.company.plugins.geoservice</code>
+                    the following call:<br/><br/>
+                    <code>
+                        getConfiguration(GeoService.class, "remote.url")
+                    </code><br/><br/>
+                    would try to return the configuration key
+                    <code>com.company.plugins.geoservice.GeoService.remote.url</code>.
+                </div>
+                <dl>
+                    <dt><strong>Specified by:</strong></dt>
+                    <dd><code><a
+                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#getConfiguration(java.lang.Class, java.lang.String)">getConfiguration</a></code>&nbsp;in
+                        interface&nbsp;<code><a
+                                href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
+                                title="interface in net.xeoh.plugins.base">PluginConfiguration</a></code>
+                    </dd>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - May also be null.</dd>
+                    <dd><code>subkey</code> - If used in conjunction with root it should not be prefixed
+                        with a dot (".")
+                    </dd>
+                    <dt><span class="strong">Returns:</span></dt>
+                    <dd>The corresponding value or null if nothing was found.</dd>
+                </dl>
+            </li>
+        </ul>
+        <a name="setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">
+            <!--   -->
+        </a>
+        <ul class="blockListLast">
+            <li class="blockList">
+                <h4>setConfiguration</h4>
 <pre>public&nbsp;void&nbsp;setConfiguration(java.lang.Class&lt;?&gt;&nbsp;root,
                     java.lang.String&nbsp;subkey,
                     java.lang.String&nbsp;value)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">PluginConfiguration</a></code></strong>
-                            </div>
-                            <div class="block">Set the key for a value. Root may be added for convenience and will
-                                prefix the subkey with its FQN. Usually the configuration is added
-                                by providing JSPFProperties object to the <a
-                                        href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html"
-                                        title="class in net.xeoh.plugins.base.impl"><code>PluginManagerFactory</code></a>
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">setConfiguration</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
-                                            title="interface in net.xeoh.plugins.base">PluginConfiguration</a></code>
-                                </dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>root</code> - May also be null.</dd>
-                                <dd><code>subkey</code> - If used in conjunction with root it should not be prefixed
-                                    with a dot (".")
-                                </dd>
-                                <dd><code>value</code> - The value to set.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
+                <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">PluginConfiguration</a></code></strong>
+                </div>
+                <div class="block">Set the key for a value. Root may be added for convenience and will
+                    prefix the subkey with its FQN. Usually the configuration is added
+                    by providing JSPFProperties object to the <a
+                            href="../../../../../net/xeoh/plugins/base/impl/PluginManagerFactory.html"
+                            title="class in net.xeoh.plugins.base.impl"><code>PluginManagerFactory</code></a>
+                </div>
+                <dl>
+                    <dt><strong>Specified by:</strong></dt>
+                    <dd><code><a
+                            href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html#setConfiguration(java.lang.Class, java.lang.String, java.lang.String)">setConfiguration</a></code>&nbsp;in
+                        interface&nbsp;<code><a
+                                href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
+                                title="interface in net.xeoh.plugins.base">PluginConfiguration</a></code>
+                    </dd>
+                    <dt><span class="strong">Parameters:</span></dt>
+                    <dd><code>root</code> - May also be null.</dd>
+                    <dd><code>subkey</code> - If used in conjunction with root it should not be prefixed
+                        with a dot (".")
+                    </dd>
+                    <dd><code>value</code> - The value to set.</dd>
+                </dl>
+            </li>
+        </ul>
+    </li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->

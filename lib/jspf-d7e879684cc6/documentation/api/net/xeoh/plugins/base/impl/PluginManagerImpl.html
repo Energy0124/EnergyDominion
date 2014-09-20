@@ -235,252 +235,252 @@ implements <a href="../../../../../net/xeoh/plugins/base/PluginManager.html" tit
     </ul>
 </div>
 <div class="details">
-    <ul class="blockList">
-        <li class="blockList">
-            <!-- ============ METHOD DETAIL ========== -->
-            <ul class="blockList">
-                <li class="blockList"><a name="method_detail">
-                    <!--   -->
-                </a>
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+    <!--   -->
+</a>
 
-                    <h3>Method Detail</h3>
-                    <a name="addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>addPluginsFrom</h4>
+<h3>Method Detail</h3>
+<a name="addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>addPluginsFrom</h4>
 <pre>public&nbsp;<a href="../../../../../net/xeoh/plugins/base/PluginManager.html"
                     title="interface in net.xeoh.plugins.base">PluginManager</a>&nbsp;addPluginsFrom(java.net.URI&nbsp;url,
                            <a href="../../../../../net/xeoh/plugins/base/options/AddPluginsFromOption.html"
                               title="interface in net.xeoh.plugins.base.options">AddPluginsFromOption</a>...&nbsp;options)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html#addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">PluginManager</a></code></strong>
-                            </div>
-                            <div class="block">Requests the plugin manager to add plugins from a given path. The path
-                                can be
-                                either a folder-like item where existing .zip and .jar files are trying to be
-                                added, as well as existing class files. The path can also be a singular .zip or
-                                .jar which is added as well.<br><br>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/base/PluginManager.html#addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">PluginManager</a></code></strong>
+        </div>
+        <div class="block">Requests the plugin manager to add plugins from a given path. The path
+            can be
+            either a folder-like item where existing .zip and .jar files are trying to be
+            added, as well as existing class files. The path can also be a singular .zip or
+            .jar which is added as well.<br><br>
 
-                                The manager will search for classes having the &#064;<a
-                                        href="../../../../../net/xeoh/plugins/base/annotations/PluginImplementation.html"
-                                        title="annotation in net.xeoh.plugins.base.annotations"><code>PluginImplementation</code></a>
-                                annotation and evaluate this annotation. Thereafter the plugin will be instantiated.<br><br>
+            The manager will search for classes having the &#064;<a
+                    href="../../../../../net/xeoh/plugins/base/annotations/PluginImplementation.html"
+                    title="annotation in net.xeoh.plugins.base.annotations"><code>PluginImplementation</code></a>
+            annotation and evaluate this annotation. Thereafter the plugin will be instantiated.<br><br>
 
-                                Currently supported are classpath-folders (containing no .JAR files), plugin folders
-                                (containing .JAR files or multiplugins), single plugins and HTTP locations. Example
-                                calls look like this:<br/><br/>
+            Currently supported are classpath-folders (containing no .JAR files), plugin folders
+            (containing .JAR files or multiplugins), single plugins and HTTP locations. Example
+            calls look like this:<br/><br/>
 
-                                <ul>
-                                    <li><code>addPluginsFrom(new URI("classpath://*"))</code> (add all plugins within
-                                        the current classpath).
-                                    </li>
-                                    <li><code>addPluginsFrom(new File("plugins/").toURI())</code> (all plugins from the
-                                        given folder, scanning for JARs and <a
-                                                href="http://code.google.com/p/jspf/wiki/FAQ">multi-plugins</a>).
-                                    </li>
-                                    <li><code>addPluginsFrom(new File("plugin.jar").toURI())</code> (the given plugin
-                                        directly, no scanning is being done).
-                                    </li>
-                                    <li><code>addPluginsFrom(new URI("http://sample.com/plugin.jar"))</code> (downloads
-                                        and adds the given plugin, use with caution).
-                                    </li>
-                                    <li><code>addPluginsFrom(new ClassURI(ServiceImpl.class).toURI())</code> (adds the
-                                        specific plugin implementation already present in the classpath; very
-                                        uncomfortable, very fast).
-                                    </li>
-                                </ul>
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html#addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">addPluginsFrom</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>url</code> - The URL to add from. If this is "classpath://*"; the plugin
-                                    manager will
-                                    load all plugins within it's own classpath.
-                                </dd>
-                                <dd><code>options</code> - A set of options supported. Please see the individual options
-                                    for more
-                                    details.
-                                </dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>This plugin manager.</dd>
-                                <dt><span class="strong">See Also:</span></dt>
-                                <dd><a href="../../../../../net/xeoh/plugins/base/util/uri/ClassURI.html"
-                                       title="class in net.xeoh.plugins.base.util.uri"><code>ClassURI</code></a></dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getPlugin</h4>
+            <ul>
+                <li><code>addPluginsFrom(new URI("classpath://*"))</code> (add all plugins within
+                    the current classpath).
+                </li>
+                <li><code>addPluginsFrom(new File("plugins/").toURI())</code> (all plugins from the
+                    given folder, scanning for JARs and <a
+                            href="http://code.google.com/p/jspf/wiki/FAQ">multi-plugins</a>).
+                </li>
+                <li><code>addPluginsFrom(new File("plugin.jar").toURI())</code> (the given plugin
+                    directly, no scanning is being done).
+                </li>
+                <li><code>addPluginsFrom(new URI("http://sample.com/plugin.jar"))</code> (downloads
+                    and adds the given plugin, use with caution).
+                </li>
+                <li><code>addPluginsFrom(new ClassURI(ServiceImpl.class).toURI())</code> (adds the
+                    specific plugin implementation already present in the classpath; very
+                    uncomfortable, very fast).
+                </li>
+            </ul>
+        </div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a
+                    href="../../../../../net/xeoh/plugins/base/PluginManager.html#addPluginsFrom(java.net.URI, net.xeoh.plugins.base.options.AddPluginsFromOption...)">addPluginsFrom</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>url</code> - The URL to add from. If this is "classpath://*"; the plugin
+                manager will
+                load all plugins within it's own classpath.
+            </dd>
+            <dd><code>options</code> - A set of options supported. Please see the individual options
+                for more
+                details.
+            </dd>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>This plugin manager.</dd>
+            <dt><span class="strong">See Also:</span></dt>
+            <dd><a href="../../../../../net/xeoh/plugins/base/util/uri/ClassURI.html"
+                   title="class in net.xeoh.plugins.base.util.uri"><code>ClassURI</code></a></dd>
+        </dl>
+    </li>
+</ul>
+<a name="getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>getPlugin</h4>
 <pre>public&nbsp;&lt;P extends <a href="../../../../../net/xeoh/plugins/base/Plugin.html"
                                   title="interface in net.xeoh.plugins.base">Plugin</a>&gt;&nbsp;P&nbsp;getPlugin(java.lang.Class&lt;P&gt;&nbsp;requestedPlugin,
                              <a href="../../../../../net/xeoh/plugins/base/options/GetPluginOption.html"
                                 title="interface in net.xeoh.plugins.base.options">GetPluginOption</a>...&nbsp;options)</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html#getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">PluginManager</a></code></strong>
-                            </div>
-                            <div class="block">Returns the next best plugin for the requested interface. The way the
-                                plugin is being
-                                selected is undefined, you should assume that a random plugin implementing the requested
-                                interface is chosen. <br><br>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/base/PluginManager.html#getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">PluginManager</a></code></strong>
+        </div>
+        <div class="block">Returns the next best plugin for the requested interface. The way the
+            plugin is being
+            selected is undefined, you should assume that a random plugin implementing the requested
+            interface is chosen. <br><br>
 
-                                This method is more powerful than it looks like on first sight, especially in
-                                conjunction
-                                with the right <a
-                                        href="../../../../../net/xeoh/plugins/base/options/GetPluginOption.html"
-                                        title="interface in net.xeoh.plugins.base.options"><code>GetPluginOption</code></a>.
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a
-                                        href="../../../../../net/xeoh/plugins/base/PluginManager.html#getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">getPlugin</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
-                                <dt><span class="strong">Type Parameters:</span></dt>
-                                <dd><code>P</code> - Type of the plugin / return value.</dd>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>requestedPlugin</code> - The interface to request. The given class <b>must</b>
-                                    derive from Plugin. You <b>MUST NOT</b> pass
-                                    implementation classes. Only interface classes are accepted (i.e. <code>getPlugin(Service.class)</code>
-                                    is fine, while <code>getPlugin(ServiceImpl.class)</code> isn't.
-                                </dd>
-                                <dd><code>options</code> - A set of options for the request.</dd>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>A randomly chosen Object that implements <code>plugin</code>.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="shutdown()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>shutdown</h4>
-                            <pre>public&nbsp;void&nbsp;shutdown()</pre>
-                            <div class="block"><strong>Description copied from interface:&nbsp;<code><a
-                                    href="../../../../../net/xeoh/plugins/base/PluginManager.html#shutdown()">PluginManager</a></code></strong>
-                            </div>
-                            <div class="block">Tells the plugin manager to shut down. This may be useful in cases where
-                                you want all
-                                created plugins to be destroyed and shutdown hooks called. Normally this happens during
-                                application termination automatically, but sometimes you create a 2nd instance in the
-                                same
-                                machine and want the first one to close properly.
+            This method is more powerful than it looks like on first sight, especially in
+            conjunction
+            with the right <a
+                    href="../../../../../net/xeoh/plugins/base/options/GetPluginOption.html"
+                    title="interface in net.xeoh.plugins.base.options"><code>GetPluginOption</code></a>.
+        </div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a
+                    href="../../../../../net/xeoh/plugins/base/PluginManager.html#getPlugin(java.lang.Class, net.xeoh.plugins.base.options.GetPluginOption...)">getPlugin</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
+            <dt><span class="strong">Type Parameters:</span></dt>
+            <dd><code>P</code> - Type of the plugin / return value.</dd>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>requestedPlugin</code> - The interface to request. The given class <b>must</b>
+                derive from Plugin. You <b>MUST NOT</b> pass
+                implementation classes. Only interface classes are accepted (i.e. <code>getPlugin(Service.class)</code>
+                is fine, while <code>getPlugin(ServiceImpl.class)</code> isn't.
+            </dd>
+            <dd><code>options</code> - A set of options for the request.</dd>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>A randomly chosen Object that implements <code>plugin</code>.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="shutdown()">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>shutdown</h4>
+        <pre>public&nbsp;void&nbsp;shutdown()</pre>
+        <div class="block"><strong>Description copied from interface:&nbsp;<code><a
+                href="../../../../../net/xeoh/plugins/base/PluginManager.html#shutdown()">PluginManager</a></code></strong>
+        </div>
+        <div class="block">Tells the plugin manager to shut down. This may be useful in cases where
+            you want all
+            created plugins to be destroyed and shutdown hooks called. Normally this happens during
+            application termination automatically, but sometimes you create a 2nd instance in the
+            same
+            machine and want the first one to close properly.
 
-                                All invocations after the first one have no effect.
-                            </div>
-                            <dl>
-                                <dt><strong>Specified by:</strong></dt>
-                                <dd><code><a href="../../../../../net/xeoh/plugins/base/PluginManager.html#shutdown()">shutdown</a></code>&nbsp;in
-                                    interface&nbsp;<code><a
-                                            href="../../../../../net/xeoh/plugins/base/PluginManager.html"
-                                            title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="hookPlugin(net.xeoh.plugins.base.impl.spawning.SpawnResult)">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>hookPlugin</h4>
-                            <pre>public&nbsp;void&nbsp;hookPlugin(net.xeoh.plugins.base.impl.spawning.SpawnResult&nbsp;p)</pre>
-                            <div class="block">Adds a plugins to the list of known plugins and performs late
-                                initialization and
-                                processing.
-                            </div>
-                            <dl>
-                                <dt><span class="strong">Parameters:</span></dt>
-                                <dd><code>p</code> - The SpawnResult to hook.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getClassPathManager()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getClassPathManager</h4>
-                            <pre>public&nbsp;net.xeoh.plugins.base.impl.classpath.ClassPathManager&nbsp;getClassPathManager()</pre>
-                            <div class="block">Returns the ClassPathManger handling our plugin sources.</div>
-                            <dl>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The PluginManager.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getPluginRegistry()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getPluginRegistry</h4>
-                            <pre>public&nbsp;net.xeoh.plugins.base.impl.registry.PluginRegistry&nbsp;getPluginRegistry()</pre>
-                            <div class="block">Returns the PluginRegistry, keeping track of loaded plugins.</div>
-                            <dl>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The PluginRegistry.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getPluginConfiguration()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getPluginConfiguration</h4>
+            All invocations after the first one have no effect.
+        </div>
+        <dl>
+            <dt><strong>Specified by:</strong></dt>
+            <dd><code><a href="../../../../../net/xeoh/plugins/base/PluginManager.html#shutdown()">shutdown</a></code>&nbsp;in
+                interface&nbsp;<code><a
+                        href="../../../../../net/xeoh/plugins/base/PluginManager.html"
+                        title="interface in net.xeoh.plugins.base">PluginManager</a></code></dd>
+        </dl>
+    </li>
+</ul>
+<a name="hookPlugin(net.xeoh.plugins.base.impl.spawning.SpawnResult)">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>hookPlugin</h4>
+        <pre>public&nbsp;void&nbsp;hookPlugin(net.xeoh.plugins.base.impl.spawning.SpawnResult&nbsp;p)</pre>
+        <div class="block">Adds a plugins to the list of known plugins and performs late
+            initialization and
+            processing.
+        </div>
+        <dl>
+            <dt><span class="strong">Parameters:</span></dt>
+            <dd><code>p</code> - The SpawnResult to hook.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="getClassPathManager()">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>getClassPathManager</h4>
+        <pre>public&nbsp;net.xeoh.plugins.base.impl.classpath.ClassPathManager&nbsp;getClassPathManager()</pre>
+        <div class="block">Returns the ClassPathManger handling our plugin sources.</div>
+        <dl>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>The PluginManager.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="getPluginRegistry()">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>getPluginRegistry</h4>
+        <pre>public&nbsp;net.xeoh.plugins.base.impl.registry.PluginRegistry&nbsp;getPluginRegistry()</pre>
+        <div class="block">Returns the PluginRegistry, keeping track of loaded plugins.</div>
+        <dl>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>The PluginRegistry.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="getPluginConfiguration()">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>getPluginConfiguration</h4>
                             <pre>public&nbsp;<a href="../../../../../net/xeoh/plugins/base/PluginConfiguration.html"
                                                 title="interface in net.xeoh.plugins.base">PluginConfiguration</a>&nbsp;getPluginConfiguration()</pre>
-                            <div class="block">Returns the PluginConfiguration handling application setup.</div>
-                            <dl>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>Returns the plugin configuration.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getDiagnosis()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockList">
-                        <li class="blockList">
-                            <h4>getDiagnosis</h4>
-                            <pre>public&nbsp;net.xeoh.plugins.diagnosis.local.Diagnosis&nbsp;getDiagnosis()</pre>
-                            <div class="block">Returns the Diagnosis.</div>
-                            <dl>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The diagnosis.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                    <a name="getSpawner()">
-                        <!--   -->
-                    </a>
-                    <ul class="blockListLast">
-                        <li class="blockList">
-                            <h4>getSpawner</h4>
-                            <pre>public&nbsp;net.xeoh.plugins.base.impl.spawning.Spawner&nbsp;getSpawner()</pre>
-                            <div class="block">Returns the main spawner to instantiate plugins.</div>
-                            <dl>
-                                <dt><span class="strong">Returns:</span></dt>
-                                <dd>The Spawner.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
+        <div class="block">Returns the PluginConfiguration handling application setup.</div>
+        <dl>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>Returns the plugin configuration.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="getDiagnosis()">
+    <!--   -->
+</a>
+<ul class="blockList">
+    <li class="blockList">
+        <h4>getDiagnosis</h4>
+        <pre>public&nbsp;net.xeoh.plugins.diagnosis.local.Diagnosis&nbsp;getDiagnosis()</pre>
+        <div class="block">Returns the Diagnosis.</div>
+        <dl>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>The diagnosis.</dd>
+        </dl>
+    </li>
+</ul>
+<a name="getSpawner()">
+    <!--   -->
+</a>
+<ul class="blockListLast">
+    <li class="blockList">
+        <h4>getSpawner</h4>
+        <pre>public&nbsp;net.xeoh.plugins.base.impl.spawning.Spawner&nbsp;getSpawner()</pre>
+        <div class="block">Returns the main spawner to instantiate plugins.</div>
+        <dl>
+            <dt><span class="strong">Returns:</span></dt>
+            <dd>The Spawner.</dd>
+        </dl>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <!-- ========= END OF CLASS DATA ========= -->

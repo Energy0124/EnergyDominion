@@ -4,14 +4,13 @@ import org.hopto.energy.energydominion.api.Card;
 import org.hopto.energy.energydominion.api.CardType;
 import org.hopto.energy.energydominion.api.Cost;
 import org.hopto.energy.energydominion.api.Player;
-import org.hopto.energy.energydominion.api.bahaviour.*;
 import org.hopto.energy.energydominion.api.event.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class DominionCard implements Card  {
+public abstract class DominionCard implements Card {
     private String name;
     private List<CardType> cardTypes;
     private Cost cost;
