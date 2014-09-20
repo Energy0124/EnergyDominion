@@ -31,7 +31,6 @@ package net.xeoh.plugins.remote;
  * Allows the network export of plugins.<br/> <br/>
  *
  * @author Ralf Biedert
- *
  */
 public interface RemoteAPIJavaScript extends RemoteAPI {
     //

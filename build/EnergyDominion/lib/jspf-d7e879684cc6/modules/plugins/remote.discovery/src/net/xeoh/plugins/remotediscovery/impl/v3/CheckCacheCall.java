@@ -1,40 +1,27 @@
 package net.xeoh.plugins.remotediscovery.impl.v3;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.net.URI;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.PublishMethod;
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.DiscoveryManager;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.ExportInfo;
-
 import org.freshvanilla.utils.SimpleResource;
 
+import java.io.*;
+import java.net.URI;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
- * 
  * NOTE: This cache saves only one host for a plugin and not the whole bunch....
- * 
- * @author massini
  *
+ * @author massini
  */
 final class CheckCacheCall extends BaseCall {
     /**
-     * 
+     *
      */
     private final RemoteDiscoveryImpl remoteDiscoveryImpl;
 
@@ -47,9 +34,8 @@ final class CheckCacheCall extends BaseCall {
 
     /**
      * Contains plugins which are exported by a specified DiscoveryManager
-     *  
-     * @author massini
      *
+     * @author massini
      */
     class Entry implements Serializable {
         private static final long serialVersionUID = -7595621607661329454L;
@@ -78,8 +64,8 @@ final class CheckCacheCall extends BaseCall {
 
         @SuppressWarnings("boxing")
         private synchronized void readObject(ObjectInputStream in)
-                                                                  throws IOException,
-                                                                  ClassNotFoundException {
+                throws IOException,
+                ClassNotFoundException {
             this.plugin = (String) in.readObject();
             this.manager = (RemoteManagerEndpoint) in.readObject();
 
@@ -96,9 +82,9 @@ final class CheckCacheCall extends BaseCall {
             this.src = new DiscoveredPluginImpl(caps, method, uri, dist, 0);
         }
 
-        @SuppressWarnings( { "boxing", "cast" })
+        @SuppressWarnings({"boxing", "cast"})
         private synchronized void writeObject(ObjectOutputStream out)
-                                                                     throws IOException {
+                throws IOException {
             // TODO: !!! WICHTIG!! was ist mit serialVersionUID muss sie auch gespeichert werden?
             out.writeObject(this.plugin);
             out.writeObject(this.manager);
@@ -167,7 +153,7 @@ final class CheckCacheCall extends BaseCall {
         return available;
     }
 
-    @SuppressWarnings( { "boxing", "unchecked" })
+    @SuppressWarnings({"boxing", "unchecked"})
     public void loadCache() {
         this.cache.clear();
         try {

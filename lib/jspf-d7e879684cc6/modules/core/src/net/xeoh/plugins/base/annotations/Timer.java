@@ -34,17 +34,17 @@ import java.lang.annotation.Target;
 
 /**
  * Methods marked with &#064;Timer will called periodically from a timer. The method
- * may return a boolean value. If this value is true, the timer will be canceled. For 
- * example, to specify that after the plugin's creation a specific method should be 
+ * may return a boolean value. If this value is true, the timer will be canceled. For
+ * example, to specify that after the plugin's creation a specific method should be
  * called from a timer, you would write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;Timer<br/>
  * public void ping() { ... }
  * </code><br/><br/>
- * 
- * All timers are terminated upon <code>PluginManager.shutdown()</code>. 
-
+ * <p/>
+ * All timers are terminated upon <code>PluginManager.shutdown()</code>.
+ *
  * @author Ralf Biedert
  * @see Thread
  */
@@ -55,7 +55,6 @@ public @interface Timer {
      * Type of the timer.
      *
      * @author Ralf Biedert
-     *
      */
     public static enum TimerType {
         /**

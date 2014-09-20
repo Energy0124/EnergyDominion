@@ -27,13 +27,13 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.v3;
 
-import java.util.Collection;
-
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
+
+import java.util.Collection;
 
 class DiscoverCall extends BaseCall {
     /**
-     * 
+     *
      */
     private final RemoteDiscoveryImpl remoteDiscoveryImpl;
 

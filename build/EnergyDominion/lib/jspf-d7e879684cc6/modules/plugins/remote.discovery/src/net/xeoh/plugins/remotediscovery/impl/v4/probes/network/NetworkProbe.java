@@ -27,38 +27,6 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.v4.probes.network;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceInfo;
-import javax.jmdns.impl.tasks.ServiceResolver;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.PluginManager;
@@ -83,31 +51,57 @@ import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionNearest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionOldest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionYoungest;
-
 import org.freshvanilla.rmi.Proxies;
 import org.freshvanilla.rmi.VanillaRmiServer;
 import org.freshvanilla.utils.SimpleResource;
+
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
+import javax.jmdns.impl.tasks.ServiceResolver;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
 
 /**
  * @author Ralf Biedert
  */
 public class NetworkProbe extends AbstractProbe {
-    /** Export name of the manager */
+    /**
+     * Export name of the manager
+     */
     private static final String EXPORT_NAME = "DiscoveryManager";
 
-    /** Network announce name */
+    /**
+     * Network announce name
+     */
     private static final String NAME = "JSPF";
 
-    /** ZeroConf type */
+    /**
+     * ZeroConf type
+     */
     private static final String TYPE = "_jspfplugindiscovery._tcp.local.";
 
-    /** How we lock for the first call? */
+    /**
+     * How we lock for the first call?
+     */
     private String lockMode;
 
     /** */
     private final PluginConfiguration pluginConfiguration;
 
-    /** Time to lock after startup */
+    /**
+     * Time to lock after startup
+     */
     private int startupLock;
 
     /** */
@@ -116,15 +110,21 @@ public class NetworkProbe extends AbstractProbe {
     /** */
     protected final Lock jmdnsLock = new ReentrantLock();
 
-    /** The local manager */
+    /**
+     * The local manager
+     */
     protected final AbstractDiscoveryManager localTCPIPManager = new DiscoveryManagerTCPIPImpl();
 
-    /** Contains a list of remote DiscoveryManagers all over the network and also the local manager. This is not final as we replace 
-     * it every iteration. This way the client has the chance to grab a local "copy"  and work on it while a more receent version is 
-     * being prepared*/
+    /**
+     * Contains a list of remote DiscoveryManagers all over the network and also the local manager. This is not final as we replace
+     * it every iteration. This way the client has the chance to grab a local "copy"  and work on it while a more receent version is
+     * being prepared
+     */
     protected volatile Collection<RemoteManagerEndpoint> remoteManagersEndpoints = new ArrayList<RemoteManagerEndpoint>();
 
-    /** usually should contain only all DiscoveryManager; */
+    /**
+     * usually should contain only all DiscoveryManager;
+     */
     protected final Collection<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
 
     /** */
@@ -136,16 +136,20 @@ public class NetworkProbe extends AbstractProbe {
     /** */
     AtomicLong discoverThreadCounter = new AtomicLong();
 
-    /** Main JmDNS object */
+    /**
+     * Main JmDNS object
+     */
     JmDNS jmdns;
 
-    /** Server of the exported local manager */
+    /**
+     * Server of the exported local manager
+     */
     VanillaRmiServer<DiscoveryManager> localManagerExportServer;
 
     /** */
     final Logger _logger = Logger.getLogger(this.getClass().getName());
-    final DiagnosisChannelUtil<String> logger; 
-    
+    final DiagnosisChannelUtil<String> logger;
+
     long timeOfStartup;
 
     /**
@@ -210,7 +214,7 @@ public class NetworkProbe extends AbstractProbe {
             this.startupLatch.countDown();
             this.jmdnsLock.unlock();
         }
-        
+
         this.logger.status("backgroundinit/end");
     }
 
@@ -417,7 +421,7 @@ public class NetworkProbe extends AbstractProbe {
         return true;
     }
 
-    @SuppressWarnings({ "unchecked", "boxing", "rawtypes" })
+    @SuppressWarnings({"unchecked", "boxing", "rawtypes"})
     private DiscoveryManager getRemoteProxyToDiscoveryManager(final String ip,
                                                               final int port) {
 
@@ -466,11 +470,11 @@ public class NetworkProbe extends AbstractProbe {
                     return null;
                 }
             });
-            
+
             this.logger.status("remoteproxytodiscovery/end");
         }
-        
-        this.logger.status("remoteproxytodiscovery/end");        
+
+        this.logger.status("remoteproxytodiscovery/end");
         return null;
     }
 
@@ -501,9 +505,9 @@ public class NetworkProbe extends AbstractProbe {
 
     /**
      * Checks all known service infos for matches to the given class, returns all matching entries.
-     * 
+     *
      * @param plugin
-     * @param options 
+     * @param options
      * @return
      */
     @SuppressWarnings("boxing")

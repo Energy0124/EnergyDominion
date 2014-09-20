@@ -30,11 +30,10 @@ package net.xeoh.plugins.remotediscovery.options.discover;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
 /**
- * Specifies that the latest service should be located (i.e. the one which is 
+ * Specifies that the latest service should be located (i.e. the one which is
  * running for the least time)
  *
  * @author rb
- *
  */
 public class OptionYoungest implements DiscoverOption {
     /** */

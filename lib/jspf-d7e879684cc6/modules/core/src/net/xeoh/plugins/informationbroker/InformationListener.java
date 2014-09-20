@@ -30,17 +30,16 @@ package net.xeoh.plugins.informationbroker;
 /**
  * Listens to a give information item. It is called back whenever the information item
  * changes.
- * 
- * @author Ralf Biedert
- * 
+ *
  * @param <X> The type of the delivered object.
+ * @author Ralf Biedert
  * @see InformationBroker
  */
 public interface InformationListener<X> {
     /**
      * Called when the subscription requirements are met and a new item
      * has been posted.
-     * 
+     *
      * @param item The newly posted item.
      */
     public void update(X item);

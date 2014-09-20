@@ -31,7 +31,6 @@ import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.Export
 
 /**
  * @author rb
- *
  */
 public class LocalExportEntry extends ExportEntry {
     /** */

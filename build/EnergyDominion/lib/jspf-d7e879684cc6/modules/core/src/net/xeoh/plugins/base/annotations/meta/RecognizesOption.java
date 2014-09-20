@@ -27,21 +27,20 @@
  */
 package net.xeoh.plugins.base.annotations.meta;
 
+import net.xeoh.plugins.base.Option;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.xeoh.plugins.base.Option;
-
 /**
  * Specifies the given method does accept and evaluate a given
  * parameter.<br/><br/>
- * 
- * Work in progress, annotation will change! Also, it is not being 
+ * <p/>
+ * Work in progress, annotation will change! Also, it is not being
  * evaluated at the moment.
- *  
- * 
+ *
  * @author Ralf Biedert
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -49,7 +48,7 @@ import net.xeoh.plugins.base.Option;
 public @interface RecognizesOption {
     /**
      * Options understood
-     * 
+     *
      * @return .
      */
     Class<? extends Option> option();

@@ -27,23 +27,18 @@
  */
 package net.xeoh.plugins.base.impl.classpath.locator.locations;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
+import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
+
+import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
-import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
-
 /**
  * @author rb
- *
  */
 public class FileClasspathLocation extends AbstractClassPathLocation {
 
@@ -149,20 +144,20 @@ public class FileClasspathLocation extends AbstractClassPathLocation {
 
     /**
      * List all files
-     * 
+     *
      * @param aStartingDir
      * @return
      * @throws FileNotFoundException
      */
     private List<File> getFileListing(File aStartingDir, List<String> visited)
-                                                                              throws FileNotFoundException {
+            throws FileNotFoundException {
         // Sanity check
         if (aStartingDir == null || aStartingDir.listFiles() == null)
             return new ArrayList<File>();
 
         this.logger.fine("Obtaining file listing for: " + aStartingDir);
 
-        final String[] ignoreList = new String[] { "/dev/", "/sys/", "/proc/" };
+        final String[] ignoreList = new String[]{"/dev/", "/sys/", "/proc/"};
         final List<File> result = new ArrayList<File>();
         for (File file : aStartingDir.listFiles()) {
 

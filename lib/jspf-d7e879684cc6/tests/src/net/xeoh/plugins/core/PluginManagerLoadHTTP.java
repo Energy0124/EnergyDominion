@@ -27,20 +27,18 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerLoadHTTP {
 
@@ -63,7 +61,7 @@ public class PluginManagerLoadHTTP {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {
@@ -71,7 +69,7 @@ public class PluginManagerLoadHTTP {
 
 
         try {
-            this.pm.addPluginsFrom(new URI("http://jspf.googlecode.com/files/coolplugin.jar"));                                                        
+            this.pm.addPluginsFrom(new URI("http://jspf.googlecode.com/files/coolplugin.jar"));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

@@ -31,28 +31,28 @@ import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.options.AddPluginsFromOption;
 
 /**
- * When JSPF searches for plugins, use the given class as the initial exploration 
+ * When JSPF searches for plugins, use the given class as the initial exploration
  * point for a classpath search. Usually this is not needed, but in very special cases
  * (like when using an application server), it can help JSPF to find your plugins.<br/><br/>
- * 
+ * <p/>
  * <code>
  * pluginManager.addPluginsFrom(uri, new OptionSearchAround(getClass()));
  * </code>
- * 
+ *
  * @author Ralf Biedert
  * @see PluginManager
  */
 public class OptionSearchAround implements AddPluginsFromOption {
     /** */
     private static final long serialVersionUID = -8362751446846683259L;
-    
+
     /** */
     private Class<?> clazz;
-    
+
     public OptionSearchAround(Class<?> clazz) {
         this.clazz = clazz;
     }
-    
+
     /**
      * @return the clazz
      */

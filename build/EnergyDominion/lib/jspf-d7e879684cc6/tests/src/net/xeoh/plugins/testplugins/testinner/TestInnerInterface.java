@@ -31,7 +31,6 @@ import net.xeoh.plugins.base.Plugin;
 
 /**
  * @author rb
- *
  */
 public interface TestInnerInterface extends Plugin {
     //

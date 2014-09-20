@@ -36,7 +36,6 @@ import java.util.zip.ZipEntry;
 
 /**
  * @author rb
- *
  */
 public class JARWriter {
 
@@ -50,10 +49,10 @@ public class JARWriter {
 
         try {
             this.jarOutputStream = new JarOutputStream(new FileOutputStream(output));
-            
+
             ZipEntry zipEntry = new ZipEntry("myxxx/test.txt");
             zipEntry.setComment("my Comment");
-            
+
             this.jarOutputStream.putNextEntry(zipEntry);
             this.jarOutputStream.write("Helli World".getBytes());
             this.jarOutputStream.closeEntry();
@@ -64,6 +63,6 @@ public class JARWriter {
             e.printStackTrace();
         }
 
-        
+
     }
 }

@@ -27,18 +27,18 @@
  */
 package net.xeoh.plugins.diagnosis.diagnosis;
 
-import java.io.Serializable;
-import java.net.URI;
-
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannel;
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
 import net.xeoh.plugins.diagnosis.local.options.ChannelOption;
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
 
+import java.io.Serializable;
+import java.net.URI;
+
 public interface D2 {
     public <T extends Serializable> DiagnosisChannel<T> channel(Class<? extends DiagnosisChannelID<T>> channel,
-            ChannelOption... options);
-    
-    public void status(URI channel, Object object, StatusOption...options);
+                                                                ChannelOption... options);
+
+    public void status(URI channel, Object object, StatusOption... options);
 
 }

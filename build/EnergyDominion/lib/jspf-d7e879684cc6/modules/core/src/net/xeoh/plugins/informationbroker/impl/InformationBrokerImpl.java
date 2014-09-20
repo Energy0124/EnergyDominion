@@ -27,15 +27,6 @@
  */
 package net.xeoh.plugins.informationbroker.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.base.util.OptionUtils;
@@ -47,30 +38,47 @@ import net.xeoh.plugins.informationbroker.options.SubscribeOption;
 import net.xeoh.plugins.informationbroker.options.publish.OptionSilentPublish;
 import net.xeoh.plugins.informationbroker.options.subscribe.OptionInstantRequest;
 
+import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
+
 /**
  * Nothing to see here.
- * 
+ *
  * @author Ralf Biedert
  */
 @Author(name = "Ralf Biedert")
 @PluginImplementation
 public class InformationBrokerImpl implements InformationBroker {
-    /** Stores information on a key */
+    /**
+     * Stores information on a key
+     */
     class KeyEntry {
-        /** Locks access to this item */
+        /**
+         * Locks access to this item
+         */
         final Lock entryLock = new ReentrantLock();
 
-        /** All listeners subscribed to this item */
+        /**
+         * All listeners subscribed to this item
+         */
         final Collection<InformationListener<?>> allListeners = new ArrayList<InformationListener<?>>();
 
-        /** The current channel holder */
+        /**
+         * The current channel holder
+         */
         Object lastItem = null;
     }
 
-    /** Manages all information regarding a key */
+    /**
+     * Manages all information regarding a key
+     */
     final Map<Class<? extends InformationItem<?>>, KeyEntry> items = new HashMap<Class<? extends InformationItem<?>>, KeyEntry>();
 
-    /** Locks access to the items */
+    /**
+     * Locks access to the items
+     */
     final Lock itemsLock = new ReentrantLock();
 
     /** */
@@ -83,7 +91,7 @@ public class InformationBrokerImpl implements InformationBroker {
      * informationbroker.InformationItem,
      * net.xeoh.plugins.informationbroker.options.PublishOption[])
      */
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     @Override
     public <T> void publish(Class<? extends InformationItem<T>> channel, T item,
                             PublishOption... options) {
@@ -124,7 +132,7 @@ public class InformationBrokerImpl implements InformationBroker {
      * net.xeoh.plugins.informationbroker.InformationListener,
      * net.xeoh.plugins.informationbroker.options.SubscribeOption[])
      */
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     @Override
     public <T> void subscribe(Class<? extends InformationItem<T>> id,
                               InformationListener<T> listener, SubscribeOption... options) {
@@ -185,7 +193,7 @@ public class InformationBrokerImpl implements InformationBroker {
 
     /**
      * Returns the key entry of a given ID.
-     * 
+     *
      * @param id The ID to request
      * @return The key entry.
      */

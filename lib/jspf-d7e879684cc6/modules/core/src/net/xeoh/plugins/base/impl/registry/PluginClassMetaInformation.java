@@ -27,15 +27,15 @@
  */
 package net.xeoh.plugins.base.impl.registry;
 
+import net.xeoh.plugins.base.Plugin;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import net.xeoh.plugins.base.Plugin;
-
 /**
  * Meta information of the given plugin class.
- * 
+ *
  * @author Ralf Biedert
  */
 public class PluginClassMetaInformation {
@@ -44,38 +44,53 @@ public class PluginClassMetaInformation {
      * @author rb
      */
     public static enum PluginClassStatus {
-        /** No further information are available. Should not be observed 
-         * under normal circumstances. */
+        /**
+         * No further information are available. Should not be observed
+         * under normal circumstances.
+         */
         UNDEFINED,
 
-        /** Plugin has been accepted as a valid plugin */
+        /**
+         * Plugin has been accepted as a valid plugin
+         */
         ACCEPTED,
 
-        /** Disabled due to various reasons (check logging output). */
+        /**
+         * Disabled due to various reasons (check logging output).
+         */
         DISABLED,
 
-        /** Plugin contains unresolved dependencies */
+        /**
+         * Plugin contains unresolved dependencies
+         */
         CONTAINS_UNRESOLVED_DEPENDENCIES,
 
-        /** Plugin is ready for spawning, should happen soon. */
+        /**
+         * Plugin is ready for spawning, should happen soon.
+         */
         SPAWNABLE,
 
-        /** Plugin has been lazy-spawned. ??? */
+        /**
+         * Plugin has been lazy-spawned. ???
+         */
         LAZY_SPAWNED,
 
-        /** Plugin has been spawned. Should be accessible now 
-         * by getPlugin(). */
+        /**
+         * Plugin has been spawned. Should be accessible now
+         * by getPlugin().
+         */
         SPAWNED,
 
-        /** If the class failed to spawn */
+        /**
+         * If the class failed to spawn
+         */
         FAILED,
     }
 
     /**
      * Another plugin this plugin depends on.
-     * 
-     * @author rb
      *
+     * @author rb
      */
     public static class Dependency {
         /** */
@@ -88,13 +103,19 @@ public class PluginClassMetaInformation {
         public boolean isOptional = false;
     }
 
-    /** Status of this plugin class */
+    /**
+     * Status of this plugin class
+     */
     public PluginClassStatus pluginClassStatus = PluginClassStatus.UNDEFINED;
 
-    /** Where this plugin came from */
+    /**
+     * Where this plugin came from
+     */
     public URI pluginOrigin;
 
-    /** The dependencies of this class */
+    /**
+     * The dependencies of this class
+     */
     public Collection<Dependency> dependencies = new ArrayList<Dependency>();
 
 }

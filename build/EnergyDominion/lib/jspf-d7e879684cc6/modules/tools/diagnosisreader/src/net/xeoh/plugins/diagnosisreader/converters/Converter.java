@@ -27,25 +27,25 @@
  */
 package net.xeoh.plugins.diagnosisreader.converters;
 
-import java.io.File;
-
 import net.xeoh.plugins.base.Plugin;
+
+import java.io.File;
 
 /**
  * @author Ralf Biedert
  */
 public interface Converter extends Plugin {
-    
+
     /**
      * Converts the given file.
-     * 
+     *
      * @param file
      */
     public void convert(File file);
-    
+
     /**
-     * Returns infos about this converter 
-     *  
+     * Returns infos about this converter
+     *
      * @return The current converter info.
      */
     public ConverterInfo getInfo();

@@ -31,7 +31,6 @@ import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
 
 /**
  * @author rb
- *
  */
 public class CommonClasspathElement extends AbstractClasspathElement {
 

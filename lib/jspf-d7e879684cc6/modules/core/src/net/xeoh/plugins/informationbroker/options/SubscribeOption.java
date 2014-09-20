@@ -32,7 +32,7 @@ import net.xeoh.plugins.informationbroker.InformationBroker;
 
 /**
  * The base type for all <code>subscribe()</code> options.
- * 
+ *
  * @author Ralf Biedert
  * @see InformationBroker
  */

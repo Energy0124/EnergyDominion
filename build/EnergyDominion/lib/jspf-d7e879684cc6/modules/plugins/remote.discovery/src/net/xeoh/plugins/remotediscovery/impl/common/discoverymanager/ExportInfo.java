@@ -33,7 +33,6 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * 
  * @author Ralf Biedert
  */
 public class ExportInfo implements Serializable {
@@ -43,7 +42,9 @@ public class ExportInfo implements Serializable {
     /** */
     private int version = 100;
 
-    /** true if the plugin was exported there */
+    /**
+     * true if the plugin was exported there
+     */
     public boolean isExported;
 
     /** */
@@ -66,7 +67,7 @@ public class ExportInfo implements Serializable {
      */
     @SuppressWarnings("unchecked")
     private void readObject(java.io.ObjectInputStream in) throws IOException,
-                                                         ClassNotFoundException {
+            ClassNotFoundException {
         this.version = in.readInt();
         this.isExported = in.readBoolean();
         this.allExported = (Collection<ExportedPlugin>) in.readObject();

@@ -45,11 +45,11 @@ public class Contains extends Matcher {
      */
     @Override
     public boolean matches(Object object) {
-        if(object == null) return false;
-        if(!(object instanceof String)) return false;
+        if (object == null) return false;
+        if (!(object instanceof String)) return false;
 
         String s = (String) object;
-        
+
         return s.contains(this.string);
     }
 }

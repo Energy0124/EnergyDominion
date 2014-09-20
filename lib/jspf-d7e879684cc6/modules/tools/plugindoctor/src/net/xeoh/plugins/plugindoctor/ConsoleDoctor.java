@@ -27,23 +27,21 @@
  */
 package net.xeoh.plugins.plugindoctor;
 
-import java.io.File;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
 import net.xeoh.plugins.base.impl.classpath.locator.ClassPathLocator;
 import net.xeoh.plugins.plugindoctor.analysis.AbstractClasspathElement;
 import net.xeoh.plugins.plugindoctor.output.JARWriter;
 
+import java.io.File;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class ConsoleDoctor {
     /**
-     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -58,9 +56,9 @@ public class ConsoleDoctor {
     }
 
     /**
-     * Scans the path for all available plugins and extracts the plugin interfaces 
+     * Scans the path for all available plugins and extracts the plugin interfaces
      * and their dependencies.
-     * 
+     *
      * @param projectClasspaths
      * @param target
      */
@@ -83,7 +81,7 @@ public class ConsoleDoctor {
                 System.out.println(classPathElement);
             }
         }
-        
+
         new JARWriter(new File(target + "/test.jar"));
     }
 }

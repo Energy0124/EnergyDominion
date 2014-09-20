@@ -31,7 +31,6 @@ import net.xeoh.plugins.base.annotations.PluginImplementation;
 
 /**
  * @author rb
- *
  */
 @PluginImplementation
 public class Class implements net.xeoh.plugins.testplugins.classification.Class {
@@ -43,5 +42,5 @@ public class Class implements net.xeoh.plugins.testplugins.classification.Class 
     public int classy() {
         return 123;
     }
-    
+
 }

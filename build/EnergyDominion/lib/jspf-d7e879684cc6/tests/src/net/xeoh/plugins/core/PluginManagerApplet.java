@@ -33,14 +33,13 @@ import sun.applet.AppletSecurity;
 
 /**
  * @author rb
- *
  */
 public class PluginManagerApplet {
 
     private PluginManager pluginManager;
 
     /**
-     * 
+     *
      */
     public PluginManagerApplet() {
         System.setSecurityManager(new AppletSecurity());

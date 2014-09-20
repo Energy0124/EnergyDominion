@@ -32,7 +32,7 @@ import net.xeoh.plugins.base.PluginManager;
 
 /**
  * The base type for all <code>getInformation()</code> options.
- * 
+ *
  * @author Ralf Biedert
  * @see PluginManager
  */

@@ -29,7 +29,6 @@ package net.xeoh.plugins.remote;
 
 /**
  * @author rb
- *
  */
 public interface RemoteAPILipe extends RemoteAPI {
     //

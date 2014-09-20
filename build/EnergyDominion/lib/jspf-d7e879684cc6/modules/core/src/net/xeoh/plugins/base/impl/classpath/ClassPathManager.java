@@ -27,17 +27,6 @@
  */
 package net.xeoh.plugins.base.impl.classpath;
 
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.impl.PluginManagerImpl;
 import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
 import net.xeoh.plugins.base.impl.classpath.cache.JARCache.JARInformation;
@@ -49,34 +38,56 @@ import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
 import net.xeoh.plugins.base.impl.classpath.locator.ClassPathLocator;
 import net.xeoh.plugins.base.impl.classpath.locator.locations.JARClasspathLocation;
 import net.xeoh.plugins.base.options.AddPluginsFromOption;
-
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
 import org.codehaus.classworlds.DuplicateRealmException;
 import org.codehaus.classworlds.NoSuchRealmException;
 
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
+
 /**
  * Manages all our classpaths shared by different plugins.
- * 
+ *
  * @author Ralf Biedert
  */
 public class ClassPathManager {
-    /** Console and file logging */
+    /**
+     * Console and file logging
+     */
     private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Blocks access to the file cache */
+    /**
+     * Blocks access to the file cache
+     */
     private final Lock cacheLock = new ReentrantLock();
 
-    /** Manages content cache of jar files */
+    /**
+     * Manages content cache of jar files
+     */
     private final JARCache jarCache = new JARCache();
 
-    /** Locates possible classpaths */
+    /**
+     * Locates possible classpaths
+     */
     private final ClassPathLocator locator;
 
-    /** Loads plugins from various urls */
+    /**
+     * Loads plugins from various urls
+     */
     private final Collection<AbstractLoader> pluginLoader = new ArrayList<AbstractLoader>();
 
-    /** Manages classpaths from URLs */
+    /**
+     * Manages classpaths from URLs
+     */
     ClassWorld classWorld;
 
     /**
@@ -123,14 +134,14 @@ public class ClassPathManager {
 
     /**
      * Locates plugins at a given source, loads them and adds them to the registry.
-     * 
+     *
      * @param location
-     * @param options 
+     * @param options
      * @return .
      */
     public boolean addFromLocation(URI location, AddPluginsFromOption[] options) {
-        if(location == null) return false;
-        
+        if (location == null) return false;
+
         this.cacheLock.lock();
         try {
             // Load local cache
@@ -152,19 +163,19 @@ public class ClassPathManager {
 
     /**
      * Loads a class given its name and classpath location.
-     * 
+     *
      * @param location Specifies where this plugins should be obtained from, or
-     * <code>null</code> if we should use our own classloader.
-     * @param name The name of the class to load.
-     * 
+     *                 <code>null</code> if we should use our own classloader.
+     * @param name     The name of the class to load.
      * @return The requested class.
-     * 
      * @throws ClassNotFoundException
      */
     public Class<?> loadClass(AbstractClassPathLocation location, String name)
-                                                                              throws ClassNotFoundException {
+            throws ClassNotFoundException {
         // In case no location is supplied ...
-        if (location == null) { return getClass().getClassLoader().loadClass(name); }
+        if (location == null) {
+            return getClass().getClassLoader().loadClass(name);
+        }
 
         try {
             if (this.initializedProperly) {
@@ -183,10 +194,9 @@ public class ClassPathManager {
 
     /**
      * Finds all subclasses for the given superclass.
-     * 
-     * @param location The location to search for.
+     *
+     * @param location   The location to search for.
      * @param superclass The superclass to obtain subclasses for.
-     * 
      * @return A list of plugin names extending <code>superclass</code>.
      */
     public Collection<String> findSubclassesFor(AbstractClassPathLocation location,
@@ -274,7 +284,7 @@ public class ClassPathManager {
 
     /**
      * Adds a classpath location to this manager.
-     * 
+     *
      * @param location
      */
     public void registerLocation(AbstractClassPathLocation location) {
@@ -296,15 +306,17 @@ public class ClassPathManager {
 
     /**
      * Returns a resource as an input stream for a given location.
-     * 
+     *
      * @param location The location to use.
-     * @param name The requested resource.
+     * @param name     The requested resource.
      * @return The input stream for the requested resource or <code>null</code> if none
      * was found.
      */
     public InputStream getResourceAsStream(AbstractClassPathLocation location, String name) {
         // In case no location is supplied ...
-        if (location == null) { return getClass().getClassLoader().getResourceAsStream(name); }
+        if (location == null) {
+            return getClass().getClassLoader().getResourceAsStream(name);
+        }
 
         try {
             final ClassLoader classLoader = this.classWorld.getRealm(location.getRealm()).getClassLoader();
@@ -317,7 +329,7 @@ public class ClassPathManager {
 
     /**
      * Returns our locator.
-     * 
+     *
      * @return The locator.
      */
     public ClassPathLocator getLocator() {
@@ -326,7 +338,7 @@ public class ClassPathManager {
 
     /**
      * Returns the JAR cache.
-     * 
+     *
      * @return The cache.
      */
     public JARCache getCache() {

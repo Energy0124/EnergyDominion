@@ -1,10 +1,10 @@
 package net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl;
 
-import java.io.Serializable;
-import java.net.URI;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.PublishMethod;
+
+import java.io.Serializable;
+import java.net.URI;
 
 /**
  * @author rb

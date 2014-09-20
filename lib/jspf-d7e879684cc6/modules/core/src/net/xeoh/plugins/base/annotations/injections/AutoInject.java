@@ -27,32 +27,31 @@
  */
 package net.xeoh.plugins.base.annotations.injections;
 
+import net.jcores.jre.annotations.Beta;
+import net.xeoh.plugins.base.PluginManager;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.jcores.jre.annotations.Beta;
-import net.xeoh.plugins.base.PluginManager;
-
 /**
  * Inject all possible instance implementing into this plugin. The same as if you annotated
  * each variable and method with {@link InjectPlugin}.<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;AutoInject<br/>
  * &#064;PluginImplementation<br/>
  * public class MyPlugin ...;
  * </code><br/><br/>
- * 
+ * <p/>
  * Please note: The annotated variable has to be <b>public</b>!
  *
  * @author Ralf Biedert
  * @see PluginManager
- *
  */
 @Beta
-@Target(value = { ElementType.TYPE })
+@Target(value = {ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AutoInject {
 }

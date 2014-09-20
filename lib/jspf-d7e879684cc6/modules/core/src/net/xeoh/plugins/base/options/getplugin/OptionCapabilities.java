@@ -31,24 +31,24 @@ import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.options.GetPluginOption;
 
 /**
- * Specifies the method should only consider plugins satisfying all the 
+ * Specifies the method should only consider plugins satisfying all the
  * given {@link Capabilities}. This is useful in case there are a number of plugins
- * implementing the same interface. With this option, only plugins with the 
+ * implementing the same interface. With this option, only plugins with the
  * specified capabilities are considered. For example, to get a plugin implementing
  * the <code>Language</code> and capable of handling English, write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * pluginManager.getPlugin(Language.class, new OptionCapabilities("language:english"));
  * </code><br/><br/>
- * 
- * If multiple capabilities are specified only plugins matching all of them are being 
+ * <p/>
+ * If multiple capabilities are specified only plugins matching all of them are being
  * considered. Multiple capabilities MUST be specified within a single option, not as
  * multiple options, i.e., write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * new OptionCapabilities("filetype:xml", "filetype:csv", "filetype:raw");
  * </code><br/><br/>
- * 
+ *
  * @author Ralf Biedert
  */
 public class OptionCapabilities implements GetPluginOption {
@@ -60,8 +60,8 @@ public class OptionCapabilities implements GetPluginOption {
     private String[] caps;
 
     /**
-     * Returns plugins that matches all given capabilites. 
-     * 
+     * Returns plugins that matches all given capabilites.
+     *
      * @param matchingCapabilites The capabilities to consider.
      */
     public OptionCapabilities(String... matchingCapabilites) {
@@ -69,9 +69,9 @@ public class OptionCapabilities implements GetPluginOption {
     }
 
     /**
-     * Returns the requested capabilities. 
-     * 
-     * @return Array of caps. 
+     * Returns the requested capabilities.
+     *
+     * @return Array of caps.
      */
     public String[] getCapabilities() {
         return this.caps;

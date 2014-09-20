@@ -1,46 +1,10 @@
 package net.xeoh.plugins.remotediscovery.impl.v2;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceInfo;
-import javax.jmdns.impl.tasks.ServiceResolver;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
-import net.xeoh.plugins.base.annotations.Thread;
 import net.xeoh.plugins.base.annotations.configuration.IsDisabled;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.util.OptionUtils;
 import net.xeoh.plugins.base.util.PluginConfigurationUtil;
@@ -57,14 +21,30 @@ import net.xeoh.plugins.remotediscovery.options.discover.OptionCallback;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionNearest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionOldest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionYoungest;
-
 import org.freshvanilla.rmi.Proxies;
 import org.freshvanilla.rmi.VanillaRmiServer;
 import org.freshvanilla.utils.SimpleResource;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
+import javax.jmdns.impl.tasks.ServiceResolver;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
+
 /**
  * @author Thomas Lottermann
- *
  */
 @IsDisabled
 @PluginImplementation
@@ -81,7 +61,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
 
     private int startupLock;
 
-    /** How we lock for the first call? */
+    /**
+     * How we lock for the first call?
+     */
     private String lockMode;
 
     /**
@@ -98,9 +80,8 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
 
     /**
      * A request for callbacks.
-     * 
-     * @author rb
      *
+     * @author rb
      */
     class CallbackRequest {
         Class<? extends Plugin> req;
@@ -140,9 +121,7 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
     }
 
     /**
-     * 
      * @author rb
-     *
      */
     static class RemoteManagerEndpoint {
         /** */
@@ -164,7 +143,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
         }
     }
 
-    /** All callbacks for discovered plugins */
+    /**
+     * All callbacks for discovered plugins
+     */
     protected final List<CallbackRequest> allRequests = new ArrayList<CallbackRequest>();
 
     /** */
@@ -176,18 +157,26 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
     /** */
     protected final CountDownLatch startupLatch = new CountDownLatch(1);
 
-    /** usually should contain only all DiscoveryManager; */
+    /**
+     * usually should contain only all DiscoveryManager;
+     */
     protected final Collection<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
 
-    /** Contains a list of remote DiscoveryManagers all over the network and also the local manager. This is not final as we replace 
-     * it every iteration. This way the client has the chance to grab a local "copy"  and work on it while a more receent version is 
-     * being prepared*/
+    /**
+     * Contains a list of remote DiscoveryManagers all over the network and also the local manager. This is not final as we replace
+     * it every iteration. This way the client has the chance to grab a local "copy"  and work on it while a more receent version is
+     * being prepared
+     */
     protected volatile Collection<RemoteManagerEndpoint> remoteManagersEndpoints = new ArrayList<RemoteManagerEndpoint>();
 
-    /** The local manager */
+    /**
+     * The local manager
+     */
     protected final AbstractDiscoveryManager localTCPIPManager = new DiscoveryManagerTCPIPImpl();
 
-    /** Server of the exported local manager */
+    /**
+     * Server of the exported local manager
+     */
     VanillaRmiServer<DiscoveryManager> localManagerExportServer;
 
     JmDNS jmdns;
@@ -477,8 +466,7 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
         // Our options ...
         final OptionUtils<DiscoverOption> ou = new OptionUtils<DiscoverOption>(options);
 
-        
-        
+
         // Wait until init is done ...
         try {
             this.startupLatch.await();
@@ -489,7 +477,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
 
         // Timelock: Wait for a certain time to pass since startup
         if (this.lockMode.equals("timelock")) {
-            if (awaitInitializationTime() == false) { return new ArrayList<DiscoveredPlugin>(); }
+            if (awaitInitializationTime() == false) {
+                return new ArrayList<DiscoveredPlugin>();
+            }
         }
 
         // Onepass: Wait for the discover to execute once
@@ -510,7 +500,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
                 }
 
                 // Safety check
-                if (System.currentTimeMillis() > startOfWait + 1000) { throw new IllegalStateException("We are waiting way too long."); }
+                if (System.currentTimeMillis() > startOfWait + 1000) {
+                    throw new IllegalStateException("We are waiting way too long.");
+                }
             }
         }
 
@@ -525,9 +517,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
 
     /**
      * Checks all known service infos for matches to the given class, returns all matching entries.
-     * 
+     *
      * @param plugin
-     * @param options 
+     * @param options
      * @return
      */
     private Collection<DiscoveredPlugin> resolve(final Class<? extends Plugin> plugin,
@@ -697,8 +689,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
         return result;
     }
 
-    /** 
+    /**
      * out of net.xeoh.plugins.remote.impl.ermi.RemoteAPIImpl
+     *
      * @return
      */
     private static int getFreePort() {

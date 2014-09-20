@@ -30,7 +30,6 @@ package net.xeoh.plugins.remotediscovery.options;
 import net.xeoh.plugins.base.Option;
 
 /**
- * 
  * @author rb
  */
 public interface DiscoverOption extends Option {

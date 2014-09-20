@@ -27,14 +27,13 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.io.File;
-
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
 
+import java.io.File;
+
 /**
  * @author rb
- *
  */
 public class ClassWorldsTest {
     /**
@@ -43,18 +42,18 @@ public class ClassWorldsTest {
      */
     public static void main(String[] args) throws Exception {
         ClassWorld cw = new ClassWorld();
-        ClassRealm realm = cw.newRealm("http://x.as?2");        
+        ClassRealm realm = cw.newRealm("http://x.as?2");
         realm.addConstituent(new File("bin/").toURI().toURL());
         ClassLoader classLoader = realm.getClassLoader();
-        
+
         Class<?> loadClass = classLoader.loadClass("net.xeoh.plugins.base.Plugin");
         System.out.println(loadClass);
-        
+
         ClassRealm realm2 = cw.newRealm("ASd");
         ClassLoader classLoader2 = realm2.getClassLoader();
         Class<?> loadClass2 = classLoader2.loadClass("net.xeoh.plugins.base.Plugin");
         System.out.println(loadClass2);
-        
-        
+
+
     }
 }

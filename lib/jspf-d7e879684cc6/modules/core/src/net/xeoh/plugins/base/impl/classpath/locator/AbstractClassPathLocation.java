@@ -27,57 +27,66 @@
  */
 package net.xeoh.plugins.base.impl.classpath.locator;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.InputStream;
-import java.net.URI;
-import java.util.Collection;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
 import net.xeoh.plugins.base.impl.classpath.cache.JARCache.JARInformation;
 import net.xeoh.plugins.base.impl.classpath.locator.locations.FileClasspathLocation;
 import net.xeoh.plugins.base.impl.classpath.locator.locations.JARClasspathLocation;
 import net.xeoh.plugins.base.impl.classpath.locator.locations.MultiPluginClasspathLocation;
 
+import java.io.InputStream;
+import java.net.URI;
+import java.util.Collection;
+import java.util.logging.Logger;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * Location of a classpath (i.e., either a JAR file or a toplevel directory)
- * 
+ * <p/>
  * TODO: Constrict two subclasses, JARClassPathLocation and FileClassPathLocation
- * 
+ *
  * @author Ralf Biedert
- * 
  */
 public abstract class AbstractClassPathLocation {
     /**
-     * 
      * Type of this location
-     * 
+     *
      * @author Ralf Biedert
-     * 
      */
     public enum LocationType {
-        /** Is a JAR */
+        /**
+         * Is a JAR
+         */
         JAR,
-        /** Is an ordinary dir */
+        /**
+         * Is an ordinary dir
+         */
         DIRECTORY,
-        /** A multiplugin*/
+        /**
+         * A multiplugin
+         */
         MULTI_PLUGIN
     }
 
     /** */
     protected final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Location of this item */
+    /**
+     * Location of this item
+     */
     protected final URI location;
 
-    /** ID of this entry */
+    /**
+     * ID of this entry
+     */
     protected final String realm;
 
     /** */
     protected final JARCache cache;
 
-    /** Information for this location entry */
+    /**
+     * Information for this location entry
+     */
     protected JARInformation cacheEntry = null;
 
     /**
@@ -92,10 +101,10 @@ public abstract class AbstractClassPathLocation {
     }
 
     /**
-     * Constructs a new ClassPathLocation which handles all classes within.  
-     * 
-     * @param cache The cache to lookup the entrie's content.
-     * @param realm The real name.
+     * Constructs a new ClassPathLocation which handles all classes within.
+     *
+     * @param cache    The cache to lookup the entrie's content.
+     * @param realm    The real name.
      * @param location URI location of the given classpath.
      * @return The constructed location.
      */
@@ -111,10 +120,10 @@ public abstract class AbstractClassPathLocation {
     }
 
     /**
-     * Returns the top level classpath location. This is *NOT* equal to the 
+     * Returns the top level classpath location. This is *NOT* equal to the
      * the classpath-entries this location provides. Especially multi-plugins
-     * may consist of a number of JARs required for proper class resolution. 
-     * 
+     * may consist of a number of JARs required for proper class resolution.
+     *
      * @return The top level location
      */
     public URI getToplevelLocation() {
@@ -124,11 +133,11 @@ public abstract class AbstractClassPathLocation {
     /**
      * Gets all classpath entries required to properly load plugins. Add them
      * to a class loader.
-     * 
+     *
      * @return the location
      */
     public URI[] getClasspathLocations() {
-        return new URI[] { this.location };
+        return new URI[]{this.location};
     }
 
     /**
@@ -140,30 +149,29 @@ public abstract class AbstractClassPathLocation {
 
     /**
      * Get the type of this entry
-     * 
+     *
      * @return .
      */
     public abstract LocationType getType();
 
     /**
      * Lists the name of all classes inside this classpath element
-     * 
+     *
      * @return .
      */
     public abstract Collection<String> listToplevelClassNames();
 
     /**
      * Lists all entries in this location, no matter if class or file (excluding directories)
-     * 
+     *
      * @return .
      */
     public abstract Collection<String> listAllEntries();
 
     /**
      * Creates an input stream for the requested item
-     * 
+     *
      * @param entry
-     * 
      * @return .
      */
     public abstract InputStream getInputStream(String entry);

@@ -30,14 +30,14 @@ package net.xeoh.plugins.diagnosis.local;
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
 
 /**
+ * @param <T>
  * @author Ralf Biedert
  * @since 1.1
- * @param <T>
  */
 public interface DiagnosisChannel<T> {
     /**
      * @param value
-     * @param options 
+     * @param options
      */
     public void status(T value, StatusOption... options);
 }

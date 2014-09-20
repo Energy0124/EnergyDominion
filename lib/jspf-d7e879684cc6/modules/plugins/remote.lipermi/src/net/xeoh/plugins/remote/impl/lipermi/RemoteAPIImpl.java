@@ -28,15 +28,6 @@
 
 package net.xeoh.plugins.remote.impl.lipermi;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.UnknownHostException;
-import java.util.Random;
-import java.util.logging.Logger;
-
 import net.sf.lipermi.exception.LipeRMIException;
 import net.sf.lipermi.handler.CallHandler;
 import net.sf.lipermi.net.Client;
@@ -46,7 +37,6 @@ import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.events.Init;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.util.PluginConfigurationUtil;
 import net.xeoh.plugins.base.util.PluginUtil;
@@ -59,11 +49,15 @@ import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.remotediscovery.util.RemoteAPIDiscoveryUtil;
 
+import java.io.IOException;
+import java.net.*;
+import java.util.Random;
+import java.util.logging.Logger;
+
 /**
  * Essence RMI Implementation. Nice framework ...
  *
  * @author Ralf Biedert
- *
  */
 @PluginImplementation
 public class RemoteAPIImpl implements RemoteAPILipe {
@@ -78,13 +72,17 @@ public class RemoteAPIImpl implements RemoteAPILipe {
     /** */
     private String exportServer = "127.0.0.1";
 
-    /** Where this server can be found */
+    /**
+     * Where this server can be found
+     */
     private final String protocol = "lipe://";
 
     /** Port to start using */
     //private final int START_PORT = 22719;
 
-    /** Log events */
+    /**
+     * Log events
+     */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
     /** */
@@ -120,7 +118,7 @@ public class RemoteAPIImpl implements RemoteAPILipe {
             return null;
         }
 
-        final String name =  PluginExport.getExportName(plugin);
+        final String name = PluginExport.getExportName(plugin);
         final Class<? extends Plugin> exporter = new PluginUtil(plugin).getPrimaryInterfaces().iterator().next();
 
         /*
@@ -137,7 +135,7 @@ public class RemoteAPIImpl implements RemoteAPILipe {
         }
 
 */
-        
+
         this.logger.fine("Using exporter " + exporter);
 
         try {
@@ -157,12 +155,12 @@ public class RemoteAPIImpl implements RemoteAPILipe {
 
     /**
      * Returns the capabilities of this plugin.
-     * 
+     *
      * @return .
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "lipe", "LIPE" };
+        return new String[]{"lipe", "LIPE"};
     }
 
     /* (non-Javadoc)
@@ -175,10 +173,12 @@ public class RemoteAPIImpl implements RemoteAPILipe {
     /* (non-Javadoc)
      * @see net.xeoh.plugins.remote.RemoteAPI#getRemoteProxy(java.net.URI, java.lang.Class)
      */
-    @SuppressWarnings( { "unchecked" })
+    @SuppressWarnings({"unchecked"})
     public <R extends Plugin> R getRemoteProxy(final URI url, final Class<R> remote) {
         // In case this is a remote url, let the discoverer work.
-        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) { return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote); }
+        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) {
+            return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote);
+        }
 
         if (url == null) {
             this.logger.warning("URL was null. Cannot get a proxy for that, returning null.");
@@ -241,7 +241,7 @@ public class RemoteAPIImpl implements RemoteAPILipe {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */

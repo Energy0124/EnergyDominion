@@ -28,30 +28,11 @@
 
 package net.xeoh.plugins.remote.impl.ermi;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.events.Init;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.base.util.PluginConfigurationUtil;
@@ -63,15 +44,21 @@ import net.xeoh.plugins.remote.util.internal.PluginExport;
 import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.remotediscovery.util.RemoteAPIDiscoveryUtil;
-
 import org.freshvanilla.rmi.Proxies;
 import org.freshvanilla.rmi.VanillaRmiServer;
+
+import java.io.IOException;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.*;
+import java.util.logging.Logger;
 
 /**
  * Essence RMI Implementation. Nice framework ...
  *
  * @author Ralf Biedert
- *
  */
 @Author(name = "Ralf Biedert")
 @PluginImplementation
@@ -86,15 +73,21 @@ public class RemoteAPIImpl implements RemoteAPIERMI {
 
     private String exportServer = "127.0.0.1";
 
-    /** Where this server can be found */
+    /**
+     * Where this server can be found
+     */
     private final String protocol = "ermi://";
 
     /** Port to start using */
     //private final int START_PORT = 22719;
-    /** Needed for shutdown. */
+    /**
+     * Needed for shutdown.
+     */
     final List<VanillaRmiServer<Plugin>> allServer = new ArrayList<VanillaRmiServer<Plugin>>();
 
-    /** Log events */
+    /**
+     * Log events
+     */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
     /** */
@@ -161,12 +154,12 @@ public class RemoteAPIImpl implements RemoteAPIERMI {
 
     /**
      * Returns the capabilities of this plugin.
-     * 
+     *
      * @return .
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "ermi", "ERMI" };
+        return new String[]{"ermi", "ERMI"};
     }
 
     /* (non-Javadoc)
@@ -179,10 +172,12 @@ public class RemoteAPIImpl implements RemoteAPIERMI {
     /* (non-Javadoc)
      * @see net.xeoh.plugins.remote.RemoteAPI#getRemoteProxy(java.net.URI, java.lang.Class)
      */
-    @SuppressWarnings( { "unchecked", "boxing" })
+    @SuppressWarnings({"unchecked", "boxing"})
     public <R extends Plugin> R getRemoteProxy(final URI url, final Class<R> remote) {
         // In case this is a remote url, let the discoverer work.
-        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) { return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote); }
+        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) {
+            return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote);
+        }
 
         if (url == null) {
             this.logger.warning("URL was null. Cannot get a proxy for that, returning null.");
@@ -264,7 +259,7 @@ public class RemoteAPIImpl implements RemoteAPIERMI {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */

@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.diagnosisreader.ui;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-import java.util.Collection;
-
 import net.jcores.jre.cores.CoreFile;
 import net.jcores.jre.cores.CoreObject;
 import net.jcores.jre.interfaces.functions.F0;
@@ -41,6 +36,11 @@ import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 import net.xeoh.plugins.diagnosisreader.converters.Converter;
 
+import java.io.File;
+import java.util.Collection;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * @author Ralf Biedert
  */
@@ -49,7 +49,9 @@ public class MainWindow extends MainWindowTemplate {
     /** */
     private static final long serialVersionUID = 3556149463262771404L;
 
-    /** The plugin manager we use */
+    /**
+     * The plugin manager we use
+     */
     private PluginManager pluginManager;
 
     /**
@@ -94,7 +96,7 @@ public class MainWindow extends MainWindowTemplate {
 
         // Now convert all files
         for (final Converter c : plugins) {
-            if(c.getInfo().getName().equals(selected)) {
+            if (c.getInfo().getName().equals(selected)) {
                 files.map(new F1<File, Void>() {
 
                     @Override

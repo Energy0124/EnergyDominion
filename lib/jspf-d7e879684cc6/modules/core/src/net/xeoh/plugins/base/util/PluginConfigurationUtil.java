@@ -27,14 +27,14 @@
  */
 package net.xeoh.plugins.base.util;
 
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.PluginConfiguration;
+
+import java.util.logging.Logger;
 
 /**
  * Helper functions for PluginConfiguration interface. The util uses the embedded
  * interface to provide more convenience features.
- * 
+ *
  * @author Ralf Biedert
  * @see PluginConfiguration
  */
@@ -42,7 +42,7 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Creates a new util for the given interface.
-     * 
+     *
      * @param pc The interface to create the utils for.
      */
     public PluginConfigurationUtil(PluginConfiguration pc) {
@@ -53,16 +53,16 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Returns the requested key as an integer.
-     * 
-     * @param root Root class to request.
-     * @param subkey Subkey to return.
+     *
+     * @param root        Root class to request.
+     * @param subkey      Subkey to return.
      * @param defautvalue Default value to return if nothing was found.
      * @return The requested key, or the default value if the key was not found, or 0 if neither was present.
      */
     @SuppressWarnings("boxing")
     public int getInt(final Class<?> root, final String subkey,
                       final Integer... defautvalue) {
-        
+
         final String configuration = this.object.getConfiguration(root, subkey);
         if (configuration == null) {
             if (defautvalue.length >= 1) return defautvalue[0];
@@ -75,9 +75,9 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Returns the reqeusted key or a default string.
-     * 
-     * @param root Root class to request.
-     * @param subkey Subkey to return.
+     *
+     * @param root        Root class to request.
+     * @param subkey      Subkey to return.
      * @param defautvalue Default value to return if nothing was found.
      * @return The requested key, or the default value if the key was not found, or "" if neither was present.
      */
@@ -95,9 +95,9 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Returns the reqeusted key or a default float.
-     * 
-     * @param root Root class to request.
-     * @param subkey Subkey to return.
+     *
+     * @param root        Root class to request.
+     * @param subkey      Subkey to return.
      * @param defautvalue Default value to return if nothing was found.
      * @return The requested key, or the default value if the key was not found, or 0.0 if neither was present.
      */
@@ -116,9 +116,9 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Returns the reqeusted key or a default boolean.
-     * 
-     * @param root Root class to request.
-     * @param subkey Subkey to return.
+     *
+     * @param root        Root class to request.
+     * @param subkey      Subkey to return.
      * @param defautvalue Default value to return if nothing was found.
      * @return The requested key, or the default value if the key was not found, or <code>false</code> if neither was
      * present.
@@ -138,9 +138,9 @@ public class PluginConfigurationUtil extends VanillaPluginUtil<PluginConfigurati
 
     /**
      * Returns the reqeusted key or a default double.
-     * 
-     * @param root Root class to request.
-     * @param subkey Subkey to return.
+     *
+     * @param root        Root class to request.
+     * @param subkey      Subkey to return.
      * @param defautvalue Default value to return if nothing was found.
      * @return The requested key, or the default value if the key was not found, or 0.0 if neither was present.
      */

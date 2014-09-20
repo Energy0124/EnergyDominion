@@ -34,7 +34,6 @@ import java.net.URI;
 
 /**
  * @author rb
- *
  */
 public class ExportedPlugin implements Serializable {
     /** */
@@ -73,7 +72,7 @@ public class ExportedPlugin implements Serializable {
      * @throws ClassNotFoundException
      */
     private void readObject(java.io.ObjectInputStream in) throws IOException,
-                                                         ClassNotFoundException {
+            ClassNotFoundException {
         this.version = in.readInt();
         this.exportMethod = (String) in.readObject();
         this.port = in.readInt();

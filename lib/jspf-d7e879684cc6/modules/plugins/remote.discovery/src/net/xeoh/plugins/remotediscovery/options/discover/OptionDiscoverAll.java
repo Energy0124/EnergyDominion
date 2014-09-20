@@ -30,9 +30,9 @@ package net.xeoh.plugins.remotediscovery.options.discover;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
 /**
- * Tries to discover all services instead of just finding the most suitable 
- * one and returning asap.  
- * 
+ * Tries to discover all services instead of just finding the most suitable
+ * one and returning asap.
+ *
  * @author Ralf Biedert.
  */
 public class OptionDiscoverAll implements DiscoverOption {

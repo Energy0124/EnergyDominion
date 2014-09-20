@@ -33,36 +33,48 @@ import net.xeoh.plugins.base.annotations.Capabilities;
  * How an implementation publishes something. As this enum is only hardly extensible from
  * outside, we have to list here all possible methods beforehand, so other might implement
  * the plugins and use a value from in here. Currently, we only have XMLRPC.
- *
- * Note: All Remote plugins also should use the &#064;{@link Capabilities} annotation to tell their 
+ * <p/>
+ * Note: All Remote plugins also should use the &#064;{@link Capabilities} annotation to tell their
  * functionality.
  *
  * @author Ralf Biedert
  * @see RemoteAPI
  */
 public enum PublishMethod {
-    /** <a href="http://code.google.com/p/essence-rmi/">Essence RMI</a> plugin. */
+    /**
+     * <a href="http://code.google.com/p/essence-rmi/">Essence RMI</a> plugin.
+     */
     ERMI,
 
-    /** In case you implemented a method not specified here. Use Capabilities then. */
+    /**
+     * In case you implemented a method not specified here. Use Capabilities then.
+     */
     OTHER,
-    /** Use <a href="http://en.wikipedia.org/wiki/XML-RPC">XMLRPC</a> for communication. Might have problems with void or null. */
+    /**
+     * Use <a href="http://en.wikipedia.org/wiki/XML-RPC">XMLRPC</a> for communication. Might have problems with void or null.
+     */
     XMLRPC,
 
-    /** DFKI's <a href="http://delight.opendfki.de/">XMLRPC Delight</a> service */
+    /**
+     * DFKI's <a href="http://delight.opendfki.de/">XMLRPC Delight</a> service
+     */
     XMLRPCDELIGHT,
 
-    /** Make plugins accessible by JavaScript (currently defunct) */
+    /**
+     * Make plugins accessible by JavaScript (currently defunct)
+     */
     JAVASCRIPT,
 
-    /** Make plugins accessible by JavaScript through <a href="http://jabsorb.org/">Jabsorb (JSON)</a>. Note that browser
-     * restrictions might prevent you from using the plugin properly. */
+    /**
+     * Make plugins accessible by JavaScript through <a href="http://jabsorb.org/">Jabsorb (JSON)</a>. Note that browser
+     * restrictions might prevent you from using the plugin properly.
+     */
     JSON,
 
     /**
-     * <a href="http://lipermi.sourceforge.net/">Lipe RMI</a> appears to be the first sensible RMI provider that supports 
-     * callbacks. The version we use however was hacked a bit to support automatic export of interfaces and contains less 
-     * bugs and deadlocks. Preferred way of exporting plugins! 
+     * <a href="http://lipermi.sourceforge.net/">Lipe RMI</a> appears to be the first sensible RMI provider that supports
+     * callbacks. The version we use however was hacked a bit to support automatic export of interfaces and contains less
+     * bugs and deadlocks. Preferred way of exporting plugins!
      */
     LIPE
 }

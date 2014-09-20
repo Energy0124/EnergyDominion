@@ -31,7 +31,6 @@ import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 
 /**
- * 
  * @author Ralf Biedert
  */
 public abstract class AbstractProbe implements RemoteDiscovery {
@@ -54,7 +53,7 @@ public abstract class AbstractProbe implements RemoteDiscovery {
     }
 
     /**
-     * Called when the probe should shut down. 
+     * Called when the probe should shut down.
      */
     public void shutdown() {
         //

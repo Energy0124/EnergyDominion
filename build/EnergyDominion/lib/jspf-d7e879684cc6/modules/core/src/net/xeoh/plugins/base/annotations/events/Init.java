@@ -27,31 +27,31 @@
  */
 package net.xeoh.plugins.base.annotations.events;
 
+import net.xeoh.plugins.base.annotations.Timer;
+import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.xeoh.plugins.base.annotations.Timer;
-import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
-
 /**
  * Use this annotation to mark functions which should be called on initialization. You
- * can be sure that at this phase all required plugins (see &#064;{@link InjectPlugin}), 
- * that have not been marked as optional, are available. So, for 
- * example, if you want a method to be called when the plugin is ready, you could 
+ * can be sure that at this phase all required plugins (see &#064;{@link InjectPlugin}),
+ * that have not been marked as optional, are available. So, for
+ * example, if you want a method to be called when the plugin is ready, you could
  * write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;Init<br/>
  * public void startup() { ... }
  * </code><br/><br/>
- * 
- * This method usually does not have to return a value (return type <code>void</code>). 
- * It may, however, return as well a boolean. If it then returns <code>false</code>, initialization of 
- * this plugin will be canceled, no &#064;{@link net.xeoh.plugins.base.annotations.Thread} or &#064;{@link Timer} will be started, no other 
+ * <p/>
+ * This method usually does not have to return a value (return type <code>void</code>).
+ * It may, however, return as well a boolean. If it then returns <code>false</code>, initialization of
+ * this plugin will be canceled, no &#064;{@link net.xeoh.plugins.base.annotations.Thread} or &#064;{@link Timer} will be started, no other
  * &#064;{@link Init} methods will be called and the plugin will not be touched any more. <br/><br/>
- * 
+ * <p/>
  * Note: Methods annotated with this have to be PUBLIC, otherwise they won't be found.
  *
  * @author Ralf Biedert

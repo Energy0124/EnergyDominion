@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.diagnosisreader;
 
-import java.io.File;
-import java.util.Collection;
-
-import javax.swing.UIManager;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
@@ -42,6 +37,10 @@ import net.xeoh.plugins.diagnosisreader.converters.impl.plain.PlainConverterImpl
 import net.xeoh.plugins.diagnosisreader.converters.impl.xml.XMLConverterImpl;
 import net.xeoh.plugins.diagnosisreader.ui.MainWindow;
 
+import javax.swing.*;
+import java.io.File;
+import java.util.Collection;
+
 /**
  * @author Ralf Biedert
  */
@@ -50,7 +49,8 @@ public class DiagnosisReader {
         // Set the system look and feel
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (final Exception e) {}
+        } catch (final Exception e) {
+        }
 
         // We only need the default plugins and a few of our owns
         final PluginManager pluginManager = PluginManagerFactory.createPluginManager();

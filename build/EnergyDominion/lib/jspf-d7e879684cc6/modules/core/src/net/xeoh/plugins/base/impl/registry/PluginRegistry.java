@@ -27,31 +27,31 @@
  */
 package net.xeoh.plugins.base.impl.registry;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 import net.jcores.jre.interfaces.functions.F1;
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.impl.registry.PluginClassMetaInformation.Dependency;
 import net.xeoh.plugins.base.impl.registry.PluginClassMetaInformation.PluginClassStatus;
 
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * The registry keeps track of all instantiated plugins.
- * 
+ *
  * @author Ralf Biedert
  */
 public class PluginRegistry {
 
-    /** Stores meta information related to a plugin */
+    /**
+     * Stores meta information related to a plugin
+     */
     private final Map<Plugin, PluginMetaInformation> pluginMetaInformation;
 
-    /** Stores meta information related to a plugin class */
+    /**
+     * Stores meta information related to a plugin class
+     */
     private final Map<Class<? extends Plugin>, PluginClassMetaInformation> pluginClassMetaInformation;
 
     /**
@@ -64,7 +64,7 @@ public class PluginRegistry {
 
     /**
      * Returns all plugins, regardless of their status
-     * 
+     *
      * @return .
      */
     public Collection<Plugin> getAllPlugins() {
@@ -73,7 +73,7 @@ public class PluginRegistry {
 
     /**
      * Returns the metainfromation of a plugin
-     * 
+     *
      * @param plugin
      * @return .
      */
@@ -83,7 +83,7 @@ public class PluginRegistry {
 
     /**
      * Returns the metainfromation of a pluginclass
-     * 
+     *
      * @param clazz
      * @return .
      */
@@ -101,7 +101,7 @@ public class PluginRegistry {
 
     /**
      * Registers a plugin with the given meta information
-     * 
+     *
      * @param plugin
      * @param metaInformation
      */
@@ -120,7 +120,7 @@ public class PluginRegistry {
 
     /**
      * Returns all classes with a given status.
-     * 
+     *
      * @param status
      * @return .
      */

@@ -30,7 +30,6 @@ package net.xeoh.plugins.remote.options.exportvanillaobject;
 import net.xeoh.plugins.remote.options.ExportVanillaObjectOption;
 
 /**
- * 
  * @author Ralf Biedert
  */
 public class OptionExportName implements ExportVanillaObjectOption {

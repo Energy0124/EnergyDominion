@@ -31,7 +31,6 @@ import net.xeoh.plugins.testplugins.core.TestCore;
 
 /**
  * @author rb
- *
  */
 public interface TestAnnotations extends TestCore {
     /**

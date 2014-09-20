@@ -31,9 +31,9 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
+ * @param <T>
  * @author Ralf Biedert
  * @since 1.1
- * @param <T>
  */
 public abstract class DiagnosisChannelID<T extends Serializable> {
     // Note: The ChannelID itself does not have to be Serializable, as we never write any
@@ -43,8 +43,8 @@ public abstract class DiagnosisChannelID<T extends Serializable> {
      * Returns an end user readable string. For example, if the channel reported Floats
      * representing temperature, you could convert a value of 30.7 to a string of
      * "30.7°C".
-     * 
-     * @param t The value to convert.
+     *
+     * @param t    The value to convert.
      * @param args The optional arguments passed as OptionInfo().
      * @return The converted value.
      */

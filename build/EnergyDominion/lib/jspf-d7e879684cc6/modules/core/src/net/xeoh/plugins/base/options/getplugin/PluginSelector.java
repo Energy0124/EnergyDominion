@@ -33,9 +33,8 @@ import net.xeoh.plugins.base.Plugin;
  * You can use this interface to select an appropriate instance of a given
  * plugin when querying the plugin manager.
  *
- * @author Ralf Biedert
- * 
  * @param <T> Type of the plugin.
+ * @author Ralf Biedert
  */
 public interface PluginSelector<T extends Plugin> {
     /**

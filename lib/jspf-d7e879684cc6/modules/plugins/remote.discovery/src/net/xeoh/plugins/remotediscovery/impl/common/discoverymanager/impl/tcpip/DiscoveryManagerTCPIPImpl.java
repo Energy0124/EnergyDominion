@@ -1,9 +1,5 @@
 package net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.tcpip;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.PublishMethod;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.DiscoveryManager;
@@ -12,16 +8,22 @@ import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.ExportedPlu
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.AbstractDiscoveryManager;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.ExportEntry;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @author Ralf Biedert
  */
 public class DiscoveryManagerTCPIPImpl extends AbstractDiscoveryManager implements
         DiscoveryManager {
 
-    /** A list of all exported entities we have */
+    /**
+     * A list of all exported entities we have
+     */
     public final Collection<ExportEntry> allExported = new ArrayList<ExportEntry>();
 
-    
+
     /* (non-Javadoc)
      * @see net.xeoh.plugins.remotediscovery.impl.v2.DiscoveryManager#getExportInfoFor(java.lang.String)
      */
@@ -59,8 +61,8 @@ public class DiscoveryManagerTCPIPImpl extends AbstractDiscoveryManager implemen
     }
 
     /**
-     * Tells the manager that a new plugin is available. 
-     * 
+     * Tells the manager that a new plugin is available.
+     *
      * @param plugin
      * @param method
      * @param url

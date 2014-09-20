@@ -27,19 +27,19 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.io.File;
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getinformation.InformationAuthors;
 import net.xeoh.plugins.base.util.JSPFProperties;
 
+import java.io.File;
+import java.net.URI;
+
 public class TestTiming {
     public static void main(String[] args) {
         System.out.println(new File("bin/").toURI());
-        
+
         final JSPFProperties props = new JSPFProperties();
 
         props.setProperty(PluginManager.class, "cache.enabled", "true");
@@ -50,7 +50,7 @@ public class TestTiming {
 
         PluginManager pm = PluginManagerFactory.createPluginManager(props);
         pm.addPluginsFrom(URI.create("classpath://*"));
-        
+
         final PluginInformation pi = pm.getPlugin(PluginInformation.class);
         final InformationAuthors information = pi.getInformation(pi, InformationAuthors.class);
     }

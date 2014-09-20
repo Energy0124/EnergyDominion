@@ -27,9 +27,9 @@
  */
 package net.xeoh.plugins.diagnosis.local.options.status;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
+
+import java.io.Serializable;
 
 public class OptionInfo implements StatusOption {
     /** */

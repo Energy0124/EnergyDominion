@@ -39,9 +39,9 @@ public class Is extends Matcher {
      */
     @Override
     public boolean matches(Object object) {
-        if(object == null && this.value == null) return true;
-        if(object == null && this.value != null) return false;
-        
+        if (object == null && this.value == null) return true;
+        if (object == null && this.value != null) return false;
+
         return this.value.equals(object);
     }
 }

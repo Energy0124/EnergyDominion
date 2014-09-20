@@ -27,29 +27,32 @@
  */
 package net.xeoh.plugins.diagnosis.local.impl;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.Serializable;
-
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannel;
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
 import net.xeoh.plugins.diagnosis.local.impl.serialization.java.Entry;
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 
+import java.io.Serializable;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 public class DiagnosisChannelImpl implements DiagnosisChannel<Object> {
 
-    /** Main diagnosis */
+    /**
+     * Main diagnosis
+     */
     private final DiagnosisImpl diagnosis;
 
-    /** Main channel */
+    /**
+     * Main channel
+     */
     private final Class<? extends DiagnosisChannelID<?>> channel;
 
     /**
      * Creates a new channel
-     * 
+     *
      * @param diagnosis
-     * 
      * @param channel
      */
     public DiagnosisChannelImpl(DiagnosisImpl diagnosis,
@@ -63,7 +66,7 @@ public class DiagnosisChannelImpl implements DiagnosisChannel<Object> {
      * 
      * @see net.xeoh.plugins.diagnosis.local.DiagnosisChannel#status(java.lang.Object)
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void status(Object value, StatusOption... options) {
         final long timestamp = System.currentTimeMillis();
@@ -80,7 +83,7 @@ public class DiagnosisChannelImpl implements DiagnosisChannel<Object> {
             final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             entry.stackTrace = $(stackTrace).slice(2, Math.min(this.diagnosis.stackTracesDepth, stackTrace.length - 2)).string().array(String.class);
         }
-        
+
         // Process all option infos
         final OptionInfo[] infos = $(options).cast(OptionInfo.class).array(OptionInfo.class);
         for (OptionInfo oi : infos) {
@@ -89,7 +92,7 @@ public class DiagnosisChannelImpl implements DiagnosisChannel<Object> {
 
         // Create status object
         final DiagnosisStatusImpl status = new DiagnosisStatusImpl((Class<? extends DiagnosisChannelID>) this.channel, (Serializable) value, timestamp, infos);
-        
+
         this.diagnosis.recordEntry(status, entry);
     }
 }

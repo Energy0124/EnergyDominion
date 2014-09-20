@@ -27,13 +27,6 @@
  */
 package net.xeoh.plugins.core;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
@@ -42,15 +35,20 @@ import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getplugin.OptionPluginSelector;
 import net.xeoh.plugins.base.options.getplugin.PluginSelector;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerTest {
 
@@ -90,7 +88,7 @@ public class PluginManagerTest {
     }
 
     /**
-     * 
+     *
      */
     //@Test
     public void testGetPluginClassOfP() {
@@ -114,7 +112,7 @@ public class PluginManagerTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testAllInterfaces() {
@@ -126,19 +124,18 @@ public class PluginManagerTest {
         }
 
     }
-    
+
     /**
-     * 
+     *
      */
     @Test
     public void testVersion() {
         PluginInformation pi = this.pm.getPlugin(PluginInformation.class);
         Collection<String> information = pi.getInformation(Information.VERSION, pm);
         $(information).print();
-        
+
     }
 
-    
 
     @SuppressWarnings("unchecked")
     private static Collection<Class<? extends Plugin>> getAllPluginClasses(Plugin plugin) {
@@ -177,7 +174,7 @@ public class PluginManagerTest {
     }
 
     /**
-     * 
+     *
      */
     //@Test
     public void testGetPluginClassOfPPluginSelectorOfP() {

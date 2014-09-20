@@ -27,19 +27,17 @@
  */
 package net.xeoh.plugins.core;
 
-import java.io.File;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.test.coolplugin.CoolPlugin;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerCompatibility {
 
@@ -62,8 +60,7 @@ public class PluginManagerCompatibility {
     }
 
     /**
-     * @throws InterruptedException 
-     * 
+     * @throws InterruptedException
      */
     @Test
     public void testGetPluginClassOfP() throws InterruptedException {

@@ -27,14 +27,15 @@ package net.xeoh.plugins.base.diagnosis.channels.tracing;
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  */
-import java.io.Serializable;
-import java.util.Map;
 
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
 
+import java.io.Serializable;
+import java.util.Map;
+
 /**
  * Traces general messages related to class path issues.
- * 
+ *
  * @author Ralf Biedert
  */
 public class ClassPathTracer extends DiagnosisChannelID<String> {

@@ -27,13 +27,6 @@
  */
 package net.xeoh.plugins.base.impl;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.net.URI;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Properties;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.PluginInformation;
@@ -63,40 +56,61 @@ import net.xeoh.plugins.diagnosis.local.impl.DiagnosisImpl;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 import net.xeoh.plugins.informationbroker.impl.InformationBrokerImpl;
 
+import java.net.URI;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Properties;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
- * Implementation of the PluginManager interface. Do not use this class. Do not cast the PluginManager to this implementation. 
+ * Implementation of the PluginManager interface. Do not use this class. Do not cast the PluginManager to this implementation.
  * Do not access any of the public methods.<br>
- * 
+ *
  * @author Ralf Biedert
  */
 @PluginImplementation
 @Version(version = 1 * Version.UNIT_MAJOR + 0 * Version.UNIT_MINOR + 2 * Version.UNIT_RELEASE)
 @Author(name = "Ralf Biedert")
 public class PluginManagerImpl implements PluginManager {
-    /** User properties for plugin configuration */
+    /**
+     * User properties for plugin configuration
+     */
     private final PluginConfiguration configuration;
 
-    /** The main container for plugins and plugin information */
+    /**
+     * The main container for plugins and plugin information
+     */
     private final PluginRegistry pluginRegistry = new PluginRegistry();
 
-    /** Classloader used by plugin manager to locate and load plugin classes */
+    /**
+     * Classloader used by plugin manager to locate and load plugin classes
+     */
     private final ClassPathManager classPathManager;
 
-    /** Manages the creation of plugins */
+    /**
+     * Manages the creation of plugins
+     */
     private final Spawner spawner;
 
-    /** Indicates if a shutdown has already been one */
+    /**
+     * Indicates if a shutdown has already been one
+     */
     private boolean shutdownPerformed = false;
 
-    /** User properties for plugin configuration */
+    /**
+     * User properties for plugin configuration
+     */
     PluginInformation information;
 
-    /** Diagnostic facilities */
+    /**
+     * Diagnostic facilities
+     */
     Diagnosis diagnosis;
 
     /**
      * Construct new properties.
-     * 
+     *
      * @param initialProperties
      */
     protected PluginManagerImpl(final Properties initialProperties) {
@@ -122,8 +136,8 @@ public class PluginManagerImpl implements PluginManager {
      */
     public PluginManager addPluginsFrom(final URI url, final AddPluginsFromOption... options) {
         this.diagnosis.channel(PluginManagerTracer.class).status("add/start", new OptionInfo("url", url));
-        if(url == null) return this;
-        
+        if (url == null) return this;
+
         // Add from the given location
         if (!this.classPathManager.addFromLocation(url, options)) {
             this.diagnosis.channel(PluginManagerTracer.class).status("add/nohandler", new OptionInfo("url", url));
@@ -143,7 +157,7 @@ public class PluginManagerImpl implements PluginManager {
      * @see net.xeoh.plugins.base.PluginManager#getPlugin(java.lang.Class,
      * net.xeoh.plugins.base.option.GetPluginOption[])
      */
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     @RecognizesOption(option = OptionPluginSelector.class)
     public <P extends Plugin> P getPlugin(final Class<P> requestedPlugin,
                                           GetPluginOption... options) {
@@ -309,7 +323,7 @@ public class PluginManagerImpl implements PluginManager {
     /**
      * Adds a plugins to the list of known plugins and performs late initialization and
      * processing.
-     * 
+     *
      * @param p The SpawnResult to hook.
      */
     public void hookPlugin(SpawnResult p) {
@@ -327,7 +341,7 @@ public class PluginManagerImpl implements PluginManager {
 
     /**
      * Returns the ClassPathManger handling our plugin sources.
-     * 
+     *
      * @return The PluginManager.
      */
     public ClassPathManager getClassPathManager() {
@@ -336,7 +350,7 @@ public class PluginManagerImpl implements PluginManager {
 
     /**
      * Returns the PluginRegistry, keeping track of loaded plugins.
-     * 
+     *
      * @return The PluginRegistry.
      */
     public PluginRegistry getPluginRegistry() {
@@ -345,7 +359,7 @@ public class PluginManagerImpl implements PluginManager {
 
     /**
      * Returns the PluginConfiguration handling application setup.
-     * 
+     *
      * @return Returns the plugin configuration.
      */
     public PluginConfiguration getPluginConfiguration() {
@@ -354,7 +368,7 @@ public class PluginManagerImpl implements PluginManager {
 
     /**
      * Returns the Diagnosis.
-     * 
+     *
      * @return The diagnosis.
      */
     public Diagnosis getDiagnosis() {
@@ -363,7 +377,7 @@ public class PluginManagerImpl implements PluginManager {
 
     /**
      * Returns the main spawner to instantiate plugins.
-     * 
+     *
      * @return The Spawner.
      */
     public Spawner getSpawner() {

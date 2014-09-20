@@ -32,14 +32,12 @@ import java.util.Map;
 
 /**
  * @author rb
- *
  */
 public class Benchmarker {
     static Map<Integer, Long> times = new HashMap<Integer, Long>();
 
     /**
-     * @param id 
-     * 
+     * @param id
      */
     @SuppressWarnings("boxing")
     public static void start(int id) {
@@ -47,7 +45,7 @@ public class Benchmarker {
     }
 
     /**
-     * @param id 
+     * @param id
      * @param label
      */
     @SuppressWarnings("boxing")

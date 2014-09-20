@@ -8,7 +8,6 @@ import quickstart.outputservice.OutputService;
 
 /**
  * @author rb
- *
  */
 @PluginImplementation
 public class TheOtherOutputServiceImpl implements OutputService {
@@ -17,7 +16,7 @@ public class TheOtherOutputServiceImpl implements OutputService {
      * Even more magic. If the service has been loaded (ensured by the requiredPlugins)
      * before this plugin, inject it.
      */
-    @InjectPlugin(requiredCapabilities = { "plugin:DataService" })
+    @InjectPlugin(requiredCapabilities = {"plugin:DataService"})
     public DataService service;
 
     public void doSomething() {

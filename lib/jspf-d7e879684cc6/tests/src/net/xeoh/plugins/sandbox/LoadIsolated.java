@@ -27,19 +27,19 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.Collection;
-import java.util.List;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.Collection;
+import java.util.List;
+
+import static net.jcores.jre.CoreKeeper.$;
 
 /**
  * @author rb
@@ -48,21 +48,21 @@ public class LoadIsolated {
     /**
      * @param args
      * @throws MalformedURLException
-     * @throws ClassNotFoundException 
+     * @throws ClassNotFoundException
      */
     public static void main(String[] args) throws MalformedURLException,
-                                          ClassNotFoundException {
-        
+            ClassNotFoundException {
+
         PluginManager pm = PluginManagerFactory.createPluginManager();
         List<File> list = $(".").file().dir().filter(".*jar$").print().list();
         for (File file : list) {
             pm.addPluginsFrom(file.toURI());
         }
-        
+
         PluginInformation pi = pm.getPlugin(PluginInformation.class);
         PluginManagerUtil pmu = new PluginManagerUtil(pm);
         Collection<Plugin> plugins = pmu.getPlugins();
-        
+
         for (Plugin plugin : plugins) {
             System.out.println(plugin + ": ");
             $(pi.getInformation(Information.CLASSPATH_ORIGIN, plugin)).print();

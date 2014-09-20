@@ -33,14 +33,14 @@ import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.PluginConfigurationUtil;
 
 /**
- * Gives you access to configuration items of plugins. In general there are three ways 
- * of adding configuration: 
+ * Gives you access to configuration items of plugins. In general there are three ways
+ * of adding configuration:
  * <ol>
  * <li>by calling <code>setPreferences()</code></li>
  * <li>by providing a {@link JSPFProperties} object to the {@link PluginManagerFactory}</li>
  * <li>by using the &#064;{@link ConfigurationFile} annotation.<br/><br/></li>
  * </ol>
- * 
+ *
  * @author Ralf Biedert
  * @see PluginConfigurationUtil
  */
@@ -49,29 +49,28 @@ public interface PluginConfiguration extends Plugin {
      * Gets a configuration key. Root may be added for convenience and will
      * prefix the subkey with its fully qualified name. Thus, if there is an interface
      * <code>GeoService</code> in the package <code>com.company.plugins.geoservice</code>
-     * the following call:<br/><br/>  
+     * the following call:<br/><br/>
      * <code>
      * getConfiguration(GeoService.class, "remote.url")
      * </code><br/><br/>
      * would try to return the configuration key <code>com.company.plugins.geoservice.GeoService.remote.url</code>.
      *
-     * @param root May also be null.
+     * @param root   May also be null.
      * @param subkey If used in conjunction with root it should not be prefixed
-     * with a dot (".")
-     *
+     *               with a dot (".")
      * @return The corresponding value or null if nothing was found.
      */
     public String getConfiguration(Class<?> root, String subkey);
 
     /**
      * Set the key for a value. Root may be added for convenience and will
-     * prefix the subkey with its FQN. Usually the configuration is added 
-     * by providing JSPFProperties object to the {@link PluginManagerFactory} 
+     * prefix the subkey with its FQN. Usually the configuration is added
+     * by providing JSPFProperties object to the {@link PluginManagerFactory}
      *
-     * @param root May also be null.
-     * @param subkey If used in conjunction with root it should not be prefixed 
-     * with a dot (".")
-     * @param value The value to set.
+     * @param root   May also be null.
+     * @param subkey If used in conjunction with root it should not be prefixed
+     *               with a dot (".")
+     * @param value  The value to set.
      */
     public void setConfiguration(Class<?> root, String subkey, String value);
 

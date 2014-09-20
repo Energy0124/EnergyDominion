@@ -27,25 +27,24 @@
  */
 package net.xeoh.plugins.base.util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.jcores.jre.utils.VanillaUtil;
 import net.xeoh.plugins.base.Option;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Handles options within plugin methods. Likely to be replaced by
  * <a href="http://jcores.net">jCores</a>.
- * 
- * @author Ralf Biedert
- * 
+ *
  * @param <T> Type paramter.
+ * @author Ralf Biedert
  */
 public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Creates a new options array.
-     * 
+     *
      * @param options
      */
     public OptionUtils(T... options) {
@@ -54,13 +53,13 @@ public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Check if the selection option is available
-     * 
+     *
      * @param option
      * @return .
      */
     public boolean contains(Class<? extends T> option) {
         for (T t : this.object) {
-            if (t == null) continue;            
+            if (t == null) continue;
             if (option.isAssignableFrom(t.getClass())) return true;
         }
 
@@ -69,7 +68,7 @@ public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Check if the selection option is available
-     * 
+     *
      * @param option
      * @return .
      */
@@ -86,9 +85,8 @@ public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Returns the selection option
-     * 
+     *
      * @param <O>
-     * 
      * @param option
      * @param deflt
      * @return .
@@ -108,9 +106,8 @@ public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Returns the selection option
-     * 
+     *
      * @param <O>
-     * 
      * @param option
      * @return .
      */
@@ -131,12 +128,10 @@ public class OptionUtils<T extends Option> extends VanillaUtil<T[]> {
 
     /**
      * Returns the selection option
-     * 
+     *
      * @param <O>
-     * 
      * @param option
      * @param handler
-     * 
      */
     @SuppressWarnings("unchecked")
     public <O extends T> void handle(Class<? extends O> option, OptionHandler<O> handler) {

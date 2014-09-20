@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.remotediscovery.util;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.RemoteAPI;
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
@@ -41,12 +36,16 @@ import net.xeoh.plugins.remotediscovery.options.discover.OptionNearest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionOldest;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionYoungest;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
- * This util is only relevant for RemoteAPI implementors which want to use 
+ * This util is only relevant for RemoteAPI implementors which want to use
  * the discovery:// URL
- * 
- * @author rb
  *
+ * @author rb
  */
 public class RemoteAPIDiscoveryUtil {
     /** */
@@ -66,7 +65,7 @@ public class RemoteAPIDiscoveryUtil {
 
     /**
      * If this function returns false, just proceed normally. If it returns true, control should be handed over to this module.
-     * 
+     *
      * @param uri
      * @return .
      */
@@ -78,7 +77,7 @@ public class RemoteAPIDiscoveryUtil {
 
     /**
      * Requests a remote service based on a discovery uri
-     * 
+     *
      * @param <R>
      * @param url
      * @param remote

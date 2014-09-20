@@ -27,14 +27,9 @@
  */
 package net.xeoh.plugins.diagnosis.local.impl.serialization.java;
 
-import static net.jcores.jre.CoreKeeper.$;
+import java.io.*;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.StreamCorruptedException;
+import static net.jcores.jre.CoreKeeper.$;
 
 public class LogFileReader {
     /** */
@@ -58,10 +53,13 @@ public class LogFileReader {
             while (true) {
                 try {
                     callback.nextEntry((Entry) stream.readObject());
-                } catch(Exception e) {
-                    if(e instanceof EOFException) break;
-                    if(e instanceof StreamCorruptedException) break;
-                    if(e instanceof ClassNotFoundException) { System.err.println("Skipping one entry due to a class not found: " + e.getMessage()); continue; }
+                } catch (Exception e) {
+                    if (e instanceof EOFException) break;
+                    if (e instanceof StreamCorruptedException) break;
+                    if (e instanceof ClassNotFoundException) {
+                        System.err.println("Skipping one entry due to a class not found: " + e.getMessage());
+                        continue;
+                    }
                     e.printStackTrace();
                 }
             }

@@ -27,52 +27,54 @@
  */
 package net.xeoh.plugins.base.util.uri;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  * Convenience method to load plugins from the classpath
- * 
+ *
  * @author Ralf Biedert
  * @see PluginManager
  */
 public class ClassURI extends URIUtil {
-    /** Means we should add all plugins we have in our classpath */
+    /**
+     * Means we should add all plugins we have in our classpath
+     */
     public static final URI CLASSPATH = URI.create("classpath://*");
 
     /**
      * Specifies a pattern to add from the current classpath.
-     * 
+     *
      * @param pattern For example net.xeoh.myplugins.**
-     * 
      * @return The generated pattern.
      */
     public static final URI CLASSPATH(String pattern) {
         return URI.create("classpath://" + pattern);
     }
-    
-    
+
+
     /**
      * Specifies that the given plugin should be added.
-     * 
+     *
      * @param clazz The plugin to add
-
      * @return The generated URI pattern for the plugin.
      */
     public static final URI PLUGIN(Class<? extends Plugin> clazz) {
         return new ClassURI(clazz).toURI();
     }
-    
 
-    /** The class we wrapped */
+
+    /**
+     * The class we wrapped
+     */
     private final Class<? extends Plugin> clazz;
 
     /**
      * Construct a new class URI for the given class.
-     * 
+     *
      * @param clazz The class to wrap.
      */
     public ClassURI(Class<? extends Plugin> clazz) {

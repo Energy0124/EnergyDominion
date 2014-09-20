@@ -27,22 +27,20 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
 import net.xeoh.plugins.testplugins.testannotations.impl.TestAnnotationsImpl;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerDisablingPlugins {
 
@@ -59,11 +57,11 @@ public class PluginManagerDisablingPlugins {
         props.setProperty(PluginManager.class, "cache.mode", "weak");
         props.setProperty(PluginManager.class, "cache.file", "jspf.cache");
         props.setProperty(PluginManager.class, "supervision.enabled", "true");
-        
+
         // Enable and disable plugins like this:
         props.setProperty(TestAnnotationsImpl.class, "plugin.disabled", "false");
-        
-        
+
+
         this.pm = PluginManagerFactory.createPluginManager(props);
         this.pm.addPluginsFrom(new URI("classpath://*"));
     }
@@ -77,7 +75,7 @@ public class PluginManagerDisablingPlugins {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {

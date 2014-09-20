@@ -27,18 +27,10 @@
  */
 package net.xeoh.plugins.remote.impl.javascript;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Random;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.remote.ExportResult;
@@ -47,7 +39,6 @@ import net.xeoh.plugins.remote.RemoteAPIJavaScript;
 import net.xeoh.plugins.remote.util.internal.PluginExport;
 import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
-
 import org.directwebremoting.convert.BeanConverter;
 import org.directwebremoting.extend.ConverterManager;
 import org.directwebremoting.extend.CreatorManager;
@@ -56,32 +47,49 @@ import org.mortbay.jetty.Server;
 import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.ServletHolder;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Random;
+import java.util.logging.Logger;
+
 /**
- * Exports plugins to be accessible by JavaScript.  
- * 
+ * Exports plugins to be accessible by JavaScript.
+ *
  * @author Thomas Lottermann
  */
 @Author(name = "Thomas Lottermann")
 @PluginImplementation
 public class RemoteAPIImpl implements RemoteAPIJavaScript {
 
-    /** Log events */
+    /**
+     * Log events
+     */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
     /** */
     @InjectPlugin
     public PluginConfiguration configuration;
 
-    /** Accepts objects */
+    /**
+     * Accepts objects
+     */
     CreatorManager creatorManager;
 
-    /** Converts objects and variables */
+    /**
+     * Converts objects and variables
+     */
     ConverterManager converterManager;
 
-    /** Base URL to return (without trailing slash) */
+    /**
+     * Base URL to return (without trailing slash)
+     */
     private String location;
 
-    /** Jetty reference */
+    /**
+     * Jetty reference
+     */
     Server server = null;
 
     /** */
@@ -146,7 +154,7 @@ public class RemoteAPIImpl implements RemoteAPIJavaScript {
     }
 
     /**
-     * Call this once to bring up the server 
+     * Call this once to bring up the server
      */
     private void initServer() {
 
@@ -210,7 +218,7 @@ public class RemoteAPIImpl implements RemoteAPIJavaScript {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */
@@ -241,7 +249,7 @@ public class RemoteAPIImpl implements RemoteAPIJavaScript {
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "javascript", "JAVASCRIPT" };
+        return new String[]{"javascript", "JAVASCRIPT"};
     }
 
 }

@@ -27,6 +27,10 @@
  */
 package net.xeoh.plugins.base.impl.classpath.locator.locations;
 
+import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
+import net.xeoh.plugins.base.impl.classpath.cache.JARCache.JARInformation;
+import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.JarURLConnection;
@@ -39,13 +43,9 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
-import net.xeoh.plugins.base.impl.classpath.cache.JARCache.JARInformation;
-import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
-
 /**
  * Tries to load plugins from a JAR class path location.
- * 
+ *
  * @author Ralf Biedert
  */
 public class JARClasspathLocation extends AbstractClassPathLocation {
@@ -112,8 +112,8 @@ public class JARClasspathLocation extends AbstractClassPathLocation {
     }
 
     /**
-     * Returns a list of predefined plugins inside this jar. 
-     * 
+     * Returns a list of predefined plugins inside this jar.
+     *
      * @return .
      */
     public Collection<String> getPredefinedPluginList() {
@@ -140,7 +140,7 @@ public class JARClasspathLocation extends AbstractClassPathLocation {
 
     /**
      * Lists all entries for the given JAR.
-     * 
+     *
      * @param uri
      * @return .
      */
@@ -175,7 +175,7 @@ public class JARClasspathLocation extends AbstractClassPathLocation {
 
     /**
      * Lists all top level class entries for the given URL.
-     * 
+     *
      * @param uri
      * @return .
      */

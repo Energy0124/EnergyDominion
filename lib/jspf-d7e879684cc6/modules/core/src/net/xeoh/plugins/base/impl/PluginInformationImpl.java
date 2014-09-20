@@ -27,14 +27,6 @@
  */
 package net.xeoh.plugins.base.impl;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginManager;
@@ -48,11 +40,18 @@ import net.xeoh.plugins.base.impl.registry.PluginMetaInformation;
 import net.xeoh.plugins.base.impl.registry.PluginRegistry;
 import net.xeoh.plugins.base.options.GetInformationOption;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Logger;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * TODO: Make plugin threadsafe
- * 
+ *
  * @author Ralf Biedert
- * 
  */
 @Author(name = "Ralf Biedert")
 @Version(version = 1 * Version.UNIT_MAJOR)
@@ -66,9 +65,12 @@ public class PluginInformationImpl implements PluginInformation {
     @InjectPlugin
     public PluginManager pluginManager;
 
-    /** Dum dum dum dum .... don't touch this ... */
-    private PluginInformationImpl() { }
-    
+    /**
+     * Dum dum dum dum .... don't touch this ...
+     */
+    private PluginInformationImpl() {
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -85,41 +87,41 @@ public class PluginInformationImpl implements PluginInformation {
 
         switch (item) {
 
-        case CAPABILITIES:
-            // Caps are only supported for plugins currently
-            final String[] caps = getCaps(plugin);
-            for (final String string : caps) {
-                rval.add(string);
-            }
-            break;
+            case CAPABILITIES:
+                // Caps are only supported for plugins currently
+                final String[] caps = getCaps(plugin);
+                for (final String string : caps) {
+                    rval.add(string);
+                }
+                break;
 
-        case AUTHORS:
-            final Author author = plugin.getClass().getAnnotation(Author.class);
-            if (author == null) break;
-            rval.add(author.name());
-            break;
+            case AUTHORS:
+                final Author author = plugin.getClass().getAnnotation(Author.class);
+                if (author == null) break;
+                rval.add(author.name());
+                break;
 
-        case VERSION:
-            final Version version = plugin.getClass().getAnnotation(Version.class);
-            if (version == null) break;
-            rval.add(Integer.toString(version.version()));
-            
-            if(plugin == this.pluginManager) {
-                final String build = $(PluginManagerImpl.class.getResourceAsStream("jspf.version")).text().split("\n").hashmap().get("build");
-                rval.add("jspf.build:" + build);
-            }
-            break;
+            case VERSION:
+                final Version version = plugin.getClass().getAnnotation(Version.class);
+                if (version == null) break;
+                rval.add(Integer.toString(version.version()));
 
-        case CLASSPATH_ORIGIN:
-            final PluginRegistry pluginRegistry = pmi.getPluginRegistry();
-            final PluginMetaInformation metaInformation = pluginRegistry.getMetaInformationFor(plugin);
-            if (metaInformation != null && metaInformation.classMeta != null && metaInformation.classMeta.pluginOrigin != null)
+                if (plugin == this.pluginManager) {
+                    final String build = $(PluginManagerImpl.class.getResourceAsStream("jspf.version")).text().split("\n").hashmap().get("build");
+                    rval.add("jspf.build:" + build);
+                }
+                break;
+
+            case CLASSPATH_ORIGIN:
+                final PluginRegistry pluginRegistry = pmi.getPluginRegistry();
+                final PluginMetaInformation metaInformation = pluginRegistry.getMetaInformationFor(plugin);
+                if (metaInformation != null && metaInformation.classMeta != null && metaInformation.classMeta.pluginOrigin != null)
                     rval.add(metaInformation.classMeta.pluginOrigin.toString());
-            break;
+                break;
 
-        default:
-            this.logger.info("Requested InformationItem is not known!");
-            break;
+            default:
+                this.logger.info("Requested InformationItem is not known!");
+                break;
         }
 
         return rval;

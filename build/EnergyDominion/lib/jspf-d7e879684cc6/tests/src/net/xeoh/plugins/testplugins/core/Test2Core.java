@@ -30,7 +30,6 @@ package net.xeoh.plugins.testplugins.core;
 
 /**
  * @author rb
- *
  */
 public interface Test2Core extends TestCore {
     //

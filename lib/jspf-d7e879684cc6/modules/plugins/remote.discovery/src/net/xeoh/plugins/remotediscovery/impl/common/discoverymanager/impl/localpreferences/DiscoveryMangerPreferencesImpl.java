@@ -27,15 +27,6 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.localpreferences;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.UUID;
-import java.util.logging.Logger;
-import java.util.prefs.BackingStoreException;
-import java.util.prefs.Preferences;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
@@ -47,30 +38,48 @@ import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.ExportedPlu
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.AbstractDiscoveryManager;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.ExportEntry;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.UUID;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
+
 /**
  * @author rb
- *
  */
 public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager implements
         DiscoveryManager {
 
-    /** Root for all agents */
+    /**
+     * Root for all agents
+     */
     private Preferences agentsRoot;
 
-    /** All of our exports node */
+    /**
+     * All of our exports node
+     */
     private Preferences ourExportsNode;
 
-    /** Only valid results if this is true ...*/
+    /**
+     * Only valid results if this is true ...
+     */
     boolean initSuccessful = false;
 
-    /** Our ID */
+    /**
+     * Our ID
+     */
     final String ourID;
 
-    /** A list of all exported entities we have */
+    /**
+     * A list of all exported entities we have
+     */
     final Collection<LocalExportEntry> allExported = new ArrayList<LocalExportEntry>();
 
     /**
-     * Creates a new preferences manager 
+     * Creates a new preferences manager
      */
     public DiscoveryMangerPreferencesImpl() {
         this.ourID = UUID.randomUUID().toString();
@@ -78,7 +87,7 @@ public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager imp
         try {
             this.agentsRoot = Preferences.systemNodeForPackage(getClass()).node("agents");
             this.agentsRoot.sync();
-            
+
             init();
         } catch (Exception e) {
             e.printStackTrace();
@@ -218,7 +227,7 @@ public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager imp
     public synchronized ExportInfo getExportInfoFor(String pluginInteraceName) {
         this.logger.fine("Was queried for plugin name " + pluginInteraceName);
 
-        
+
         final ExportInfo exportInfo = new ExportInfo();
         exportInfo.isExported = false;
         exportInfo.allExported = new ArrayList<ExportedPlugin>();
@@ -228,19 +237,19 @@ public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager imp
         try {
             // Sync!
             this.agentsRoot.sync();
-            
+
             // Get all child nodes ...
             final String[] allAgents = this.agentsRoot.childrenNames();
 
             for (String entry : allAgents) {
                 this.logger.fine("Found agent " + entry);
-                
+
                 final Preferences currentNode = this.agentsRoot.node(entry + "/exports");
                 final String[] allExports = currentNode.childrenNames();
 
                 for (String string : allExports) {
                     this.logger.finer("Found export node " + string);
-                    
+
                     final Preferences exportNode = currentNode.node(string);
                     final String[] interfaces = exportNode.get("export.plugins", "").split(";");
 
@@ -275,7 +284,7 @@ public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager imp
     }
 
     /**
-     * Debugs the structure 
+     * Debugs the structure
      */
     public void debug() {
         try {
@@ -310,10 +319,10 @@ public class DiscoveryMangerPreferencesImpl extends AbstractDiscoveryManager imp
     /**
      * @param args
      * @throws InterruptedException
-     * @throws URISyntaxException 
+     * @throws URISyntaxException
      */
     public static void main(String[] args) throws InterruptedException,
-                                          URISyntaxException {
+            URISyntaxException {
         final JSPFProperties props = new JSPFProperties();
 
         props.setProperty(PluginManager.class, "cache.enabled", "true");

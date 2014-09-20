@@ -1,11 +1,11 @@
 package net.xeoh.plugins.remotediscovery.impl.v2;
 
+import net.xeoh.plugins.remote.PublishMethod;
+import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-
-import net.xeoh.plugins.remote.PublishMethod;
-import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 
 /**
  * @author Thomas Lottermann
@@ -30,8 +30,8 @@ public class DiscoveredPluginImpl implements DiscoveredPlugin {
      * @param capabilities
      * @param publishMethod
      * @param publishURI
-     * @param distance 
-     * @param timeSincceExport 
+     * @param distance
+     * @param timeSincceExport
      */
     public DiscoveredPluginImpl(List<String> capabilities, PublishMethod publishMethod,
                                 URI publishURI, int distance, long timeSincceExport) {
@@ -45,7 +45,7 @@ public class DiscoveredPluginImpl implements DiscoveredPlugin {
     /**
      * @param publishMethod
      * @param publishURI
-     * @param distance 
+     * @param distance
      */
     public DiscoveredPluginImpl(PublishMethod publishMethod, URI publishURI, int distance) {
         this(new ArrayList<String>(), publishMethod, publishURI, distance, 0);

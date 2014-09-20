@@ -27,50 +27,49 @@
  */
 package net.xeoh.plugins.diagnosis.local;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 
+import java.io.Serializable;
+
 /**
- * Reflects a new diagnosis status on a given channel. 
- * 
- * @author Ralf Biedert
+ * Reflects a new diagnosis status on a given channel.
  *
  * @param <T>
+ * @author Ralf Biedert
  */
 public interface DiagnosisStatus<T extends Serializable> {
-    
+
     /**
      * Returns the channel for which some change happened.
-     *  
-     * @return The channel for which something happened. 
+     *
+     * @return The channel for which something happened.
      */
     public Class<? extends DiagnosisChannelID<T>> getChannel();
-    
+
     /**
      * Returns the channel as a string. Mostly used for replay.
-     *  
+     *
      * @return String representation of the channel.
      */
     public String getChannelAsString();
-    
+
     /**
      * Returns the new value.
-     * 
+     *
      * @return The value.
      */
     public T getValue();
-    
+
     /**
      * Returns the associated info object.
-     * 
+     *
      * @return the info objects.
      */
     public OptionInfo[] getInfos();
-    
+
     /**
-     * Returns the date when this status was generated. 
-     * 
+     * Returns the date when this status was generated.
+     *
      * @return The date.
      */
     public long getDate();

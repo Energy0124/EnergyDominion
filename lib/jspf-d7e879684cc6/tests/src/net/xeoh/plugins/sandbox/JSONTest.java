@@ -27,10 +27,6 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getplugin.OptionPluginSelector;
@@ -40,6 +36,10 @@ import net.xeoh.plugins.remote.ExportResult;
 import net.xeoh.plugins.remote.PublishMethod;
 import net.xeoh.plugins.remote.RemoteAPI;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collection;
 
 public class JSONTest {
     public static void main(String[] args) throws URISyntaxException, InterruptedException {
@@ -67,7 +67,7 @@ public class JSONTest {
         for (URI uri : exportURIs) {
             System.out.println(uri);
         }
-        
+
         Thread.sleep(6000000);
 
         pm.shutdown();

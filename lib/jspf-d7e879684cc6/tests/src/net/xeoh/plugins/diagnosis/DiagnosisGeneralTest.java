@@ -27,8 +27,6 @@
  */
 package net.xeoh.plugins.diagnosis;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
@@ -46,15 +44,15 @@ import net.xeoh.plugins.diagnosis.local.util.conditions.TwoStateMatcherAND;
 import net.xeoh.plugins.diagnosis.local.util.conditions.matcher.Contains;
 import net.xeoh.plugins.diagnosis.local.util.conditions.matcher.Is;
 import net.xeoh.plugins.testplugins.testannotations.impl.TestAnnotationsImpl;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.Serializable;
+
 /**
  * @author rb
- * 
  */
 public class DiagnosisGeneralTest {
 
@@ -73,13 +71,13 @@ public class DiagnosisGeneralTest {
         props.setProperty(Diagnosis.class, "analysis.stacktraces.enabled", "true");
         props.setProperty(Diagnosis.class, "analysis.stacktraces.depth", "10000");
 
-        
+
         // Enable and disable plugins like this:
         props.setProperty(TestAnnotationsImpl.class, "plugin.disabled", "false");
-        
+
         try {
             pm = PluginManagerFactory.createPluginManager(props);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,7 +93,7 @@ public class DiagnosisGeneralTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void benchmark() {
@@ -103,50 +101,50 @@ public class DiagnosisGeneralTest {
         final Diagnosis diagnosis = this.pm.getPlugin(Diagnosis.class);
 
         long a = System.currentTimeMillis();
-        for(int i=0; i<10000;i++) {
-            diagnosis.channel(LoggingChannel1.class).status(""+i);
+        for (int i = 0; i < 10000; i++) {
+            diagnosis.channel(LoggingChannel1.class).status("" + i);
         }
         long b = System.currentTimeMillis();
-        System.out.println(b-a);
+        System.out.println(b - a);
 
         DiagnosisChannel<String> channel = diagnosis.channel(LoggingChannel2.class);
         a = System.currentTimeMillis();
-        for(int i=0; i<10000;i++) {
-            channel.status(""+i);
+        for (int i = 0; i < 10000; i++) {
+            channel.status("" + i);
         }
         b = System.currentTimeMillis();
-        System.out.println(b-a);
-        
-        
+        System.out.println(b - a);
+
+
         DiagnosisChannelUtil<String> c = new DiagnosisChannelUtil<String>(null);
         c.status("null");
         c.status("null", "a", "b");
         c.status("null", new OptionInfo("a", "b"));
 
     }
-    
+
     /**
-     * 
+     *
      */
     @SuppressWarnings("boxing")
     @Test
     public void testGetPluginClassOfP() {
         Assert.assertNotNull(this.pm);
         final Diagnosis diagnosis = this.pm.getPlugin(Diagnosis.class);
-        
+
         diagnosis.channel(LoggingChannel1.class).status("Starting Test.");
         diagnosis.channel(TestChannel.class).status(100);
         diagnosis.channel(TestChannel.class).status(100);
         diagnosis.channel(TestChannel.class).status(100);
         diagnosis.channel(TestChannel.class).status(3000);
         diagnosis.channel(LoggingChannel1.class).status("Initializing Status");
-        
-        
+
+
         DiagnosisUtil util = new DiagnosisUtil(diagnosis);
         util.registerMonitors(new DiagnosisMonitor<Serializable>() {
             @Override
             public void onStatusChange(DiagnosisStatus<Serializable> status) {
-                if(status.getChannel().equals(TestChannel.class)) System.out.println("TC");
+                if (status.getChannel().equals(TestChannel.class)) System.out.println("TC");
                 System.out.println(">>> " + status.getValue());
             }
         }, TestChannel.class, LoggingChannel1.class);
@@ -154,7 +152,7 @@ public class DiagnosisGeneralTest {
         diagnosis.channel(TestChannel.class).status(6667);
         diagnosis.channel(TestChannel.class).status(100);
 
-   
+
         util.registerCondition(new TwoStateMatcherAND() {
             /** */
             @Override
@@ -162,7 +160,7 @@ public class DiagnosisGeneralTest {
                 match(TestChannel.class, new Is(100));
                 match(LoggingChannel1.class, new Contains("xtatus"));
             }
-            
+
             /** */
             @Override
             public void stateChanged(STATE state) {
@@ -179,50 +177,49 @@ public class DiagnosisGeneralTest {
         //DiagnosisCondition condition = new TestCondition();
         //condition
         //diagnosis.registerCondition(condition);
-        
-        
+
+
         // Was ist mit Multi-Threading?
         // T1: start() -> state1 -> state2 ....        -> state4 
         // T2:                      start() -> state1
         // In dem Fall würde der Sensor sehen
         // s1 s2 s1 s4 s2 s5 ...
         // Und könnte nicht wirklich eine sinnvolle condition definieren.
-        
+
         // Andererseits, wir haben den Thread-Status dabei, so dass jeder Thread seine eigene 
         // time-line bekommt, bzw. bekommen kann
-        
+
         // Das würde bedeuten, dass es keinen einzigen Zustand s gibt, sondern eine unbestimmte menge davon. 
-        
+
         // Wie macht man das nun mit conditions?
-        
+
         // if(s == 1 && t == 3)?
         // if(s(threadA) == 1 && t(threadA) == 3)?
-        
-        
-        
+
+
         // Frage, wie kann ich einzelne Kanäle deaktivieren, die z.b: eine Hohe Last oder Debugausgaben verursachen?
         // An die komme ich nämlich nicht einfach ran, wenn die in einem Plugin verborgen sind.
         // --> InformationBroker
-                      
-        
+
+
         // Soll es eine Replay-API geben?
         // --> Nicht notwendig, wenn es Tools zur Analyse in JSPF mit dazu gibt (z.B. Extraktor & Konverter)
-        
-        
+
+
         // Was ist mit den serialisierten Werten, die können vom Tool nicht zurückgelesen werden, sofern es spezielle 
         // Werte sind.
         // --> Müssen im Classpath mit aufgenommen werden, oder werden halt nicht wiede de-serialisiert 
-        
-        
+
+
         // Wird das nicht langsam sein?
         // --> Ist nicht gedacht für high-volume recording, sondern eher für sagen wir <100 Nachrichten pro Sekunde
         // auf Pluginebene. 
-        
-        
+
+
         // Was ist mit Erklärungen f. Messwerte, Conditions, usw. Die wären im Replay-Tool nicht verfügbar, insbesondere
         // nicht, wenn die zur Laufzeit zusammengeschuhstert werden müssen
         // --> Muss auf Klassenebene der Channels passieren, dort Konverter usw. reinzumachen
-        
+
 
         // Würde ein Recording auf den Channels mit primitiven Typen nicht viel schneller sein?
         // z.B. diagnosis.channel(TestChannel.class).reportInt(30)
@@ -232,12 +229,12 @@ public class DiagnosisGeneralTest {
         // irgendwann gleichschnell wie primitive Typen behandelt werden können. Und das Problem 
         // beim entpacken kann der Entwickler einfach dadurch lösen, dass er halt nur eingebaute Typen
         // nimmt ...
-        
-        
+
+
         // Q1: How does the condition access diagnosis-internal functions/variables?
         // Q2: How do we associate conditions with messages / remedies / ...?
         // Q3: Who fires *when* and *how* and triggers *what* when a condition is met?
-        diagnosis.channel(LoggingChannel1.class).status("Ending Test.");     
+        diagnosis.channel(LoggingChannel1.class).status("Ending Test.");
     }
 
 }

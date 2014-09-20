@@ -27,43 +27,45 @@
  */
 package net.xeoh.plugins.diagnosis.local.util.conditions;
 
-import static net.jcores.jre.CoreKeeper.$;
+import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
+import net.xeoh.plugins.diagnosis.local.DiagnosisMonitor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
-import net.xeoh.plugins.diagnosis.local.DiagnosisMonitor;
+import static net.jcores.jre.CoreKeeper.$;
 
 /**
  * Abstract class for any condition.
- * 
+ *
  * @author Ralf Biedert
  */
 public abstract class Condition implements DiagnosisMonitor<Serializable> {
-    
-    /** The channels to observe */
+
+    /**
+     * The channels to observe
+     */
     private List<Class<?>> channels = new ArrayList<Class<?>>();
 
     /**
      * Adds a channel to the list of required channels.
-     * 
+     *
      * @param channel
      */
     public void require(Class<? extends DiagnosisChannelID<?>> channel) {
-        if(this.channels.contains(channel)) return;
+        if (this.channels.contains(channel)) return;
         this.channels.add(channel);
     }
 
-    
+
     /**
      * Returns the required channels for this condition.
-     * 
+     *
      * @return The required channels
      */
     public Class<?>[] getRequiredChannels() {
         return $(this.channels).array(Class.class);
     }
-    
+
 }

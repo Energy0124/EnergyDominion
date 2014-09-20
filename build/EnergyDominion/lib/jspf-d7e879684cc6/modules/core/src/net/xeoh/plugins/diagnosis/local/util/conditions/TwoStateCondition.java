@@ -29,39 +29,45 @@ package net.xeoh.plugins.diagnosis.local.util.conditions;
 
 
 /**
- * Reflects an abstract two-state condition, that can either be on, or off. 
- * 
+ * Reflects an abstract two-state condition, that can either be on, or off.
+ *
  * @author Ralf Biedert
  */
 public abstract class TwoStateCondition extends Condition {
-    /** The state of this condition */
-    public static enum STATE { ON, OFF }
-    
-    /** Memorize last state we had */
+    /**
+     * The state of this condition
+     */
+    public static enum STATE {
+        ON, OFF
+    }
+
+    /**
+     * Memorize last state we had
+     */
     STATE lastState = STATE.OFF;
-    
-    
+
+
     /**
      * Announces the state in case it differs from our last announcement.
-     * 
+     *
      * @param state
      */
     public void announceState(STATE state) {
-        if(state == this.lastState) return;
+        if (state == this.lastState) return;
         stateChanged(state);
         this.lastState = state;
     }
-    
+
     /**
-     * Called when the state has changed based on some matching input. 
-     * 
+     * Called when the state has changed based on some matching input.
+     *
      * @param state The new state.
      */
     public abstract void stateChanged(STATE state);
-    
+
     /**
      * Returns the current state of this condition.
-     * 
+     *
      * @return The current state.
      */
     public STATE getState() {

@@ -2,17 +2,17 @@ package org.hopto.energy.energydominion.api;
 
 import net.xeoh.plugins.base.Plugin;
 
-import java.util.List;
+import java.util.Set;
 
 public interface Expansion extends Plugin {
     String getName();
 
-    List<Card> getCardList();
+    Set<Class<? extends Card>> getCardSet();
 
-    void addCard(Card card);
+//     void addCard(Class<Card> card);
+//
+//    void removeCard(Class<Card> card);
 
-    void removeCard(Card card);
 
-
-    List<Class> getClassList();
+//    List<Class> getClassList();
 }

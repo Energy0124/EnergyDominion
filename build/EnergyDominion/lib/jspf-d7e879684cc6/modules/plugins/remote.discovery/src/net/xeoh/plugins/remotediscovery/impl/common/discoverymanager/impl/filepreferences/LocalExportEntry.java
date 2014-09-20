@@ -38,10 +38,14 @@ public class LocalExportEntry implements Serializable {
     /** */
     private static final long serialVersionUID = 553498463031460205L;
 
-    /** if of parent */
+    /**
+     * if of parent
+     */
     public String uid;
 
-    /** Stores values for every entry. */
+    /**
+     * Stores values for every entry.
+     */
     public Map<String, String> values = new HashMap<String, String>();
 
 }

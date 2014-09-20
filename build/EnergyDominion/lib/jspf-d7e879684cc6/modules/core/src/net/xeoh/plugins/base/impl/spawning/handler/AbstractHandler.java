@@ -27,14 +27,14 @@
  */
 package net.xeoh.plugins.base.impl.spawning.handler;
 
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 
+import java.util.logging.Logger;
+
 /**
  * Handles a certain type of annotations / properties.
- * 
+ *
  * @author Ralf Biedert
  */
 public abstract class AbstractHandler {
@@ -54,7 +54,7 @@ public abstract class AbstractHandler {
 
     /**
      * Called when the plugin is initialized
-     * 
+     *
      * @param plugin
      * @throws Exception
      */
@@ -62,7 +62,7 @@ public abstract class AbstractHandler {
 
     /**
      * Called when the plugin is initialized
-     * 
+     *
      * @param plugin
      * @throws Exception
      */

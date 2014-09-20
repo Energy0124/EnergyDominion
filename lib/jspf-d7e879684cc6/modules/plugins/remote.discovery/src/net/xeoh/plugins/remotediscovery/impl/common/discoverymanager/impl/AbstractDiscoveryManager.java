@@ -27,24 +27,25 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl;
 
+import net.xeoh.plugins.base.Plugin;
+import net.xeoh.plugins.base.util.PluginUtil;
+import net.xeoh.plugins.remote.PublishMethod;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import net.xeoh.plugins.base.Plugin;
-import net.xeoh.plugins.base.util.PluginUtil;
-import net.xeoh.plugins.remote.PublishMethod;
-
 /**
  * @author rb
- *
  */
 public abstract class AbstractDiscoveryManager {
 
     protected final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Stores the time of startup of this plugin */
+    /**
+     * Stores the time of startup of this plugin
+     */
     private final long timeOfStartup = System.currentTimeMillis();
 
     /**
@@ -105,7 +106,6 @@ public abstract class AbstractDiscoveryManager {
     public abstract void anouncePlugin(Plugin plugin, PublishMethod method, URI url);
 
     /**
-     * 
      * @param plugin
      * @param publishMethod
      * @param uri

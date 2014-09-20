@@ -34,7 +34,7 @@ public class OptionComment implements StatusOption {
     private static final long serialVersionUID = 1294219941602892411L;
 
     /**
-     * @param comment  
+     * @param comment
      */
     public OptionComment(String comment) {
 

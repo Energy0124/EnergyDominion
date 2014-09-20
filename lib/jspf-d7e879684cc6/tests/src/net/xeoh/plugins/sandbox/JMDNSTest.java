@@ -27,17 +27,15 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.io.IOException;
-
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceInfo;
-
 import org.freshvanilla.rmi.Proxies;
 import org.freshvanilla.rmi.VanillaRmiServer;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
+import java.io.IOException;
+
 /**
  * @author rb
- *
  */
 public class JMDNSTest {
     /**

@@ -30,6 +30,6 @@ package net.xeoh.plugins.sandbox;
 
 public class Profiling {
     public static void main(String[] args) {
-       while(true) System.out.println(System.nanoTime());
+        while (true) System.out.println(System.nanoTime());
     }
 }

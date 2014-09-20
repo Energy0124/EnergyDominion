@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.diagnosisreader.converters.impl.plain;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-import java.io.Serializable;
-
 import net.jcores.jre.cores.CoreFile;
 import net.jcores.jre.interfaces.functions.F1;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
@@ -42,6 +37,11 @@ import net.xeoh.plugins.diagnosis.local.DiagnosisStatus;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 import net.xeoh.plugins.diagnosisreader.converters.Converter;
 import net.xeoh.plugins.diagnosisreader.converters.ConverterInfo;
+
+import java.io.File;
+import java.io.Serializable;
+
+import static net.jcores.jre.CoreKeeper.$;
 
 /**
  * @author Ralf Biedert
@@ -75,9 +75,9 @@ public class PlainConverterImpl implements Converter {
      */
     @Override
     public void convert(File file) {
-        
+
         final CoreFile f = $(file.getAbsolutePath() + ".txt").file().delete();
-        
+
         this.diagnosis.replay(file.getAbsolutePath(), new DiagnosisMonitor<Serializable>() {
             @Override
             public void onStatusChange(DiagnosisStatus<Serializable> status) {
@@ -95,11 +95,11 @@ public class PlainConverterImpl implements Converter {
                     }
                 }).string().join(", "));
                 sb.append(" }\n");
-                
+
                 // Write text to file
                 f.append(sb.toString());
             }
         });
-        
+
     }
 }

@@ -27,30 +27,38 @@
  */
 package net.xeoh.plugins.base.impl.registry;
 
+import net.xeoh.plugins.base.Plugin;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import net.xeoh.plugins.base.Plugin;
-
 /**
  * Meta information of the given plugin.
- * 
+ *
  * @author Ralf Biedert
  */
 public class PluginMetaInformation {
 
-    /** Handles PluginLoaded annotations */
+    /**
+     * Handles PluginLoaded annotations
+     */
     public static class PluginLoadedInformation {
-        /** Annotated method */
+        /**
+         * Annotated method
+         */
         public Method method;
 
-        /** Base type to call with */
+        /**
+         * Base type to call with
+         */
         public Class<? extends Plugin> baseType;
 
-        /** Items already put into the method */
+        /**
+         * Items already put into the method
+         */
         public List<Plugin> calledWith = new ArrayList<Plugin>();
     }
 
@@ -58,13 +66,19 @@ public class PluginMetaInformation {
      * @author rb
      */
     public static enum PluginStatus {
-        /** No further information is available */
+        /**
+         * No further information is available
+         */
         UNDEFINED,
 
-        /** Plugin has been spawned, i.e., constructed. */
+        /**
+         * Plugin has been spawned, i.e., constructed.
+         */
         SPAWNED,
 
-        /** Plugin has been initialized and all threads and timers have been spawned */
+        /**
+         * Plugin has been initialized and all threads and timers have been spawned
+         */
         INITIALIZED,
 
         /**
@@ -73,32 +87,50 @@ public class PluginMetaInformation {
          */
         ACTIVE,
 
-        /** Plugin was shut down. */
+        /**
+         * Plugin was shut down.
+         */
         TERMINATED,
 
-        /** Plugin failed to initialize due to own report. */
+        /**
+         * Plugin failed to initialize due to own report.
+         */
         FAILED
     }
 
-    /** Status of the plugin */
+    /**
+     * Status of the plugin
+     */
     public PluginStatus pluginStatus = PluginStatus.UNDEFINED;
 
-    /** Meta information of the parent class */
+    /**
+     * Meta information of the parent class
+     */
     public PluginClassMetaInformation classMeta = null;
 
-    /** List of declared threads, managed by the Spawner */
+    /**
+     * List of declared threads, managed by the Spawner
+     */
     public final List<Thread> threads = new ArrayList<Thread>();
 
-    /** List of declared timer tasks, managed by the Spawner */
+    /**
+     * List of declared timer tasks, managed by the Spawner
+     */
     public final List<TimerTask> timerTasks = new ArrayList<TimerTask>();
 
-    /** List of declared timer tasks, managed by the Spawner */
+    /**
+     * List of declared timer tasks, managed by the Spawner
+     */
     public final List<Timer> timers = new ArrayList<Timer>();
 
-    /** Handles plugin loaded information */
+    /**
+     * Handles plugin loaded information
+     */
     public final List<PluginLoadedInformation> pluginLoadedInformation = new ArrayList<PluginLoadedInformation>();
 
-    /** Time this pluggable has been spawned. */
+    /**
+     * Time this pluggable has been spawned.
+     */
     public long spawnTime;
 
 }

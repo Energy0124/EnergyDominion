@@ -22,24 +22,14 @@
 
 package net.xeoh.plugins.remote.impl.xmlrpcdelight;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
+import de.dfki.util.xmlrpc.XmlRpc;
+import de.dfki.util.xmlrpc.common.XmlRpcConnection;
+import de.dfki.util.xmlrpc.server.XmlRpcHandlerFactory;
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.events.Init;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.base.util.OptionUtils;
@@ -52,19 +42,21 @@ import net.xeoh.plugins.remote.util.internal.PluginExport;
 import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.remotediscovery.util.RemoteAPIDiscoveryUtil;
-
 import org.apache.xmlrpc.WebServer;
 import org.apache.xmlrpc.XmlRpcHandler;
 
-import de.dfki.util.xmlrpc.XmlRpc;
-import de.dfki.util.xmlrpc.common.XmlRpcConnection;
-import de.dfki.util.xmlrpc.server.XmlRpcHandlerFactory;
+import java.io.IOException;
+import java.net.*;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
 
 /**
  * RemoteApi implementation for DFKI's XMLRPC Delight
- * 
+ *
  * @author Ralf Biedert, Andreas Lauer, Christian Reuschling
- * 
  */
 @Author(name = "Ralf Biedert, Andreas Lauer, Christian Reuschling")
 @PluginImplementation
@@ -112,7 +104,9 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPCDelight {
      */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Used for unexport */
+    /**
+     * Used for unexport
+     */
     HashMap<Plugin, String> handlerToPluginMap = new HashMap<Plugin, String>();
 
     /**
@@ -138,7 +132,7 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPCDelight {
         //
 
 
-        String exportName =  PluginExport.getExportName(plugin);
+        String exportName = PluginExport.getExportName(plugin);
         
         /*
         // FIXME: Might need improvement.
@@ -182,7 +176,7 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPCDelight {
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "xmlrpc", "XMLRPC", "xmlrpcdelight", "XMLRPCDELIGHT" };
+        return new String[]{"xmlrpc", "XMLRPC", "xmlrpcdelight", "XMLRPCDELIGHT"};
     }
 
     public PublishMethod getPublishMethod() {
@@ -247,7 +241,7 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPCDelight {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */

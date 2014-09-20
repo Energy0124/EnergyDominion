@@ -33,6 +33,7 @@ package net.xeoh.plugins.diagnosis.local.util.conditions.matcher;
 public abstract class Matcher {
     /**
      * Returns true if the matcher matches, false if not.
+     *
      * @param object
      * @return .
      */

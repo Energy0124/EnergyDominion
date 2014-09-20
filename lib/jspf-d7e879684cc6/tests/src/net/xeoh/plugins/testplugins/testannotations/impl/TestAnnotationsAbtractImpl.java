@@ -28,7 +28,6 @@
 package net.xeoh.plugins.testplugins.testannotations.impl;
 
 import net.xeoh.plugins.base.annotations.Capabilities;
-import net.xeoh.plugins.base.annotations.Thread;
 import net.xeoh.plugins.base.annotations.Timer;
 import net.xeoh.plugins.base.annotations.events.Init;
 import net.xeoh.plugins.base.annotations.events.PluginLoaded;
@@ -40,11 +39,10 @@ import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
 
 /**
  * @author rb
- * 
  */
 public class TestAnnotationsAbtractImpl implements TestAnnotations {
     /**
-     * 
+     *
      */
     @InjectPlugin
     public InformationBrokerUtil bus;
@@ -52,7 +50,7 @@ public class TestAnnotationsAbtractImpl implements TestAnnotations {
     @InjectPlugin
     public InformationBroker busbus;
 
-    
+
     String init = "INIT FAILED";
 
     String thread = "THREAD FAILED";
@@ -64,7 +62,7 @@ public class TestAnnotationsAbtractImpl implements TestAnnotations {
      */
     @Capabilities
     public String[] getCapabilities() {
-        return new String[] { "SUNSHINE", "RAIN" };
+        return new String[]{"SUNSHINE", "RAIN"};
     }
 
     public String getInitStatus() {
@@ -85,7 +83,7 @@ public class TestAnnotationsAbtractImpl implements TestAnnotations {
     }
 
     /**
-     * 
+     *
      */
     @Init
     public void initMeLala() {
@@ -95,7 +93,7 @@ public class TestAnnotationsAbtractImpl implements TestAnnotations {
     }
 
     /**
-     * 
+     *
      */
     @Thread
     public void threadMeLala() {
@@ -103,7 +101,7 @@ public class TestAnnotationsAbtractImpl implements TestAnnotations {
     }
 
     /**
-     * 
+     *
      */
     //@Thread
     public void bigbang() {

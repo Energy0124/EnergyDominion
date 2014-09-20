@@ -27,32 +27,32 @@
  */
 package net.xeoh.plugins.remotediscovery;
 
-import java.net.URI;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.PublishMethod;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
+import java.net.URI;
+import java.util.Collection;
+
 /**
  * Discovers remote services.
- * 
+ *
  * @author Ralf Biedert
  */
 public interface RemoteDiscovery extends Plugin {
 
     /**
      * Announces the given plugin on the local network.
-     * 
+     *
      * @param plugin
-     * @param publishMethod 
+     * @param publishMethod
      * @param uri
      */
     public void announcePlugin(Plugin plugin, PublishMethod publishMethod, URI uri);
 
     /**
-     * Unpublishes the plugin on the network. 
-     * 
+     * Unpublishes the plugin on the network.
+     *
      * @param plugin
      * @param publishMethod
      * @param uri
@@ -60,11 +60,10 @@ public interface RemoteDiscovery extends Plugin {
     public void revokePlugin(Plugin plugin, PublishMethod publishMethod, URI uri);
 
     /**
-     * Discovers a set of plugins that is compatible with the requested interface. 
-     * 
-     * @param plugin 
-     * @param options 
-     * 
+     * Discovers a set of plugins that is compatible with the requested interface.
+     *
+     * @param plugin
+     * @param options
      * @return .
      */
     public Collection<DiscoveredPlugin> discover(Class<? extends Plugin> plugin,

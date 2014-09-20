@@ -27,31 +27,30 @@
  */
 package net.xeoh.plugins.diagnosis.local.impl;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
 import net.xeoh.plugins.diagnosis.local.DiagnosisStatus;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 
+import java.io.Serializable;
+
 /**
- * @author Ralf Biedert
- *
  * @param <T>
+ * @author Ralf Biedert
  */
 public class DiagnosisStatusImpl<T extends Serializable> implements DiagnosisStatus<T> {
-    
+
     /** */
     final private Class<? extends DiagnosisChannelID<T>> channel;
-    
+
     /** */
     final private String channelString;
 
     /** */
     final private T value;
-    
+
     /** */
     final private long date;
-    
+
     /** */
     final private OptionInfo[] infos;
 
@@ -83,7 +82,7 @@ public class DiagnosisStatusImpl<T extends Serializable> implements DiagnosisSta
         this.infos = infos;
     }
 
-    
+
     /*
      * (non-Javadoc)
      * 

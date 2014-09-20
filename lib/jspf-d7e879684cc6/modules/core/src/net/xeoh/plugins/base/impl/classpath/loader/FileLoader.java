@@ -27,12 +27,6 @@
  */
 package net.xeoh.plugins.base.impl.classpath.loader;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.net.URLDecoder;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.impl.PluginManagerImpl;
 import net.xeoh.plugins.base.impl.classpath.ClassPathManager;
@@ -41,9 +35,14 @@ import net.xeoh.plugins.base.impl.classpath.locator.ClassPathLocator;
 import net.xeoh.plugins.base.impl.classpath.locator.locations.JARClasspathLocation;
 import net.xeoh.plugins.base.options.AddPluginsFromOption;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.util.Collection;
+
 /**
  * @author rb
- * 
  */
 public class FileLoader extends AbstractLoader {
 
@@ -110,7 +109,7 @@ public class FileLoader extends AbstractLoader {
     /**
      * Given a top level directory, we locate all classpath locations and load all plugins
      * we find.
-     * 
+     *
      * @param root The top level to start from.
      */
     void locateAllPluginsAt(File root) {

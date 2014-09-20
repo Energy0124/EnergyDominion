@@ -27,18 +27,17 @@
  */
 package multipleplugins;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 import quickstart.outputservice.OutputService;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class Main {
 

@@ -27,16 +27,15 @@
  */
 package quickstart;
 
-import java.io.File;
-import java.net.MalformedURLException;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import quickstart.outputservice.OutputService;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 /**
  * @author rb
- *
  */
 public class Main {
 

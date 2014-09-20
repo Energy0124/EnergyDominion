@@ -31,8 +31,8 @@ import net.xeoh.plugins.base.Option;
 import net.xeoh.plugins.base.PluginManager;
 
 /**
- * The base type for all <code>addPluginsFrom()</code> options. 
- * 
+ * The base type for all <code>addPluginsFrom()</code> options.
+ *
  * @author Ralf Biedert
  * @see PluginManager
  */

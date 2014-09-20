@@ -27,8 +27,6 @@
  */
 package net.xeoh.plugins.diagnosis.local.util;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.base.util.VanillaPluginUtil;
 import net.xeoh.plugins.diagnosis.local.Diagnosis;
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
@@ -36,9 +34,11 @@ import net.xeoh.plugins.diagnosis.local.DiagnosisMonitor;
 import net.xeoh.plugins.diagnosis.local.options.ChannelOption;
 import net.xeoh.plugins.diagnosis.local.util.conditions.Condition;
 
+import java.io.Serializable;
+
 /**
  * Wraps a {@link Diagnosis} object and provides helper functions.
- * 
+ *
  * @author Ralf Biedert
  */
 public class DiagnosisUtil extends VanillaPluginUtil<Diagnosis> implements Diagnosis {
@@ -48,16 +48,16 @@ public class DiagnosisUtil extends VanillaPluginUtil<Diagnosis> implements Diagn
     public DiagnosisUtil(Diagnosis diagnosis) {
         super(diagnosis);
     }
-    
+
     /**
      * Registers a monitor listening to many channels.
-     *  
+     *
      * @param listener
      * @param all
      */
     @SuppressWarnings("unchecked")
     public void registerMonitors(final DiagnosisMonitor<?> listener,
-                             final Class<?>... all) {
+                                 final Class<?>... all) {
         if (listener == null || all == null || all.length == 0) return;
 
         // Stores all items we received so far
@@ -66,14 +66,14 @@ public class DiagnosisUtil extends VanillaPluginUtil<Diagnosis> implements Diagn
             this.object.registerMonitor(cc, (DiagnosisMonitor<Serializable>) listener);
         }
     }
-    
+
     /**
      * Registers a condition to the enclode diagnosis.
-     * 
+     *
      * @param condition
      */
     public void registerCondition(Condition condition) {
-        if(condition == null) return;
+        if (condition == null) return;
 
         registerMonitors(condition, condition.getRequiredChannels());
     }
@@ -83,7 +83,7 @@ public class DiagnosisUtil extends VanillaPluginUtil<Diagnosis> implements Diagn
      */
     @Override
     public <T extends Serializable> DiagnosisChannelUtil<T> channel(Class<? extends DiagnosisChannelID<T>> channel,
-                                                                ChannelOption... options) {
+                                                                    ChannelOption... options) {
         return new DiagnosisChannelUtil<T>(this.object.channel(channel, options));
     }
 

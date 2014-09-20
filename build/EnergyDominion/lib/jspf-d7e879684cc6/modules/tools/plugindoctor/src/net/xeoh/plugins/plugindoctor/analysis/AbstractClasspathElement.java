@@ -27,15 +27,13 @@
  */
 package net.xeoh.plugins.plugindoctor.analysis;
 
-import java.io.IOException;
-
 import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
-
 import org.gjt.jclasslib.structures.InvalidByteCodeException;
+
+import java.io.IOException;
 
 /**
  * @author rb
- *
  */
 public abstract class AbstractClasspathElement {
 
@@ -58,8 +56,8 @@ public abstract class AbstractClasspathElement {
      * @return .
      */
     public static AbstractClasspathElement newClassPathElement(
-                                                               AbstractClassPathLocation location,
-                                                               String name) {
+            AbstractClassPathLocation location,
+            String name) {
 
         if (name.endsWith(".class")) {
             try {
@@ -70,7 +68,7 @@ public abstract class AbstractClasspathElement {
                 e.printStackTrace();
             }
         }
-        
+
         return new CommonClasspathElement(location, name);
     }
 }

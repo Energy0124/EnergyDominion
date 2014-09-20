@@ -27,23 +27,21 @@
  */
 package net.xeoh.plugins.diagnosis;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.diagnosis.diagnosis.channels.LoggingChannel1;
 import net.xeoh.plugins.diagnosis.local.Diagnosis;
 import net.xeoh.plugins.testplugins.testannotations.impl.TestAnnotationsImpl;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- * 
  */
 public class DiagnosisMiniTest {
 
@@ -62,10 +60,10 @@ public class DiagnosisMiniTest {
         props.setProperty(Diagnosis.class, "analysis.stacktraces.enabled", "true");
         props.setProperty(Diagnosis.class, "analysis.stacktraces.depth", "10000");
 
-        
+
         // Enable and disable plugins like this:
         props.setProperty(TestAnnotationsImpl.class, "plugin.disabled", "false");
-        
+
         pm = PluginManagerFactory.createPluginManager(props);
         pm.addPluginsFrom(URI.create("xxx:yyy"));
     }
@@ -79,7 +77,7 @@ public class DiagnosisMiniTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void benchmark() {

@@ -27,9 +27,6 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-import java.util.Collection;
-
 import junit.framework.Assert;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
@@ -37,14 +34,15 @@ import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerCapabilities {
 
@@ -74,7 +72,7 @@ public class PluginManagerCapabilities {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {

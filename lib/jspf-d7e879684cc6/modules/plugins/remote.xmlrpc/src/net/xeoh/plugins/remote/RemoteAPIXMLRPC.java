@@ -27,27 +27,26 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remote.RemoteAPI;
 
+import java.net.URI;
+
 /**
  * Allows the network export of plugins.<br/> <br/>
- *
+ * <p/>
  * Please note there may be constraints on the plugin usage depending on the remote type.
  * For example, XMLRPC might have problems with null or void types.
  *
  * @author Ralf Biedert
- *
  */
 public interface RemoteAPIXMLRPC extends RemoteAPI {
     /**
      * Exports a plugin over the network at a given port.
      *
      * @param plugin
-     * @param port 
-     * @return The URL where the plugin is accessible 
+     * @param port
+     * @return The URL where the plugin is accessible
      */
     public URI exportPlugin(Plugin plugin, int port);
 }

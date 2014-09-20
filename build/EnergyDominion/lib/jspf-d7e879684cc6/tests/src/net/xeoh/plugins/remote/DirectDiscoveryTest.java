@@ -27,24 +27,22 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class DirectDiscoveryTest {
 
@@ -68,8 +66,9 @@ public class DirectDiscoveryTest {
     }
 
     /**
-     * @throws URISyntaxException   
-     * @throws InterruptedException */
+     * @throws URISyntaxException
+     * @throws InterruptedException
+     */
     @Test
     public void testDiscovery() throws URISyntaxException, InterruptedException {
         TestAnnotations p2 = this.pm.getPlugin(TestAnnotations.class);

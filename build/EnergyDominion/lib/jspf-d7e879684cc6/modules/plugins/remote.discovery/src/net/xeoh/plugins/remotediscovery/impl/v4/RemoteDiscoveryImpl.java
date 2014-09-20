@@ -1,17 +1,9 @@
 package net.xeoh.plugins.remotediscovery.impl.v4;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.util.Collection;
-import java.util.Random;
-import java.util.concurrent.ThreadFactory;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.events.Init;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.util.OptionUtils;
 import net.xeoh.plugins.diagnosis.local.util.DiagnosisChannelUtil;
@@ -25,9 +17,14 @@ import net.xeoh.plugins.remotediscovery.impl.v4.probes.network.NetworkProbe;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionNearest;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.URI;
+import java.util.Collection;
+import java.util.Random;
+import java.util.concurrent.ThreadFactory;
+
 /**
- * 
- * 
  * @author Ralf Biedert
  */
 @PluginImplementation
@@ -45,8 +42,9 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
         }
     };
 
-    /** 
+    /**
      * out of net.xeoh.plugins.remote.impl.ermi.RemoteAPIImpl
+     *
      * @return .
      */
     public static int getFreePort() {
@@ -65,17 +63,21 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
     /** */
     @InjectPlugin
     public PluginManager pluginManager;
-    
+
     /** */
     @InjectPlugin
     public DiagnosisUtil diagnosis;
 
-    /** All of our probes */
+    /**
+     * All of our probes
+     */
     NetworkProbe networkProbe;
-    
-    /** Local probe */
+
+    /**
+     * Local probe
+     */
     LocalProbe localProbe;
-    
+
     /* (non-Javadoc)
      * @see net.xeoh.plugins.remotediscovery.RemoteDiscovery#announcePlugin(net.xeoh.plugins.base.Plugin, net.xeoh.plugins.remote.PublishMethod, java.net.URI)
      */
@@ -93,24 +95,24 @@ public class RemoteDiscoveryImpl implements RemoteDiscovery {
         final OptionUtils<DiscoverOption> ou = new OptionUtils<DiscoverOption>(options);
 
         channel.status("discover/start", "plugin", plugin);
-        
+
         // Check if we are allowed to use the local discovery (nearest or nothing specified), 
         // and return with it instantly.
-        if(ou.contains(OptionNearest.class) || options.length == 0) {
+        if (ou.contains(OptionNearest.class) || options.length == 0) {
             channel.status("discover/nearest");
-            
+
             final Collection<DiscoveredPlugin> discover = this.localProbe.discover(plugin, options);
-            if(discover.size() > 0) {
+            if (discover.size() > 0) {
                 channel.status("discover/end/notfound");
                 return discover;
             }
-            
+
             channel.status("discover/nearest/fallback");
         }
 
         channel.status("discover/classic");
         final Collection<DiscoveredPlugin> discover = this.networkProbe.discover(plugin, options);
-        
+
         channel.status("discover/end");
         return discover;
     }

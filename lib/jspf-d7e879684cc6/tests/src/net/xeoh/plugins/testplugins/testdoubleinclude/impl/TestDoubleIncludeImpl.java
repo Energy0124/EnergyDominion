@@ -35,19 +35,18 @@ import net.xeoh.plugins.testplugins.testdoubleinclude.TestDoubleInclude;
 
 /**
  * @author rb
- *
  */
 @PluginImplementation
 public class TestDoubleIncludeImpl implements TestDoubleInclude {
 
     /**
-     * 
+     *
      */
     @InjectPlugin
     public TestAnnotations annotations;
 
     /**
-     * 
+     *
      */
     @Init
     public void init() {

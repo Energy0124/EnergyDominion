@@ -32,9 +32,9 @@ import net.xeoh.plugins.base.Plugin;
 
 /**
  * Vanilla wrapper for plugins.
- * 
- * @author Ralf Biedert
+ *
  * @param <T>
+ * @author Ralf Biedert
  */
 public abstract class VanillaPluginUtil<T extends Plugin> extends VanillaUtil<T> {
     public VanillaPluginUtil(T object) {

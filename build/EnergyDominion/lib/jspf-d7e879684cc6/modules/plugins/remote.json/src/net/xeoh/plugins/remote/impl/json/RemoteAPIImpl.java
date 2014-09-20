@@ -27,6 +27,30 @@
  */
 package net.xeoh.plugins.remote.impl.json;
 
+import net.xeoh.plugins.base.Plugin;
+import net.xeoh.plugins.base.PluginConfiguration;
+import net.xeoh.plugins.base.annotations.Capabilities;
+import net.xeoh.plugins.base.annotations.PluginImplementation;
+import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
+import net.xeoh.plugins.base.annotations.meta.Author;
+import net.xeoh.plugins.remote.ExportResult;
+import net.xeoh.plugins.remote.PublishMethod;
+import net.xeoh.plugins.remote.RemoteAPI;
+import net.xeoh.plugins.remote.RemoteAPIJSON;
+import net.xeoh.plugins.remote.util.internal.PluginExport;
+import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
+import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
+import org.apache.bcel.Repository;
+import org.apache.bcel.classfile.*;
+import org.jabsorb.JSONRPCBridge;
+import org.jabsorb.JSONRPCServlet;
+import org.mortbay.jetty.Server;
+import org.mortbay.jetty.servlet.Context;
+import org.mortbay.jetty.servlet.ServletHolder;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.ServerSocket;
@@ -38,65 +62,44 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import net.xeoh.plugins.base.Plugin;
-import net.xeoh.plugins.base.PluginConfiguration;
-import net.xeoh.plugins.base.annotations.Capabilities;
-import net.xeoh.plugins.base.annotations.PluginImplementation;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
-import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
-import net.xeoh.plugins.base.annotations.meta.Author;
-import net.xeoh.plugins.remote.ExportResult;
-import net.xeoh.plugins.remote.PublishMethod;
-import net.xeoh.plugins.remote.RemoteAPI;
-import net.xeoh.plugins.remote.RemoteAPIJSON;
-import net.xeoh.plugins.remote.util.internal.PluginExport;
-import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
-import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
-
-import org.apache.bcel.Repository;
-import org.apache.bcel.classfile.Constant;
-import org.apache.bcel.classfile.ConstantClass;
-import org.apache.bcel.classfile.ConstantPool;
-import org.apache.bcel.classfile.ConstantUtf8;
-import org.apache.bcel.classfile.JavaClass;
-import org.jabsorb.JSONRPCBridge;
-import org.jabsorb.JSONRPCServlet;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.servlet.Context;
-import org.mortbay.jetty.servlet.ServletHolder;
-
 /**
- * Exports plugins to be accessible by JavaScript.  
- * 
+ * Exports plugins to be accessible by JavaScript.
+ * <p/>
  * FIXME: This class leaks memory. The Bridge should be cleared from time to time ...
- * 
+ *
  * @author Thomas Lottermann
  */
 @Author(name = "Thomas Lottermann")
 @PluginImplementation
 public class RemoteAPIImpl implements RemoteAPIJSON {
 
-    /** Log events */
+    /**
+     * Log events
+     */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
     /** */
     @InjectPlugin
     public PluginConfiguration configuration;
 
-    /** Base URL to return (without trailing slash) */
+    /**
+     * Base URL to return (without trailing slash)
+     */
     private String location;
 
-    /** Jetty reference */
+    /**
+     * Jetty reference
+     */
     Server server = null;
 
-    /** JSON Bidge */
+    /**
+     * JSON Bidge
+     */
     JSONRPCBridge bridge = null;
 
-    /** Classes already registered to the bridge */
+    /**
+     * Classes already registered to the bridge
+     */
     Collection<Class<?>> registered = new ArrayList<Class<?>>();
 
     /** */
@@ -132,7 +135,7 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
 
     /**
      * Returns all related classes
-     * 
+     *
      * @param start
      * @return
      */
@@ -176,9 +179,9 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
 
     /**
      * Recursively registers all return types to be accessible, down to the java.lang.Class.
-     * By calling this function you ensure a) that all returned objects are accessible 
-     * from JavaScript, no matter how nested they are and b) memory leaks. 
-     * 
+     * By calling this function you ensure a) that all returned objects are accessible
+     * from JavaScript, no matter how nested they are and b) memory leaks.
+     *
      * @param brdge
      * @param reg
      * @param start
@@ -243,7 +246,7 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
     }
 
     /**
-     * Call this once to bring up the server 
+     * Call this once to bring up the server
      */
     private void initServer() {
         String _servername = this.configuration.getConfiguration(RemoteAPI.class, "export.server");
@@ -268,7 +271,7 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
 
             @Override
             public void service(HttpServletRequest arg0, HttpServletResponse arg1)
-                                                                                  throws IOException {
+                    throws IOException {
 
                 // Register our global bridge, so jabsorb does not complain about 
                 // sessionless globals
@@ -293,7 +296,7 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */
@@ -341,7 +344,7 @@ public class RemoteAPIImpl implements RemoteAPIJSON {
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "json", "JSON" };
+        return new String[]{"json", "JSON"};
     }
 
 }

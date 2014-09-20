@@ -27,10 +27,6 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
@@ -39,14 +35,16 @@ import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionCallback;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class DiscoveryPluginTest3 {
 
@@ -69,7 +67,7 @@ public class DiscoveryPluginTest3 {
     }
 
     /**
-     * 
+     *
      */
     @After
     public void tearDown() {
@@ -107,7 +105,7 @@ public class DiscoveryPluginTest3 {
             }
 
         }, 5000));
-        
+
         for (DiscoveredPlugin discoveredPlugin : discover) {
             System.out.println(">>> " + discoveredPlugin.getPublishURI());
         }

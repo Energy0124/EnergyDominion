@@ -4,14 +4,11 @@
 
 package net.xeoh.plugins.diagnosisreader.ui;
 
-import java.awt.Container;
-
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Ralf Biedert
@@ -19,7 +16,7 @@ import com.jgoodies.forms.layout.FormLayout;
 public class MainWindowTemplate extends JFrame {
     /** */
     private static final long serialVersionUID = -1517673471088767556L;
-    
+
     /** */
     public MainWindowTemplate() {
         initComponents();
@@ -37,8 +34,8 @@ public class MainWindowTemplate extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = getContentPane();
         contentPane.setLayout(new FormLayout(
-            "pref, $rgap, center:pref:grow, $lcgap, pref",
-            "pref:grow, $lgap, default"));
+                "pref, $rgap, center:pref:grow, $lcgap, pref",
+                "pref:grow, $lgap, default"));
         contentPane.add(this.dropPanel, cc.xywh(1, 1, 5, 2));
         contentPane.add(this.converter, cc.xy(3, 3));
         pack();

@@ -27,42 +27,42 @@
  */
 package net.xeoh.plugins.diagnosis.local.util.conditions;
 
-import java.io.Serializable;
-import java.util.Set;
-
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
 import net.xeoh.plugins.diagnosis.local.DiagnosisStatus;
 import net.xeoh.plugins.diagnosis.local.util.conditions.matcher.Matcher;
 
+import java.io.Serializable;
+import java.util.Set;
+
 
 /**
- * Reflects an abstract two-state condition, that can either be on, or off. 
- * 
+ * Reflects an abstract two-state condition, that can either be on, or off.
+ *
  * @author Ralf Biedert
  */
 public abstract class TwoStateMatcherAND extends TwoStateMatcher {
-    
+
     /* (non-Javadoc)
      * @see net.xeoh.plugins.diagnosis.local.DiagnosisMonitor#onStatusChange(net.xeoh.plugins.diagnosis.local.DiagnosisStatus)
      */
     @Override
     public void onStatusChange(DiagnosisStatus<Serializable> status) {
-        
+
         // First, update our values
         this.currentStatus.put(status.getChannel(), status.getValue());
-        
+
         // Next match status agains on status
         Set<Class<? extends DiagnosisChannelID<?>>> keySet = this.onRequirements.keySet();
         for (Class<? extends DiagnosisChannelID<?>> c : keySet) {
             final Matcher requirement = this.onRequirements.get(c);
             final Object is = this.currentStatus.get(c);
-            
-            if(!requirement.matches(is)) {
+
+            if (!requirement.matches(is)) {
                 announceState(STATE.OFF);
                 return;
             }
         }
-        
+
         // Match dependant conditions
         for (@SuppressWarnings("unused") TwoStateCondition twoState : this.requiredConditions) {
             // FIXME: Aarrgh. javac failes on the following line while eclipse doesn't ...
@@ -76,7 +76,7 @@ public abstract class TwoStateMatcherAND extends TwoStateMatcher {
             }
             */
         }
-        
+
         announceState(STATE.ON);
     }
 }

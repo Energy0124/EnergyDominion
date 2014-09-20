@@ -28,23 +28,13 @@
 
 package net.xeoh.plugins.remote.impl.xmlrpc;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.UnknownHostException;
-import java.util.Random;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
-
+import com.flat502.rox.client.XmlRpcClient;
+import com.flat502.rox.server.XmlRpcServer;
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.events.Init;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.remote.ExportResult;
@@ -55,15 +45,18 @@ import net.xeoh.plugins.remote.util.vanilla.ExportResultImpl;
 import net.xeoh.plugins.remotediscovery.RemoteDiscovery;
 import net.xeoh.plugins.remotediscovery.util.RemoteAPIDiscoveryUtil;
 
-import com.flat502.rox.client.XmlRpcClient;
-import com.flat502.rox.server.XmlRpcServer;
+import java.io.IOException;
+import java.net.*;
+import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
 
 /**
  * TODO: XMLRPC impl. appears to be crappy: marshalling problems with chars, no null or
  * void support, ... replace this with something different in the future.
  *
  * @author Ralf Biedert
- *
  */
 @Author(name = "Ralf Biedert")
 @PluginImplementation
@@ -118,8 +111,8 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPC {
         // Try to find the most appropriate export name
         //
 
-        
-        String exportName =  PluginExport.getExportName(plugin);
+
+        String exportName = PluginExport.getExportName(plugin);
 
         // All interfaces this class implements
    
@@ -163,7 +156,7 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPC {
      */
     @Capabilities
     public String[] getCapabilites() {
-        return new String[] { "xmlrpc", "XMLRPC" };
+        return new String[]{"xmlrpc", "XMLRPC"};
     }
 
     /** */
@@ -180,7 +173,9 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPC {
     public <R extends Plugin> R getRemoteProxy(final URI url, final Class<R> remote) {
 
         // In case this is a remote url, let the discoverer work.
-        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) { return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote); }
+        if (this.remoteAPIDiscoveryUtil.isDiscoveryURI(url)) {
+            return this.remoteAPIDiscoveryUtil.getRemoteProxy(url, remote);
+        }
 
         try {
             final String prefix = url.getPath().substring(1) + ".";
@@ -214,7 +209,7 @@ public class RemoteAPIImpl implements RemoteAPIXMLRPC {
 
     /**
      * Internally used to create an URL without 'try'
-     * 
+     *
      * @param string
      * @return
      */

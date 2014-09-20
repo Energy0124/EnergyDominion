@@ -30,8 +30,8 @@ package net.xeoh.plugins.remotediscovery.options.discover;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
 /**
- * Tries to return all suitable local plugins only, not only the best one. 
- * 
+ * Tries to return all suitable local plugins only, not only the best one.
+ *
  * @author Ralf Biedert.
  */
 public class OptionDiscoverAllLocal implements DiscoverOption {

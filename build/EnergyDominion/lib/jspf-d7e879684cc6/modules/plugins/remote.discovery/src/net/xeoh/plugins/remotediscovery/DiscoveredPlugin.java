@@ -27,50 +27,49 @@
  */
 package net.xeoh.plugins.remotediscovery;
 
+import net.xeoh.plugins.remote.PublishMethod;
+
 import java.net.URI;
 import java.util.List;
 
-import net.xeoh.plugins.remote.PublishMethod;
-
 /**
  * Reflects one discovered plugin.
- * 
- * @author Ralf Biedert
  *
+ * @author Ralf Biedert
  */
 public interface DiscoveredPlugin {
 
     /**
      * Where the plugin can be found.
-     * 
+     *
      * @return .
      */
     public URI getPublishURI();
 
     /**
      * Returns the relative distance of the exported plugin. The lower the number, the closer.
-     * 
+     *
      * @return .
      */
     public int getDistance();
 
     /**
      * The method the plugins was published.
-     * 
+     *
      * @return .
      */
     public PublishMethod getPublishMethod();
 
     /**
      * Returns the capabilities.
-     *  
+     *
      * @return .
      */
     public List<String> getCapabilities();
 
     /**
      * Returns the time since the export of the pluign in milliseconds.
-     * 
+     *
      * @return .
      */
     public long getTimeSinceExport();

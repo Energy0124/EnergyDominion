@@ -27,13 +27,11 @@
  */
 package net.xeoh.plugins.diagnosisreader.ui;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 public class DropPanel extends JPanel {
     /**  */
@@ -45,7 +43,8 @@ public class DropPanel extends JPanel {
     public DropPanel() {
         try {
             this.image = ImageIO.read(DropPanel.class.getResourceAsStream("dropfileshere.png"));
-        } catch (IOException e) {}
+        } catch (IOException e) {
+        }
     }
 
     /*
@@ -88,5 +87,5 @@ public class DropPanel extends JPanel {
         return this.getPreferredSize();
     }
 
-  
+
 }

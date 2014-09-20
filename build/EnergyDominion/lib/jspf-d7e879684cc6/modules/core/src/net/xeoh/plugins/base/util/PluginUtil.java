@@ -27,23 +27,23 @@
  */
 package net.xeoh.plugins.base.util;
 
+import net.xeoh.plugins.base.Plugin;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import net.xeoh.plugins.base.Plugin;
-
 /**
- * A set of inspection methods for an existing plugin. Should only be required 
- * and used internally. 
- * 
+ * A set of inspection methods for an existing plugin. Should only be required
+ * and used internally.
+ *
  * @author Ralf Biedert
  */
 public class PluginUtil extends VanillaPluginUtil<Plugin> {
     /**
      * The plugin to wrap.
-     * 
+     *
      * @param plugin
      */
     public PluginUtil(Plugin plugin) {
@@ -52,10 +52,10 @@ public class PluginUtil extends VanillaPluginUtil<Plugin> {
 
     /**
      * Lists all primary interfaces.
-     * 
+     *
      * @return A list of primary interfaces.>
      */
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     public Collection<Class<? extends Plugin>> getPrimaryInterfaces() {
         final Collection<Class<? extends Plugin>> rval = getPluginInterfaces();
         List<Class<?>> candidates = new ArrayList<Class<?>>();
@@ -93,10 +93,10 @@ public class PluginUtil extends VanillaPluginUtil<Plugin> {
 
     /**
      * Lists all toplevel plugin interfaces
-     * 
+     *
      * @return The list of all plugin interfaces.
      */
-    @SuppressWarnings({ "unchecked" })
+    @SuppressWarnings({"unchecked"})
     public Collection<Class<? extends Plugin>> getPluginInterfaces() {
         final Collection<Class<? extends Plugin>> rval = new ArrayList<Class<? extends Plugin>>();
 
@@ -127,10 +127,10 @@ public class PluginUtil extends VanillaPluginUtil<Plugin> {
 
     /**
      * Lists all plugin interfaces.
-     * 
+     *
      * @return Lists all primary interfaces.
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public Collection<Class<? extends Plugin>> getAllPluginInterfaces() {
         final Collection<Class<? extends Plugin>> pluginInterfaces = getPluginInterfaces();
         final Collection<Class<? extends Plugin>> rval = new ArrayList<Class<? extends Plugin>>();

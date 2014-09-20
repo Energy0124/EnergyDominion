@@ -2,13 +2,12 @@ package org.hopto.energy.energydominion.api.event;
 
 import org.hopto.energy.energydominion.api.Player;
 
-public interface CardEvent {
-    void setCardOwner(Player owner);
+public abstract interface CardEvent extends GameEvent {
 
-    Player getCardOwner();
 
-    void setTrigger(Player trigger);
+    public Player getCardOwner();
 
-    Player getTrigger();
+    public void setCardOwner(Player owner);
+
 
 }

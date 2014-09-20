@@ -27,92 +27,90 @@
  */
 package net.xeoh.plugins.base;
 
-import java.util.Collection;
-
 import net.xeoh.plugins.base.annotations.Capabilities;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.base.annotations.meta.Version;
 import net.xeoh.plugins.base.options.GetInformationOption;
 
+import java.util.Collection;
+
 /**
- * Returns various information about plugins, static as well as dynamic. 
+ * Returns various information about plugins, static as well as dynamic.
  *
  * @author Ralf Biedert
  */
 public interface PluginInformation extends Plugin {
     /**
-     * The set of information item that can be requested. <b>S1</b> means a list 
-     * of strings with exactly one element is returnd, <b>S+</b> means a number of 
-     * strings will be returned. In case no information was available an empty 
-     * collection is returned. 
-     * 
+     * The set of information item that can be requested. <b>S1</b> means a list
+     * of strings with exactly one element is returnd, <b>S+</b> means a number of
+     * strings will be returned. In case no information was available an empty
+     * collection is returned.
+     *
      * @author Ralf Biedert
      */
     public static enum Information {
-        /** 
-         * The author of this plugins (S1). 
+        /**
+         * The author of this plugins (S1).
          *
-         *  @see Author
+         * @see Author
          */
         AUTHORS,
 
         /**
-         * Returns the self proclaimed capabilites of this plugin (S+). 
-         * 
+         * Returns the self proclaimed capabilites of this plugin (S+).
+         *
          * @see Capabilities
          */
         CAPABILITIES,
 
         /**
-         * Version of this plugin (S+). A version number of 10304 will be 
-         * returned as 1.03.04 at index 0. Additional versioning information may be 
+         * Version of this plugin (S+). A version number of 10304 will be
+         * returned as 1.03.04 at index 0. Additional versioning information may be
          * provided.
-         * 
-         *  @see Version
+         *
+         * @see Version
          */
         VERSION,
 
-        /** 
+        /**
          * Date when the plugin was initialized (S1). The unix time will be returned.<br/><br/>
-         * 
+         * <p/>
          * TODO: Not implemented yet.
          */
         INIT_DATE,
 
         /**
-         * Returns a single string containing the URI to the classpath item this 
+         * Returns a single string containing the URI to the classpath item this
          * element came from (S1).
          */
         CLASSPATH_ORIGIN,
     }
 
     /**
-     * Returns an {@link Information} item about a plugin. For example, to query a plugin's 
+     * Returns an {@link Information} item about a plugin. For example, to query a plugin's
      * classpath origin you would write:<br/><br/>
-     * 
+     * <p/>
      * <code>
      * getInformation(Information.CLASSPATH_ORIGIN, plugin);
      * </code>
-     * 
-     * @param item The information item to request. 
-     * @param plugin The plugin for which the information is requested.
      *
-     * @return A collection of strings containing the requested information. The the specific {@link Information} 
+     * @param item   The information item to request.
+     * @param plugin The plugin for which the information is requested.
+     * @return A collection of strings containing the requested information. The the specific {@link Information}
      * item for more details. If nothing sensible was found, an empty collection is returned.
      */
     public Collection<String> getInformation(Information item, Plugin plugin);
-    
+
     /**
-     * Returns an {@link Information} item about a plugin. For example, to query a plugin's 
+     * Returns an {@link Information} item about a plugin. For example, to query a plugin's
      * classpath origin you would write:<br/><br/>
-     * 
+     * <p/>
      * <code>
      * getInformation(plugin, InformationOrigin.class);
      * </code>
-     * 
-     * @param plugin The plugin for which the information is requested.
-     * @param query The information item to request. 
      *
+     * @param plugin The plugin for which the information is requested.
+     * @param query  The information item to request.
      * @return The appropriate query result.
      */
     public <T extends GetInformationOption> T getInformation(Plugin plugin, Class<T> query);

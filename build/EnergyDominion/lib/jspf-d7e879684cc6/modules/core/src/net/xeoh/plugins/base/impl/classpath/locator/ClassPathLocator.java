@@ -27,17 +27,6 @@
  */
 package net.xeoh.plugins.base.impl.classpath.locator;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.jcores.jre.interfaces.functions.F1;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.diagnosis.channels.tracing.SpawnerTracer;
@@ -49,17 +38,32 @@ import net.xeoh.plugins.base.util.PluginConfigurationUtil;
 import net.xeoh.plugins.diagnosis.local.Diagnosis;
 import net.xeoh.plugins.diagnosis.local.util.DiagnosisChannelUtil;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * Used to find classpaths, JARs and their contents.
- * 
+ *
  * @author Ralf Biedert
  */
 public class ClassPathLocator {
 
-    /** Cache to lookup elements */
+    /**
+     * Cache to lookup elements
+     */
     private final JARCache cache;
 
-    /** Mainly used to access the config. */
+    /**
+     * Mainly used to access the config.
+     */
     private PluginManagerImpl pluginManager;
 
 
@@ -75,7 +79,7 @@ public class ClassPathLocator {
     /**
      * Given a top level entry, finds a list of class path locations below the given
      * entry. The top level entry can either be a folder, or it can be a JAR directly.
-     * 
+     *
      * @param toplevel The top level URI to start from.
      * @return A list of class path locations.
      */
@@ -129,25 +133,24 @@ public class ClassPathLocator {
 
         return rval;
     }
-    
-    
-    
+
+
     /**
-     * Gets all contributing classpaths for a given class by traversing all parent-classloader. 
-     * 
-     * @since 1.1
+     * Gets all contributing classpaths for a given class by traversing all parent-classloader.
+     *
      * @param clazz The class to get all classloaders for.
      * @return A list of all contributing classloaders.
+     * @since 1.1
      */
     protected List<String> allClasspathsFor(Class<?> clazz) {
         final DiagnosisChannelUtil<String> channel = new DiagnosisChannelUtil<String>(this.pluginManager.getPlugin(Diagnosis.class).channel(SpawnerTracer.class));
         final List<String> rval = $.list();
 
         channel.status("allclasspathsfor/start", "class", clazz.toString());
-        
+
         // In case JSPF has been loaded from an URL class loader as well (Issue #29)
         URLClassLoader ourloader = $(clazz.getClassLoader()).cast(URLClassLoader.class).get(0);
-        while (ourloader != null) { 
+        while (ourloader != null) {
             // Removed check for system classloader, might need its elements as well
             channel.status("allclasspathsfor/urlloader");
             rval.addAll($(ourloader.getURLs()).file().forEach(new F1<File, String>() {
@@ -159,23 +162,23 @@ public class ClassPathLocator {
             }).list());
             ourloader = $(ourloader.getParent()).cast(URLClassLoader.class).get(0);
         }
-        
+
         channel.status("allclasspathsfor/end");
-        
+
         return $(rval).unique().list();
     }
-    
+
 
     /**
      * Finds all locations inside the current classpath.
-     * @param options 
-     * 
+     *
+     * @param options
      * @return A list of all locations in the current classpath.
      */
     @SuppressWarnings("boxing")
     public Collection<AbstractClassPathLocation> findInCurrentClassPath(AddPluginsFromOption[] options) {
         final DiagnosisChannelUtil<String> channel = new DiagnosisChannelUtil<String>(this.pluginManager.getPlugin(Diagnosis.class).channel(SpawnerTracer.class));
-        
+
         channel.status("findinclasspath/start");
         final Collection<AbstractClassPathLocation> rval = new ArrayList<AbstractClassPathLocation>();
 
@@ -189,7 +192,7 @@ public class ClassPathLocator {
 
         // Get the starting point
         final Class<?> startPoint = $(options).get(OptionSearchAround.class, new OptionSearchAround(getClass())).getClazz();
-        
+
         // Get all classpaths
         List<String> classpaths = $(classpath.split(pathSep)).list();
         classpaths.addAll(allClasspathsFor(startPoint));
@@ -216,11 +219,11 @@ public class ClassPathLocator {
 
         // Process all possible locations
         for (String string : classpaths) {
-            if(string == null) continue;
-            
+            if (string == null) continue;
+
             try {
                 final URL url = new File(string).toURI().toURL();
-                
+
                 channel.status("findinclasspath/add", "raw", string, "url", url);
 
                 // Check if the url was already contained
@@ -241,7 +244,7 @@ public class ClassPathLocator {
 
     /**
      * Checks if the given URL is blacklisted
-     * 
+     *
      * @param blacklist
      * @param url
      * @return

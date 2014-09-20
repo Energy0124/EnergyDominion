@@ -27,23 +27,21 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class PluginInformationTest {
 
@@ -67,7 +65,7 @@ public class PluginInformationTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testPluginInformation() {
@@ -83,7 +81,7 @@ public class PluginInformationTest {
         final Collection<String> author = pi.getInformation(Information.AUTHORS, ta);
         final Collection<String> version = pi.getInformation(Information.VERSION, ta);
         final Collection<String> origin = pi.getInformation(Information.CLASSPATH_ORIGIN, ta);
-        
+
         Assert.assertTrue("Caps must contain SUNSHINE", caps.contains("SUNSHINE"));
         Assert.assertTrue("Caps must contain RAIN", caps.contains("RAIN"));
         Assert.assertTrue("Author must contain AUTHOR OK", author.contains("AUTHOR OK"));

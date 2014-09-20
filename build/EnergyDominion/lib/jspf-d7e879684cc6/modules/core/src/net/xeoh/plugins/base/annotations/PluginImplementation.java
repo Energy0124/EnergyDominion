@@ -27,26 +27,26 @@
  */
 package net.xeoh.plugins.base.annotations;
 
+import net.xeoh.plugins.base.Plugin;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.xeoh.plugins.base.Plugin;
-
 /**
  * This annotation can be used to mark plugin instances which should be initialized at
  * runtime. If you don't annotate your plugin with this annotation, nothing will happen.
- * For example, to specify that a specific class should be treated as a plugin you would 
+ * For example, to specify that a specific class should be treated as a plugin you would
  * write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;PluginImplementation<br/>
- * public class ServiceImpl implements Service { ... } 
+ * public class ServiceImpl implements Service { ... }
  * </code><br/><br/>
- * 
- * In this case, <code>Service</code> has to extend {@link Plugin}. 
- * 
+ * <p/>
+ * In this case, <code>Service</code> has to extend {@link Plugin}.
+ *
  * @author Ralf Biedert
  */
 @Retention(RetentionPolicy.RUNTIME)

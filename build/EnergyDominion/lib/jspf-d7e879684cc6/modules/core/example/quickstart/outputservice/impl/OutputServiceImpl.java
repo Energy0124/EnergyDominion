@@ -40,7 +40,7 @@ import quickstart.outputservice.OutputService;
 public class OutputServiceImpl implements OutputService {
 
     /**
-     * Even more magic. If the service has been loaded 
+     * Even more magic. If the service has been loaded
      * before this plugin, inject it.
      */
     @InjectPlugin(isOptional = true)

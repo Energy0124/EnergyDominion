@@ -31,14 +31,14 @@ import java.net.URI;
 
 /**
  * Returns an URI for something.
- * 
+ *
  * @author Ralf Biedert
  */
 public abstract class URIUtil {
-    /** 
+    /**
      * The URI.
-     * 
-     * @return The URI. 
+     *
+     * @return The URI.
      */
     public abstract URI toURI();
 }

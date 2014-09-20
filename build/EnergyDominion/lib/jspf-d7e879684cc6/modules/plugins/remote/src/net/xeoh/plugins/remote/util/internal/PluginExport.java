@@ -27,24 +27,23 @@
  */
 package net.xeoh.plugins.remote.util.internal;
 
+import net.xeoh.plugins.base.Plugin;
+import net.xeoh.plugins.base.util.PluginUtil;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import net.xeoh.plugins.base.Plugin;
-import net.xeoh.plugins.base.util.PluginUtil;
-
 /**
  * Some utils for exporting plugins. Only used internally.
- * 
+ *
  * @author Ralf Biedert
  */
 public class PluginExport {
     /**
      * @param plugin
-     * 
      * @return .
      */
     public static String getExportName(Plugin plugin) {
@@ -67,7 +66,6 @@ public class PluginExport {
 
     /**
      * @param plugin
-     * 
      * @return .
      */
     @SuppressWarnings("boxing")
@@ -92,7 +90,7 @@ public class PluginExport {
                 sb.append(format);
             }
 
-            char replacements[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'a', 'b', 'c', 'd', 'e' };
+            char replacements[] = {'a', 'b', 'c', 'd', 'e', 'f', 'a', 'b', 'c', 'd', 'e'};
             String rval = sb.toString();
             char charAt = rval.charAt(0);
             if (Character.isDigit(charAt)) {

@@ -27,32 +27,40 @@
  */
 package net.xeoh.plugins.diagnosis.local.impl.serialization.java;
 
-import static net.jcores.jre.CoreKeeper.$;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.zip.GZIPOutputStream;
 
+import static net.jcores.jre.CoreKeeper.$;
+
 public class LogFileWriter {
 
-    /** Raw file to write into */
+    /**
+     * Raw file to write into
+     */
     FileOutputStream fileOutputStream;
 
-    /** Object stream to use when writing */
+    /**
+     * Object stream to use when writing
+     */
     ObjectOutputStream objectOutputStream;
 
-    /** Zip stream to compress */
+    /**
+     * Zip stream to compress
+     */
     GZIPOutputStream zipStream;
 
-    /** Entries to write into the file */
+    /**
+     * Entries to write into the file
+     */
     LinkedBlockingQueue<Entry> eventQueue = new LinkedBlockingQueue<Entry>();
 
     /**
      * Creates a new serializer
-     * 
-     * @param file The file to write into.
+     *
+     * @param file           The file to write into.
      * @param compressOutput
      */
     public LogFileWriter(String file, boolean compressOutput) {
@@ -88,13 +96,12 @@ public class LogFileWriter {
                             LogFileWriter.this.fileOutputStream.flush();
                             flushCount = 0;
                         }
+                    } catch (InterruptedException e) {
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    catch (InterruptedException e) {}
-                    catch (IOException e) {
-                         e.printStackTrace();
-                     }
-                 }
-             }
+                }
+            }
         });
         thread.setName("LogFileWriter.serializer");
         thread.setDaemon(true);
@@ -109,7 +116,9 @@ public class LogFileWriter {
         }));
     }
 
-    /** Flushes and closes the recording streams */
+    /**
+     * Flushes and closes the recording streams
+     */
     void terminate() {
         try {
             this.objectOutputStream.flush();
@@ -125,7 +134,7 @@ public class LogFileWriter {
 
     /**
      * Records the given entry.
-     * 
+     *
      * @param entry Entry to record.
      */
     public void record(Entry entry) {

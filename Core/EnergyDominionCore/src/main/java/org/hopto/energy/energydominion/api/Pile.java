@@ -1,4 +1,5 @@
 package org.hopto.energy.energydominion.api;
 
-public interface Pile {
+public interface Pile extends Area {
+
 }

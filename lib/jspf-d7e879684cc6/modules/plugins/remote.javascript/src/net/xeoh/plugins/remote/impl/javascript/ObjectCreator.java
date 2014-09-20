@@ -5,9 +5,8 @@ import org.directwebremoting.extend.Creator;
 
 /**
  * Used to put in our own objects.
- * 
- * @author Thomas Lottermann
  *
+ * @author Thomas Lottermann
  */
 public class ObjectCreator extends AbstractCreator implements Creator {
 
@@ -23,6 +22,7 @@ public class ObjectCreator extends AbstractCreator implements Creator {
 
     /**
      * Gets the name of the class to create.
+     *
      * @return The name of the class to create
      */
     public String getClassName() {

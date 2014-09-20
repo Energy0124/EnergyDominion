@@ -27,19 +27,18 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-
 import net.xeoh.plugins.remote.RemoteAPI;
 import net.xeoh.plugins.remote.options.ExportVanillaObjectOption;
 
+import java.net.URI;
+
 /**
  * Allows the network export of plugins.<br/> <br/>
- *
+ * <p/>
  * Please note there may be constraints on the plugin usage depending on the remote type.
  * For example, XMLRPC might have problems with null or void types.
  *
  * @author Ralf Biedert, Andreas Lauer, Christian Reuschling
- *
  */
 public interface RemoteAPIXMLRPCDelight extends RemoteAPI {
     /**

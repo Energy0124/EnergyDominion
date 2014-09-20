@@ -27,38 +27,38 @@
  */
 package net.xeoh.plugins.diagnosis.local;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.diagnosis.local.options.ChannelOption;
 import net.xeoh.plugins.diagnosis.local.util.DiagnosisUtil;
 
+import java.io.Serializable;
+
 /**
  * Main enty point to the diagnosis. Allows your application to record diagnosis data to various channels, which
- * can then be stored in a diagnosis.record for later analysis. 
- * 
- * 
- * The following configuration sub-keys are usually known for this class (see {@link PluginConfiguration}, keys must be set 
+ * can then be stored in a diagnosis.record for later analysis.
+ * <p/>
+ * <p/>
+ * The following configuration sub-keys are usually known for this class (see {@link PluginConfiguration}, keys must be set
  * <em>before</em> createPluginManager() is being called, i.e., set in the {@link JSPFProperties} object!):<br/><br/>
- * 
- *  <ul>
- *  <li><b>recording.enabled</b> - If we should record to a file or not. If switched off, diagnosis has virtually no overhead. Specify either {true, false}.</li>
- *  <li><b>recording.file</b> - File to which the record should be writte (will be overwritten).</li>
- *  <li><b>recording.format</b> - Format to write. Should be <code>java/serialization</code> for now.</li>
- *  <li><b>analysis.stacktraces.enabled</b> - If true, a stack trace will also be written. Very helpful, rather slow. Specify either {true, false}.</li>
- *  <li><b>analysis.stacktraces.depth</b> - Depth of the stacktrace. Specify either something from 1 to 10000.</li>
- *  </ul><br/>
- *  
+ * <p/>
+ * <ul>
+ * <li><b>recording.enabled</b> - If we should record to a file or not. If switched off, diagnosis has virtually no overhead. Specify either {true, false}.</li>
+ * <li><b>recording.file</b> - File to which the record should be writte (will be overwritten).</li>
+ * <li><b>recording.format</b> - Format to write. Should be <code>java/serialization</code> for now.</li>
+ * <li><b>analysis.stacktraces.enabled</b> - If true, a stack trace will also be written. Very helpful, rather slow. Specify either {true, false}.</li>
+ * <li><b>analysis.stacktraces.depth</b> - Depth of the stacktrace. Specify either something from 1 to 10000.</li>
+ * </ul><br/>
+ *
  * @author Ralf Biedert
- * @since 1.1
  * @see DiagnosisUtil
+ * @since 1.1
  */
 public interface Diagnosis extends Plugin {
     /**
      * Returns a given channel.
-     * 
+     *
      * @param <T>
      * @param channel
      * @param options
@@ -69,19 +69,19 @@ public interface Diagnosis extends Plugin {
 
     /**
      * Registers a listener to the diagnosis.
-     * 
-     * @param <T> 
-     * @param channel 
-     * @param listener 
+     *
+     * @param <T>
+     * @param channel
+     * @param listener
      */
-    public  <T extends Serializable> void registerMonitor(Class<? extends DiagnosisChannelID<T>> channel, DiagnosisMonitor<T> listener);
-    
-    
+    public <T extends Serializable> void registerMonitor(Class<? extends DiagnosisChannelID<T>> channel, DiagnosisMonitor<T> listener);
+
+
     /**
      * Adds a replay listener for a given file.
-     * 
+     *
      * @param file
      * @param listener
      */
-    public void replay(String file, DiagnosisMonitor<?> listener); 
+    public void replay(String file, DiagnosisMonitor<?> listener);
 }

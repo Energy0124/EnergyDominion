@@ -27,16 +27,15 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.v3;
 
-import java.util.Collection;
-import java.util.concurrent.Callable;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
+import java.util.Collection;
+import java.util.concurrent.Callable;
+
 /**
  * @author Eugen Massini
- *
  */
 abstract class BaseCall implements Callable<Collection<DiscoveredPlugin>> {
 

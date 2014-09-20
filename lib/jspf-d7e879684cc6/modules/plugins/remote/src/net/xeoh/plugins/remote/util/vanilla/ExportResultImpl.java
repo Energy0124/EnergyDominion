@@ -27,16 +27,16 @@
  */
 package net.xeoh.plugins.remote.util.vanilla;
 
+import net.xeoh.plugins.remote.ExportResult;
+
 import java.net.URI;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import net.xeoh.plugins.remote.ExportResult;
-
 /**
  * Only used internally.
- * 
+ *
  * @author Ralf Biedert
  */
 public class ExportResultImpl implements ExportResult {

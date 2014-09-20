@@ -33,33 +33,33 @@ import net.xeoh.plugins.base.util.PluginUtil;
 /**
  * The base class of all plugins. Plugin creation is fairly simple: <br>
  * <br>
- * 1. Create a new top level package for your plugin, e.g., 
+ * 1. Create a new top level package for your plugin, e.g.,
  * <code>com.company.plugins.imagedb</code> in case of an image database.<br>
  * <br>
  * 2. Create an interface within that package. The interface should (well, must)
- * extend Plugin. Add all the methods you like, for example <code>listImages()</code><br> 
+ * extend Plugin. Add all the methods you like, for example <code>listImages()</code><br>
  * <br>
  * 3. Create an impl sub-package with the plugin package, in our case this is
- * <code>com.company.plugins.imagedb.impl</code>. The <i>impl</i>-name is not 
- * required, but should be kept as a convention. In the future there might exist 
- * tools that depend on it, or work better with it. If you have multiple implementations, 
- * create several sub-packages within the impl folder. In our example case, this 
- * could be the implementations <code>impl.simple</code> (for a simple test 
- * implementation), <code>impl.distributed</code> (for our distributed image storage) 
+ * <code>com.company.plugins.imagedb.impl</code>. The <i>impl</i>-name is not
+ * required, but should be kept as a convention. In the future there might exist
+ * tools that depend on it, or work better with it. If you have multiple implementations,
+ * create several sub-packages within the impl folder. In our example case, this
+ * could be the implementations <code>impl.simple</code> (for a simple test
+ * implementation), <code>impl.distributed</code> (for our distributed image storage)
  * and <code>impl.compatiblity</code> (for the old DB API)<br>
  * <br>
- * 4. Implement your interfaces, i.e., create a class / classes inside the 
+ * 4. Implement your interfaces, i.e., create a class / classes inside the
  * respective <code>impl</code> folder.<br>
  * <br>
- * 5. Add the &#064;{@link PluginImplementation} annotation to your implemented 
+ * 5. Add the &#064;{@link PluginImplementation} annotation to your implemented
  * class(es).<br>
  * <br>
- * 6. You're done. Technically your plugin is ready now to use. It can be compiled 
- * now (Eclipse will probably have done this for you already). You might want to 
- * have a look at the {@link PluginManager} documentation to see how you can load and retrieve 
+ * 6. You're done. Technically your plugin is ready now to use. It can be compiled
+ * now (Eclipse will probably have done this for you already). You might want to
+ * have a look at the {@link PluginManager} documentation to see how you can load and retrieve
  * it (see <code>addPluginsFrom()</code> and <code>getPlugin()</code>).<br>
  * <br>
- * NOTE: You should <b>ensure that all implementations of your plugins are thread 
+ * NOTE: You should <b>ensure that all implementations of your plugins are thread
  * safe</b>! Expect your functions to be called any time in any state.
  *
  * @author Ralf Biedert

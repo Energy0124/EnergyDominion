@@ -27,22 +27,20 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.io.IOException;
-import java.util.Random;
-
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 import javax.jmdns.impl.tasks.ServiceResolver;
+import java.io.IOException;
+import java.util.Random;
 
 /**
  * @author rb
- *
  */
 public class JMDNSTestDiscovery {
     /**
      * @param args
      * @throws IOException
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
 

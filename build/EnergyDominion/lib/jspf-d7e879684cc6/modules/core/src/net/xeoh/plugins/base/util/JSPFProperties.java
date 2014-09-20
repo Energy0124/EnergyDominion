@@ -27,17 +27,17 @@
  */
 package net.xeoh.plugins.base.util;
 
-import java.util.Properties;
-
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 
+import java.util.Properties;
+
 /**
- * Can be used to set properties more easily. Pass this object to the {@link PluginManagerFactory}'s 
+ * Can be used to set properties more easily. Pass this object to the {@link PluginManagerFactory}'s
  * <code>createPluginManager()</code> method to set initial properties.<br/><br/>
- * 
- * A good overview on how properties can be used is in the {@link PluginConfiguration}'s documentation.   
- * 
+ * <p/>
+ * A good overview on how properties can be used is in the {@link PluginConfiguration}'s documentation.
+ *
  * @author Ralf Biedert
  */
 public class JSPFProperties extends Properties {
@@ -46,18 +46,18 @@ public class JSPFProperties extends Properties {
     private static final long serialVersionUID = -4275521676384493982L;
 
     /**
-     * Sets a property using a class as prefix. For example, if 
+     * Sets a property using a class as prefix. For example, if
      * <code>GeoService</code> is in the package <code>com.company.plugins.geoservice</code>
-     * the following call:<br/><br/>  
+     * the following call:<br/><br/>
      * <code>
      * setProperty(GeoService.class, "remote.url", "http://geo.ip/q?");
      * </code><br/><br/>
-     * would set the configuration key <code>com.company.plugins.geoservice.GeoService.remote.url</code> 
+     * would set the configuration key <code>com.company.plugins.geoservice.GeoService.remote.url</code>
      * to the value <code>http://geo.ip/q?</code>.
-     * 
-     * @param root Root class to set an option for. 
-     * @param subkey The subkey to set. 
-     * @param value The value to set.
+     *
+     * @param root   Root class to set an option for.
+     * @param subkey The subkey to set.
+     * @param value  The value to set.
      */
     public void setProperty(final Class<?> root, final String subkey, final String value) {
         setProperty(getKey(root, subkey), value);
@@ -65,10 +65,10 @@ public class JSPFProperties extends Properties {
 
     /**
      * Assembles a key, only used internally.
-     * 
-     * @param root Root class. 
-     * @param subkey Subkey to assemble. 
-     * @return The assembled key. 
+     *
+     * @param root   Root class.
+     * @param subkey Subkey to assemble.
+     * @return The assembled key.
      */
     public static String getKey(final Class<?> root, final String subkey) {
         String prefix = "";

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class DominionCard implements Card, Buyable, Discardable, Drawable, Gainable, Playable, Trashable, VPCountable {
+public abstract class DominionCard implements Card  {
     private String name;
     private List<CardType> cardTypes;
     private Cost cost;
@@ -83,6 +83,7 @@ public abstract class DominionCard implements Card, Buyable, Discardable, Drawab
         this.cost = cost;
         this.description = description;
         this.owner = owner;
+
     }
 
     @Override
@@ -152,10 +153,7 @@ public abstract class DominionCard implements Card, Buyable, Discardable, Drawab
 
     }
 
-    @Override
-    public void onPlay() {
 
-    }
 
     @Override
     public void onDiscard(DiscardEvent event) {
@@ -186,4 +184,6 @@ public abstract class DominionCard implements Card, Buyable, Discardable, Drawab
     public void onVPCount(VPCountEvent event) {
 
     }
+
+
 }

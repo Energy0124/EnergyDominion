@@ -31,9 +31,10 @@ package net.xeoh.plugins.informationbroker;
  * Represents an information item that can be acquired using the
  * information broker. You must create a subclass for each item you
  * wish to trade using the broker.
- * 
- * @author Ralf Biedert
+ *
  * @param <T> The content's type.
+ * @author Ralf Biedert
  * @see InformationBroker
  */
-public interface InformationItem<T> {}
+public interface InformationItem<T> {
+}

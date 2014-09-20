@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
@@ -40,18 +35,22 @@ import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class ShutdownTest {
     /**
      * @param args
      * @throws URISyntaxException
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public static void main(String[] args) throws URISyntaxException,
-                                          InterruptedException {
+            InterruptedException {
 
         final JSPFProperties props = new JSPFProperties();
 

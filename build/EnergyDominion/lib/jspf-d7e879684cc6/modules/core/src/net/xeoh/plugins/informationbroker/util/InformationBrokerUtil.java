@@ -27,10 +27,6 @@
  */
 package net.xeoh.plugins.informationbroker.util;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicReference;
-
 import net.xeoh.plugins.base.util.VanillaPluginUtil;
 import net.xeoh.plugins.informationbroker.InformationBroker;
 import net.xeoh.plugins.informationbroker.InformationItem;
@@ -39,18 +35,22 @@ import net.xeoh.plugins.informationbroker.options.PublishOption;
 import net.xeoh.plugins.informationbroker.options.SubscribeOption;
 import net.xeoh.plugins.informationbroker.options.subscribe.OptionInstantRequest;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * Helper functions for the {@link InformationBroker} interface. The util uses the
  * embedded
  * interface to provide more convenience features.
- * 
+ *
  * @author Ralf Biedert
  * @see InformationBroker
  */
 public class InformationBrokerUtil extends VanillaPluginUtil<InformationBroker> implements InformationBroker {
     /**
      * Creates a new InformationBrokerUtil.
-     * 
+     *
      * @param broker
      */
     public InformationBrokerUtil(InformationBroker broker) {
@@ -62,14 +62,14 @@ public class InformationBrokerUtil extends VanillaPluginUtil<InformationBroker> 
      * nor the default was present. For example, to retrieve the current user name
      * and to get "unknown" if none was present, you could write:<br/>
      * <br/>
-     * 
+     * <p/>
      * <code>
      * get(UserName.class, "unknown");
      * </code><br/>
      * <br/>
-     * 
-     * @param <T> The type of the return value.
-     * @param id The ID to request.
+     *
+     * @param <T>  The type of the return value.
+     * @param id   The ID to request.
      * @param dflt The default value to return if no item was found.
      * @return Returns the requested item, a default if the item was not present or null
      * in case neither was found.
@@ -100,13 +100,13 @@ public class InformationBrokerUtil extends VanillaPluginUtil<InformationBroker> 
      * subscribeAll(listener, ItemA.class, ItemB.class);
      * </code><br/>
      * <br/>
-     * 
+     * <p/>
      * Use <code>get()</code> from inside the listener to obtain the specific items.
-     * 
+     *
      * @param listener The listener called when all prerequisites are met. Note that the
-     * listener will be called <b>without</b> any object (i.e., <code>item</code> is
-     * <code>null</code>). You must use the broker's <code>get()</code> function.
-     * @param all All IDs we should subscribe to.
+     *                 listener will be called <b>without</b> any object (i.e., <code>item</code> is
+     *                 <code>null</code>). You must use the broker's <code>get()</code> function.
+     * @param all      All IDs we should subscribe to.
      */
     @SuppressWarnings("unchecked")
     public void subscribeAll(final InformationListener<Void> listener,
@@ -138,19 +138,19 @@ public class InformationBrokerUtil extends VanillaPluginUtil<InformationBroker> 
     public <T> void publish(Class<? extends InformationItem<T>> channel, T item,
                             PublishOption... options) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public <T> void subscribe(Class<? extends InformationItem<T>> channel,
                               InformationListener<T> listener, SubscribeOption... options) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void unsubscribe(InformationListener<?> listener) {
         // TODO Auto-generated method stub
-        
+
     }
 }

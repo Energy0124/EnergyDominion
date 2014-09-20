@@ -32,7 +32,7 @@ import net.xeoh.plugins.informationbroker.InformationBroker;
 
 /**
  * The base type for all <code>publish()</code> options.
- * 
+ *
  * @author Ralf Biedert
  * @see InformationBroker
  */

@@ -27,46 +27,37 @@
  */
 package net.xeoh.plugins.base.impl.classpath.cache;
 
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 /**
  * Information about JAR files
- * 
+ *
  * @author rb
  */
 public class JARCache {
 
     /**
      * Information about a JAR plugin container.
-     * 
+     *
      * @author Ralf Biedert
-     * 
      */
     public static class JARInformation implements Serializable {
         /** */
         private static final long serialVersionUID = 6734024814836912079L;
 
-        /** List of valid classes in the jar */
+        /**
+         * List of valid classes in the jar
+         */
         public List<String> classes = new ArrayList<String>();
 
-        /** List of valid plugins in the jar */
+        /**
+         * List of valid plugins in the jar
+         */
         public Map<String, Collection<String>> subclasses = new HashMap<String, Collection<String>>();
 
         /** */
@@ -75,7 +66,9 @@ public class JARCache {
         /** */
         public int usageCount = 0;
 
-        /** Is the contents information valid? */
+        /**
+         * Is the contents information valid?
+         */
         public boolean classesValid = false;
 
     }
@@ -83,13 +76,19 @@ public class JARCache {
     /** */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Name of the default cache file */
+    /**
+     * Name of the default cache file
+     */
     private final static String DEFAULT_CACHE_FILE = "jspf.plugin.cache";
 
-    /** Is the cache enabled */
+    /**
+     * Is the cache enabled
+     */
     private boolean cacheEnabled = false;
 
-    /** maps a fingerprint to a jar information */
+    /**
+     * maps a fingerprint to a jar information
+     */
     private Map<String, JARInformation> cacheMap = new HashMap<String, JARInformation>();
 
     /** */
@@ -111,7 +110,7 @@ public class JARCache {
             final FileInputStream fis = new FileInputStream(cacheFile);
             final ObjectInputStream ois = new ObjectInputStream(fis);
             final Object rval = ois.readObject(); // Loading caches can take very long
-                                                  // (>250ms) for many entries
+            // (>250ms) for many entries
 
             ois.close();
 
@@ -185,7 +184,7 @@ public class JARCache {
 
     /**
      * Weak hash mode.
-     * 
+     *
      * @param file
      * @return
      */
@@ -199,9 +198,8 @@ public class JARCache {
 
     /**
      * Generate a hash for the given element.
-     * 
+     *
      * @param element
-     * 
      * @return .
      */
     @SuppressWarnings("boxing")
@@ -262,7 +260,7 @@ public class JARCache {
 
     /**
      * If the cache is enabled
-     * 
+     *
      * @param u
      */
     public void setEnabled(final boolean u) {
@@ -271,7 +269,7 @@ public class JARCache {
 
     /**
      * If true, weak caching will be enabled.
-     * 
+     *
      * @param w
      */
     public void setWeakMode(boolean w) {

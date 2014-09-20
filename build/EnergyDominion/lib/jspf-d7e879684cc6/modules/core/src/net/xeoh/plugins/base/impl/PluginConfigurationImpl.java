@@ -27,26 +27,25 @@
  */
 package net.xeoh.plugins.base.impl;
 
-import java.util.Properties;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.meta.Author;
 import net.xeoh.plugins.base.annotations.meta.Version;
 
+import java.util.Properties;
+import java.util.logging.Logger;
+
 /**
- * 
- * 
  * @author Ralf Biedert
- * 
  */
 @Author(name = "Ralf Biedert")
 @PluginImplementation
 @Version(version = Version.UNIT_MAJOR)
 public class PluginConfigurationImpl implements PluginConfiguration {
 
-    /** Actual properties object we use */
+    /**
+     * Actual properties object we use
+     */
     final Properties configuration;
 
     /** */
@@ -90,8 +89,8 @@ public class PluginConfigurationImpl implements PluginConfiguration {
 
     /**
      * Assemble a key for a given root class and subkey string
-     * 
-     * @param root Root (may be null)
+     *
+     * @param root   Root (may be null)
      * @param subkey (subkey to use)
      * @return The fully assembled key.
      */

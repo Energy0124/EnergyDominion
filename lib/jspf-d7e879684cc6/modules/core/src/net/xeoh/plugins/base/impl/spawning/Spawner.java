@@ -27,18 +27,11 @@
  */
 package net.xeoh.plugins.base.impl.spawning;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.TimerTask;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.annotations.Thread;
 import net.xeoh.plugins.base.annotations.Timer;
 import net.xeoh.plugins.base.annotations.events.Init;
 import net.xeoh.plugins.base.annotations.events.PluginLoaded;
-import net.xeoh.plugins.base.annotations.events.Shutdown;
 import net.xeoh.plugins.base.diagnosis.channels.tracing.SpawnerTracer;
 import net.xeoh.plugins.base.impl.PluginManagerImpl;
 import net.xeoh.plugins.base.impl.registry.PluginClassMetaInformation.Dependency;
@@ -52,21 +45,31 @@ import net.xeoh.plugins.diagnosis.local.DiagnosisChannel;
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.TimerTask;
+
 /**
  * Spawn a given class.
- * 
+ *
  * @author Ralf Biedert
  */
 public class Spawner {
-    /** Used for diagnosic messages */
+    /**
+     * Used for diagnosic messages
+     */
     DiagnosisChannel<String> diagnosis;
 
-    /** Main plugin manager */
+    /**
+     * Main plugin manager
+     */
     private final PluginManagerImpl pluginManager;
 
     /**
      * Creates a new spawner with the given PluginManager.
-     * 
+     *
      * @param pmi
      */
     public Spawner(final PluginManagerImpl pmi) {
@@ -75,15 +78,15 @@ public class Spawner {
 
     /**
      * Destroys a given plugin, halt all timers and threads, calls shutdown methods.
-     * 
+     *
      * @param plugin
      * @param metaInformation
      */
     public void destroyPlugin(final Plugin plugin,
-                                 final PluginMetaInformation metaInformation) {
+                              final PluginMetaInformation metaInformation) {
 
         log("destroy/start", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));
-        
+
         // Halt all timer tasks
         for (final TimerTask timerTask : metaInformation.timerTasks) {
             timerTask.cancel();
@@ -106,12 +109,12 @@ public class Spawner {
 
         // Call shutdown hooks
         callShutdownMethods(plugin);
-        log("destroy/end", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));        
+        log("destroy/end", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));
     }
 
     /**
      * Destroys a given plugin, halt all timers and threads, calls shutdown methods.
-     * 
+     *
      * @param plugin
      * @param metaInformation
      */
@@ -141,7 +144,7 @@ public class Spawner {
 
     /**
      * Processes the {@link PluginLoaded} annotation for other plugins for this plugin.
-     * 
+     *
      * @param newPlugin Newly creatd pluign
      */
     public void processOtherPluginLoadedAnnotation(Plugin newPlugin) {
@@ -172,11 +175,11 @@ public class Spawner {
 
     /**
      * Spawn a plugin and process its internal annotations.
-     * 
+     *
      * @param c Class to spawn from.
      * @return .
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public SpawnResult spawnPlugin(final Class c) {
         log("spawn/start", new OptionInfo("plugin", c.getCanonicalName()));
 
@@ -199,7 +202,7 @@ public class Spawner {
             final Constructor constructor = c.getDeclaredConstructor();
             constructor.setAccessible(true);
             final Plugin spawnedPlugin = (Plugin) constructor.newInstance();
-            
+
             // In here spawning of the plugin worked
             final SpawnResult spawnResult = new SpawnResult(spawnedPlugin);
             spawnResult.metaInformation.pluginStatus = PluginStatus.SPAWNED;
@@ -235,7 +238,7 @@ public class Spawner {
                 // Currently running
                 spawnResult.metaInformation.pluginStatus = PluginStatus.ACTIVE;
 
-                log("spawn/end", new OptionInfo("plugin", c.getCanonicalName()));        
+                log("spawn/end", new OptionInfo("plugin", c.getCanonicalName()));
                 return spawnResult;
             } catch (final Throwable e) {
                 log("spawn/exception/init", new OptionInfo("plugin", c.getCanonicalName()));
@@ -262,34 +265,31 @@ public class Spawner {
 
             final long stopTime = System.nanoTime();
             final long delta = (stopTime - startTime) / 1000;
-            log("spawn/duration", new OptionInfo("plugin", c.getCanonicalName()), new OptionInfo("time", ""+ delta));
+            log("spawn/duration", new OptionInfo("plugin", c.getCanonicalName()), new OptionInfo("time", "" + delta));
         }
-        
-        log("spawn/end/abnormal", new OptionInfo("plugin", c.getCanonicalName()));        
+
+        log("spawn/end/abnormal", new OptionInfo("plugin", c.getCanonicalName()));
         return null;
     }
 
     /**
-     * 
      * @param methods
-     * @returns True if initialization was successful.
      * @throws IllegalAccessException
-     * 
-     * 
+     * @returns True if initialization was successful.
      */
     private boolean callInitMethods(final Plugin spawnedPlugin, final Method[] methods)
-                                                                                          throws IllegalAccessException {
-        log("callinit/start", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));        
+            throws IllegalAccessException {
+        log("callinit/start", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));
         // final Class<? extends Plugin> spawnClass = spawnedPlugin.getClass();
 
 
         for (final Method method : methods) {
-            log("callinit/method", new OptionInfo("method", method.getName()));        
+            log("callinit/method", new OptionInfo("method", method.getName()));
 
             // Init methods will be marked by the corresponding annotation.
             final Init annotation = method.getAnnotation(Init.class);
             if (annotation != null) {
-                log("callinit/method/initannotation", new OptionInfo("method", method.getName()));        
+                log("callinit/method/initannotation", new OptionInfo("method", method.getName()));
 
                 try {
                     final Object invoke = method.invoke(spawnedPlugin, new Object[0]);
@@ -298,25 +298,25 @@ public class Spawner {
                         if (((Boolean) invoke).booleanValue() == false) return false;
                     }
                 } catch (final IllegalArgumentException e) {
-                    log("callinit/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
-                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));                            
+                    log("callinit/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
+                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));
                     e.printStackTrace();
                     return false;
                 } catch (final InvocationTargetException e) {
-                    log("callinit/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
-                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));                            
+                    log("callinit/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
+                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));
                     e.printStackTrace();
                     return false;
                 } catch (final Exception e) {
-                    log("callinit/exception/exception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
-                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));                                                
+                    log("callinit/exception/exception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
+                    log("callinit/end/abnormal", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));
                     e.printStackTrace();
                     return false;
                 }
             }
         }
-        
-        log("callinit/end", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));                                    
+
+        log("callinit/end", new OptionInfo("plugin", spawnedPlugin.getClass().getCanonicalName()));
         return true;
     }
 
@@ -324,35 +324,35 @@ public class Spawner {
      * @param plugin
      */
     private void callShutdownMethods(final Plugin plugin) {
-        log("callshutdown/start", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));                
+        log("callshutdown/start", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));
         final Class<? extends Plugin> spawnClass = plugin.getClass();
         final Method[] methods = spawnClass.getMethods();
 
 
         for (final Method method : methods) {
-            log("callshutdown/method", new OptionInfo("method", method.getName()));        
+            log("callshutdown/method", new OptionInfo("method", method.getName()));
 
             // Init methods will be marked by the corresponding annotation.
             final Shutdown annotation = method.getAnnotation(Shutdown.class);
             if (annotation != null) {
-                log("callshutdown/method/shutdownannotation", new OptionInfo("method", method.getName()));        
+                log("callshutdown/method/shutdownannotation", new OptionInfo("method", method.getName()));
 
                 try {
                     method.invoke(plugin, new Object[0]);
                 } catch (final IllegalArgumentException e) {
-                    log("callshutdown/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                    log("callshutdown/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                     e.printStackTrace();
                 } catch (final InvocationTargetException e) {
-                    log("callinit/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                    log("callinit/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                     e.printStackTrace();
                 } catch (final Exception e) {
-                    log("callshutdown/exception/exception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                    log("callshutdown/exception/exception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                     e.printStackTrace();
                 }
             }
         }
-        
-        log("callshutdown/end", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));                                    
+
+        log("callshutdown/end", new OptionInfo("plugin", plugin.getClass().getCanonicalName()));
         return;
     }
 
@@ -370,8 +370,8 @@ public class Spawner {
      * @param methods
      */
     private void spawnThreads(final SpawnResult spawnResult, final Method[] methods) {
-        log("spawnthreads/start", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));                
-        
+        log("spawnthreads/start", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));
+
         for (final Method method : methods) {
             // Init methods will be marked by the corresponding annotation. New:
             // also turn on extended accessibility, so elements don't have to be public
@@ -388,20 +388,20 @@ public class Spawner {
                             // fitting argument)
                             method.invoke(spawnResult.plugin, new Object[0]);
                         } catch (final IllegalArgumentException e) {
-                            log("spawnthreads/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawnthreads/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         } catch (final IllegalAccessException e) {
-                            log("spawnthreads/exception/illegalaccess", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawnthreads/exception/illegalaccess", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         } catch (final InvocationTargetException e) {
-                            log("spawnthreads/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawnthreads/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         }
                     }
                 });
 
                 final String name = spawnResult.plugin.getClass().getName() + "." + method.getName() + "()";
-                log("spawnthreads/threadstart", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()), new OptionInfo("threadname", name));                
+                log("spawnthreads/threadstart", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()), new OptionInfo("threadname", name));
                 t.setName(name);
                 t.setDaemon(annotation.isDaemonic());
                 t.start();
@@ -410,8 +410,8 @@ public class Spawner {
                 spawnResult.metaInformation.threads.add(t);
             }
         }
-        
-        log("spawnthreads/end", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));                
+
+        log("spawnthreads/end", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));
     }
 
     /**
@@ -430,7 +430,7 @@ public class Spawner {
                 final Class<?>[] parameterTypes = method.getParameterTypes();
 
                 if (parameterTypes.length != 1) {
-                    log("pluginloadedmethods/wrongnumberofparams", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()),  new OptionInfo("method", method.getName()));                
+                    log("pluginloadedmethods/wrongnumberofparams", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()), new OptionInfo("method", method.getName()));
                     continue;
                 }
 
@@ -441,7 +441,7 @@ public class Spawner {
                 spawnResult.metaInformation.pluginLoadedInformation.add(pli);
             }
         }
-        
+
     }
 
     /**
@@ -449,7 +449,7 @@ public class Spawner {
      * @param methods
      */
     private void spawnTimer(final SpawnResult spawnResult, final Method[] methods) {
-        log("spawntimers/start", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));                
+        log("spawntimers/start", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));
 
         for (final Method method : methods) {
             // Init methods will be marked by the corresponding annotation. New: also
@@ -473,13 +473,13 @@ public class Spawner {
                                 }
                             }
                         } catch (final IllegalArgumentException e) {
-                            log("spawntimers/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawntimers/exception/illegalargument", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         } catch (final IllegalAccessException e) {
-                            log("spawntimers/exception/illegalaccessexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawntimers/exception/illegalaccessexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         } catch (final InvocationTargetException e) {
-                            log("spawntimers/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));        
+                            log("spawntimers/exception/invocationtargetexception", new OptionInfo("method", method.getName()), new OptionInfo("message", e.getMessage()));
                             e.printStackTrace();
                         }
                     }
@@ -499,13 +499,13 @@ public class Spawner {
             }
 
         }
-        
-        log("spawntimers/end", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));                
+
+        log("spawntimers/end", new OptionInfo("plugin", spawnResult.plugin.getClass().getCanonicalName()));
     }
 
     /**
      * Returns the list of all dependencies the plugin has.
-     * 
+     *
      * @param pluginClass
      * @return .
      */
@@ -515,7 +515,7 @@ public class Spawner {
 
     /**
      * Logs the given message.
-     * 
+     *
      * @param message
      * @param options
      */
@@ -524,12 +524,12 @@ public class Spawner {
         if (this.diagnosis == null) {
             // Check if the diagnosis is already there
             final Diagnosis diag = this.pluginManager.getDiagnosis();
-            if(diag==null) return;
-            
+            if (diag == null) return;
+
             // If yes, get the main channel
             this.diagnosis = diag.channel(SpawnerTracer.class);
         }
-        
+
         this.diagnosis.status(message, options);
     }
 }

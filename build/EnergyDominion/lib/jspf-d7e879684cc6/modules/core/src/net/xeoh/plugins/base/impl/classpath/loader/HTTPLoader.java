@@ -27,17 +27,16 @@
  */
 package net.xeoh.plugins.base.impl.classpath.loader;
 
+import net.xeoh.plugins.base.impl.PluginManagerImpl;
+import net.xeoh.plugins.base.options.AddPluginsFromOption;
+
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 
-import net.xeoh.plugins.base.impl.PluginManagerImpl;
-import net.xeoh.plugins.base.options.AddPluginsFromOption;
-
 /**
  * @author rb
- *
  */
 public class HTTPLoader extends FileLoader {
 

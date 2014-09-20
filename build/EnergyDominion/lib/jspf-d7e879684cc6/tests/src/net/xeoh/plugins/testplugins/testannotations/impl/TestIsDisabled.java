@@ -37,7 +37,6 @@ import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
 
 /**
  * @author rb
- *
  */
 @IsDisabled
 @Version(version = 1000000)
@@ -50,7 +49,7 @@ public class TestIsDisabled implements TestAnnotations {
      */
     @Capabilities
     public String[] getCapabilities() {
-        return new String[] { "IsDisabled" };
+        return new String[]{"IsDisabled"};
     }
 
     /**

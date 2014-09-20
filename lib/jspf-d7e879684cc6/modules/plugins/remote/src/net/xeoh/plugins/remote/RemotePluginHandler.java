@@ -28,23 +28,22 @@
 package net.xeoh.plugins.remote;
 
 /**
- * Plugins returned by {@link RemoteAPI}.<code>getRemoteProxy()</code> may also implement this 
+ * Plugins returned by {@link RemoteAPI}.<code>getRemoteProxy()</code> may also implement this
  * interface to provide meta handling facilities of this connection.
- * 
+ *
  * @author Ralf Biedert
  */
 public interface RemotePluginHandler {
 
     /**
      * Disconnects the remote connection and closes all related sockets.
-     * 
      */
     public void disconnect();
 
     /**
-     * Measures the time a call takes until it is answered. 
-     * 
-     * @return The time in milliseconds, or a negative value if the call never returned.  
+     * Measures the time a call takes until it is answered.
+     *
+     * @return The time in milliseconds, or a negative value if the call never returned.
      */
     public int getRoundtripDelay();
 }

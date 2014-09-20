@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.base.impl.classpath.loader;
 
-import java.net.URI;
-import java.util.Collection;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.impl.PluginManagerImpl;
 import net.xeoh.plugins.base.impl.classpath.ClassPathManager;
@@ -39,9 +34,14 @@ import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
 import net.xeoh.plugins.base.impl.classpath.locator.ClassPathLocator;
 import net.xeoh.plugins.base.options.AddPluginsFromOption;
 
+import java.net.URI;
+import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * A loader to handle classpath://* URIs.
- * 
+ *
  * @author Ralf Biedert
  */
 public class InternalClasspathLoader extends AbstractLoader {
@@ -108,7 +108,7 @@ public class InternalClasspathLoader extends AbstractLoader {
 
     /**
      * Load all plugins from the classpath that match a given pattern.
-     * 
+     *
      * @param pattern
      * @param options
      */

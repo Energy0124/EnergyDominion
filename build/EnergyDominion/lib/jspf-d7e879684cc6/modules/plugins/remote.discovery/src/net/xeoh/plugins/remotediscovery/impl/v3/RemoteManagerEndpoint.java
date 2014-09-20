@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.net.InetAddress;
 
 /**
- * 
  * @author rb
- * 
  */
 final class RemoteManagerEndpoint implements Serializable {
     private static final long serialVersionUID = -7370418870963776624L;

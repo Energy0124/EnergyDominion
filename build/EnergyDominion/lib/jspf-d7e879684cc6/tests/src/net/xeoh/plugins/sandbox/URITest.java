@@ -32,7 +32,6 @@ import java.net.URISyntaxException;
 
 /**
  * @author rb
- *
  */
 public class URITest {
     /**

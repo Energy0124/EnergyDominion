@@ -27,26 +27,26 @@
  */
 package net.xeoh.plugins.base.options.getinformation;
 
-import java.util.List;
-
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.options.GetInformationOption;
 
+import java.util.List;
+
 /**
  * Asks the {@link PluginInformation} plugin to return the author information.
- * 
+ *
  * @author Ralf Biedert
  */
 public class InformationAuthors implements GetInformationOption {
-    
+
     /** */
     private static final long serialVersionUID = -1699032953607764618L;
 
     /**
      * Returns a list of all authors that contributed to the plugin.
-     * 
-     * @since 1.0
+     *
      * @return The list with all authors.
+     * @since 1.0
      */
     public List<String> getAuthors() {
         return null;

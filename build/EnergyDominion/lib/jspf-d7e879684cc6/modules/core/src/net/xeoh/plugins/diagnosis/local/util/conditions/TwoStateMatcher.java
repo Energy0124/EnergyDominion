@@ -27,46 +27,54 @@
  */
 package net.xeoh.plugins.diagnosis.local.util.conditions;
 
+import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
+import net.xeoh.plugins.diagnosis.local.util.conditions.matcher.Matcher;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
-import net.xeoh.plugins.diagnosis.local.util.conditions.matcher.Matcher;
-
 
 /**
- * Reflects an abstract two-state condition, that tries to match against a 
- * number of requirements. 
- * 
+ * Reflects an abstract two-state condition, that tries to match against a
+ * number of requirements.
+ *
  * @author Ralf Biedert
  */
 public abstract class TwoStateMatcher extends TwoStateCondition {
-    /** Stores the values we need for matching */
+    /**
+     * Stores the values we need for matching
+     */
     final Map<Class<? extends DiagnosisChannelID<?>>, Matcher> onRequirements = new HashMap<Class<? extends DiagnosisChannelID<?>>, Matcher>();
-    
-    /** Stores the values we need for matching */
+
+    /**
+     * Stores the values we need for matching
+     */
     final Map<Class<? extends DiagnosisChannelID<?>>, Object> currentStatus = new HashMap<Class<? extends DiagnosisChannelID<?>>, Object>();
-    
-    /** Additional required conditions to match. */
+
+    /**
+     * Additional required conditions to match.
+     */
     final List<TwoStateCondition> requiredConditions = new ArrayList<TwoStateCondition>();
-    
-    
+
+
     /** */
     public TwoStateMatcher() {
         setupMatcher();
     }
 
-    /** Override this method to set up your matcher */
+    /**
+     * Override this method to set up your matcher
+     */
     protected void setupMatcher() {
         //
     }
 
     /**
      * Makes the condition match a number of channel states (linked with AND).
-     * 
+     *
      * @param <T>
      * @param channel
      * @param matcher
@@ -78,8 +86,8 @@ public abstract class TwoStateMatcher extends TwoStateCondition {
 
     /**
      * Makes the condition match another dependant condition.
-     * 
-     * @param condition 
+     *
+     * @param condition
      */
     @SuppressWarnings("unchecked")
     public void match(TwoStateCondition condition) {
@@ -88,7 +96,7 @@ public abstract class TwoStateMatcher extends TwoStateCondition {
         for (Class<? extends DiagnosisChannelID<?>> class1 : requiredChannels) {
             require(class1);
         }
-        
+
         // And also store condition
         this.requiredConditions.add(condition);
     }

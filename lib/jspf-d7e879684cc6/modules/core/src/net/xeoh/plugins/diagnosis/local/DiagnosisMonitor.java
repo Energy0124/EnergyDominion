@@ -31,10 +31,9 @@ import java.io.Serializable;
 
 /**
  * Listens to diagnosis status change messages.
- * 
+ *
+ * @param <T> Type of the status.
  * @author Ralf Biedert
- * 
- * @param <T> Type of the status. 
  */
 public interface DiagnosisMonitor<T extends Serializable> {
     public void onStatusChange(DiagnosisStatus<T> status);

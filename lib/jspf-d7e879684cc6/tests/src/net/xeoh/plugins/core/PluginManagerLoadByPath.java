@@ -27,26 +27,24 @@
  */
 package net.xeoh.plugins.core;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getplugin.OptionPluginSelector;
 import net.xeoh.plugins.base.options.getplugin.PluginSelector;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerLoadByPath {
 
@@ -81,8 +79,7 @@ public class PluginManagerLoadByPath {
     }
 
     /**
-     * @throws InterruptedException 
-     * 
+     * @throws InterruptedException
      */
     @Test
     public void testClassName() throws InterruptedException {
@@ -91,7 +88,7 @@ public class PluginManagerLoadByPath {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {
@@ -116,7 +113,7 @@ public class PluginManagerLoadByPath {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testAllInterfaces() {
@@ -168,7 +165,7 @@ public class PluginManagerLoadByPath {
     }
 
     /**
-     * 
+     *
      */
     //@Test
     public void testGetPluginClassOfPPluginSelectorOfP() {

@@ -27,7 +27,9 @@
  */
 package net.xeoh.plugins.base.impl.classpath.locator.locations;
 
-import static net.jcores.jre.CoreKeeper.$;
+import net.jcores.jre.cores.CoreString;
+import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
+import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,30 +38,28 @@ import java.net.JarURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import net.jcores.jre.cores.CoreString;
-import net.xeoh.plugins.base.impl.classpath.cache.JARCache;
-import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
+import static net.jcores.jre.CoreKeeper.$;
 
 /**
- * A multi-plugin in a meta-plugin containing several sub-plugins sharing the same class 
- * loader and have an external dependency folder. 
- * 
+ * A multi-plugin in a meta-plugin containing several sub-plugins sharing the same class
+ * loader and have an external dependency folder.
+ *
  * @author Ralf Biedert
  */
 public class MultiPluginClasspathLocation extends AbstractClassPathLocation {
 
-    /** Maps our returned entries to contained JARs (so we know where too look if we want to resolve them) */
+    /**
+     * Maps our returned entries to contained JARs (so we know where too look if we want to resolve them)
+     */
     final Map<String, String> entryMapping = new HashMap<String, String>();
 
-    /** All the JARs we handle */
+    /**
+     * All the JARs we handle
+     */
     final Collection<String> allJARs;
 
     /**

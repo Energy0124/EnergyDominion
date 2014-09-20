@@ -27,32 +27,11 @@
  */
 package net.xeoh.plugins.base.impl.jmx;
 
+import javax.management.*;
 import java.lang.management.ManagementFactory;
-
-import javax.management.Attribute;
-import javax.management.AttributeList;
-import javax.management.AttributeNotFoundException;
-import javax.management.DynamicMBean;
-import javax.management.InstanceAlreadyExistsException;
-import javax.management.IntrospectionException;
-import javax.management.InvalidAttributeValueException;
-import javax.management.MBeanAttributeInfo;
-import javax.management.MBeanConstructorInfo;
-import javax.management.MBeanException;
-import javax.management.MBeanInfo;
-import javax.management.MBeanNotificationInfo;
-import javax.management.MBeanOperationInfo;
-import javax.management.MBeanRegistrationException;
-import javax.management.MBeanServer;
-import javax.management.MalformedObjectNameException;
-import javax.management.NotCompliantMBeanException;
-import javax.management.ObjectInstance;
-import javax.management.ObjectName;
-import javax.management.ReflectionException;
 
 /**
  * @author rb
- *
  */
 public class MBeansDiagnosisProvider implements DynamicMBean {
     /**
@@ -65,10 +44,10 @@ public class MBeansDiagnosisProvider implements DynamicMBean {
      * @throws NullPointerException
      */
     public MBeansDiagnosisProvider() throws InstanceAlreadyExistsException,
-                                    MBeanRegistrationException,
-                                    NotCompliantMBeanException,
-                                    MalformedObjectNameException, ReflectionException,
-                                    MBeanException, NullPointerException {
+            MBeanRegistrationException,
+            NotCompliantMBeanException,
+            MalformedObjectNameException, ReflectionException,
+            MBeanException, NullPointerException {
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
         System.out.println(server.getMBeanCount());
         for (Object object : server.queryMBeans(new ObjectName("*:*"), null))
@@ -91,17 +70,17 @@ public class MBeansDiagnosisProvider implements DynamicMBean {
      */
     @SuppressWarnings("unused")
     public static void main(String[] args) throws InstanceAlreadyExistsException,
-                                          MBeanRegistrationException,
-                                          NotCompliantMBeanException,
-                                          MalformedObjectNameException,
-                                          ReflectionException, MBeanException,
-                                          NullPointerException, InterruptedException {
+            MBeanRegistrationException,
+            NotCompliantMBeanException,
+            MalformedObjectNameException,
+            ReflectionException, MBeanException,
+            NullPointerException, InterruptedException {
         new MBeansDiagnosisProvider();
         Thread.sleep(1000 * 1000);
     }
 
     public Object getAttribute(String attribute) throws AttributeNotFoundException,
-                                                MBeanException, ReflectionException {
+            MBeanException, ReflectionException {
         // TODO Auto-generated method stub
         System.out.println("getAttr " + attribute);
 
@@ -130,21 +109,21 @@ public class MBeansDiagnosisProvider implements DynamicMBean {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        MBeanNotificationInfo mni = new MBeanNotificationInfo(new String[] {"asd"}, "nmnm!", "asdklajsdasl");
-        return new MBeanInfo("clzName", "Desc", new MBeanAttributeInfo[] { mai }, new MBeanConstructorInfo[0], new MBeanOperationInfo[0], new MBeanNotificationInfo[] {mni});
+        MBeanNotificationInfo mni = new MBeanNotificationInfo(new String[]{"asd"}, "nmnm!", "asdklajsdasl");
+        return new MBeanInfo("clzName", "Desc", new MBeanAttributeInfo[]{mai}, new MBeanConstructorInfo[0], new MBeanOperationInfo[0], new MBeanNotificationInfo[]{mni});
 
     }
 
     public Object invoke(String actionName, Object[] params, String[] signature)
-                                                                                throws MBeanException,
-                                                                                ReflectionException {
+            throws MBeanException,
+            ReflectionException {
         // TODO Auto-generated method stub
         return null;
     }
 
     public void setAttribute(Attribute attribute) throws AttributeNotFoundException,
-                                                 InvalidAttributeValueException,
-                                                 MBeanException, ReflectionException {
+            InvalidAttributeValueException,
+            MBeanException, ReflectionException {
         // TODO Auto-generated method stub
         System.out.println("setAttr");
 

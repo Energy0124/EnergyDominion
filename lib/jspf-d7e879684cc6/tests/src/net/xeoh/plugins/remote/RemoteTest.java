@@ -27,8 +27,6 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getplugin.OptionPluginSelector;
@@ -36,15 +34,15 @@ import net.xeoh.plugins.base.options.getplugin.PluginSelector;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.remote.impl.lipermi.RemoteAPIImpl;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- *
  */
 public class RemoteTest {
 
@@ -76,7 +74,7 @@ public class RemoteTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testERMI() {
@@ -108,7 +106,7 @@ public class RemoteTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testLIPE() {
@@ -140,7 +138,7 @@ public class RemoteTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testXMLRPC() {
@@ -176,7 +174,7 @@ public class RemoteTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testXMLRPCDelight() {

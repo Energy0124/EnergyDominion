@@ -27,77 +27,77 @@
  */
 package net.xeoh.plugins.base.impl;
 
-import java.util.Properties;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 
+import java.util.Properties;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- * Factory class to create new {@link PluginManager}. This is your entry and starting point for 
+ * Factory class to create new {@link PluginManager}. This is your entry and starting point for
  * using JSPF. Create a new manager by calling one of the enclosed methods.<br/><br/>
- *
+ * <p/>
  * There should be no need to access this class (or call any of its methods) more than once
  * during the lifetime of your application.
- * 
+ *
  * @author Ralf Biedert
  */
 public class PluginManagerFactory {
 
-    /** This class will not be instantiated. */
+    /**
+     * This class will not be instantiated.
+     */
     private PluginManagerFactory() {
         //
     }
 
     /**
-     * Creates a new {@link PluginManager}, no user configuration is used. The manager will 
+     * Creates a new {@link PluginManager}, no user configuration is used. The manager will
      * be (almost) empty, i.e., containing no {@link Plugin}s except some internal ones.<br/><br/>
-     * 
-     * The next thing you should probably do is adding your own plugins by calling 
+     * <p/>
+     * The next thing you should probably do is adding your own plugins by calling
      * <code>addPluginsFrom()</code>.
-     * 
-     * @return  A fresh plugin manager.
+     *
+     * @return A fresh plugin manager.
      */
     public static PluginManager createPluginManager() {
         return createPluginManager(new Properties());
     }
 
     /**
-     * Creates a new {@link PluginManager} which will be wrapped in a {@link PluginManagerUtil} object, 
-     * no user configuration is used. The manager will be (almost) empty, i.e., containing no {@link Plugin}s 
+     * Creates a new {@link PluginManager} which will be wrapped in a {@link PluginManagerUtil} object,
+     * no user configuration is used. The manager will be (almost) empty, i.e., containing no {@link Plugin}s
      * except some internal ones.<br/><br/>
-     * 
-     * The next thing you should probably do is adding your own plugins by calling 
+     * <p/>
+     * The next thing you should probably do is adding your own plugins by calling
      * <code>addPluginsFrom()</code>.
-     * 
-     * @since 1.0.3
+     *
      * @return A freshly wrapped plugin manager.
+     * @since 1.0.3
      */
     public static PluginManagerUtil createPluginManagerX() {
         return new PluginManagerUtil(createPluginManager());
     }
 
 
-    
     /**
      * Creates a new {@link PluginManager} with a supplied user configuration. The user configuration
      * can be obtained by using the {@link PluginConfiguration}. <br/><br/>
-     * 
-     * The next thing you should probably do is adding your own plugins by calling 
+     * <p/>
+     * The next thing you should probably do is adding your own plugins by calling
      * <code>addPluginsFrom()</code>.<br/><br/>
-     * 
-     * In order to assist debugging, you can set one of {@link JSPFProperties}'s preferences by 
+     * <p/>
+     * In order to assist debugging, you can set one of {@link JSPFProperties}'s preferences by
      * calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code> (INFO
      * can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
-     * 
+     *
      * @param initialProperties Initial properties to use.
-     * 
-     * @return A fresh manager with the supplied configuration. 
+     * @return A fresh manager with the supplied configuration.
      */
     public static PluginManager createPluginManager(final Properties initialProperties) {
 
@@ -114,31 +114,29 @@ public class PluginManagerFactory {
         return new PluginManagerImpl(initialProperties);
     }
 
-    
-    
+
     /**
-     * Creates a new {@link PluginManager}, wrapped in a {@link PluginManagerUtil} object, with a supplied user 
+     * Creates a new {@link PluginManager}, wrapped in a {@link PluginManagerUtil} object, with a supplied user
      * configuration. The user configuration can be obtained by using the {@link PluginConfiguration}. <br/><br/>
-     * 
-     * The next thing you should probably do is adding your own plugins by calling 
+     * <p/>
+     * The next thing you should probably do is adding your own plugins by calling
      * <code>addPluginsFrom()</code>.<br/><br/>
-     * 
-     * In order to assist debugging, you can set one of {@link JSPFProperties}'s preferences by 
+     * <p/>
+     * In order to assist debugging, you can set one of {@link JSPFProperties}'s preferences by
      * calling: <code>setProperty(PluginManager.class, "logging.level", "INFO")</code> (INFO
      * can be replaced by OFF, WARNING, INFO, FINE, FINER or FINEST respectively.
-     * 
+     *
      * @param initialProperties Initial properties to use.
+     * @return A freshly wrapped manager with the supplied configuration.
      * @since 1.0.3
-     * @return A freshly wrapped manager with the supplied configuration. 
      */
     public static PluginManagerUtil createPluginManagerX(final Properties initialProperties) {
         return new PluginManagerUtil(createPluginManager(initialProperties));
     }
 
-    
-    
+
     /**
-     * Sets logging to the specified level. 
+     * Sets logging to the specified level.
      */
     private static void setLogLevel(Level level) {
         Logger.getLogger("").setLevel(level);

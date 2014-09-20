@@ -34,7 +34,6 @@ import net.xeoh.plugins.base.util.OptionUtils;
 
 /**
  * @author rb
- *
  */
 public class OptionsTest {
     /**

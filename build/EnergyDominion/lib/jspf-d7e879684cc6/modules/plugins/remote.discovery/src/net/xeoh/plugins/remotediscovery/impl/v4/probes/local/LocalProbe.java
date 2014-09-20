@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.remotediscovery.impl.v4.probes.local;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.remote.PublishMethod;
@@ -43,15 +38,21 @@ import net.xeoh.plugins.remotediscovery.impl.v4.DiscoveredPluginImpl;
 import net.xeoh.plugins.remotediscovery.impl.v4.probes.AbstractProbe;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Logger;
+
 /**
  * @author rb
- *
  */
 public class LocalProbe extends AbstractProbe {
     /** */
     final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Where we keep our local files */
+    /**
+     * Where we keep our local files
+     */
     final DiscoveryMangerFileImpl dmp = new DiscoveryMangerFileImpl();
 
     /* (non-Javadoc)
@@ -89,7 +90,7 @@ public class LocalProbe extends AbstractProbe {
         final Collection<ExportedPlugin> allExported = exportInfoFor.allExported;
 
         for (final ExportedPlugin e : allExported) {
-            rval.add(new DiscoveredPluginImpl(PublishMethod.valueOf(e.exportMethod), e.exportURI, 0 , e.timeSinceExport));
+            rval.add(new DiscoveredPluginImpl(PublishMethod.valueOf(e.exportMethod), e.exportURI, 0, e.timeSinceExport));
         }
 
         return rval;

@@ -27,14 +27,14 @@
  */
 package net.xeoh.plugins.base.diagnosis.channels.tracing;
 
+import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
+
 import java.io.Serializable;
 import java.util.Map;
 
-import net.xeoh.plugins.diagnosis.local.DiagnosisChannelID;
-
 /**
  * Traces general messages for the Spawner.
- * 
+ *
  * @author Ralf Biedert
  */
 public class SpawnerTracer extends DiagnosisChannelID<String> {

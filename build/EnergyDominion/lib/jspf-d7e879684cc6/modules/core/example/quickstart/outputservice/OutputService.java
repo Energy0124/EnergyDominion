@@ -32,11 +32,10 @@ import net.xeoh.plugins.base.Plugin;
 /**
  * Just define your interface as you would do normally. The only thing you have to do:
  * extend Plugin.
- *
  */
 public interface OutputService extends Plugin {
     /**
-     * 
+     *
      */
     public void doSomething();
 }

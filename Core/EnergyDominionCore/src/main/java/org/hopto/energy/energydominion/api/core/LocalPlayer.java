@@ -1,13 +1,20 @@
 package org.hopto.energy.energydominion.api.core;
 
-import org.hopto.energy.energydominion.api.Deck;
-import org.hopto.energy.energydominion.api.Hand;
+import org.hopto.energy.energydominion.api.*;
+
+import javax.swing.*;
 
 
-public class LocalPlayer implements org.hopto.energy.energydominion.api.Player {
+public class LocalPlayer implements Player {
     private Hand hand;
     private Deck deck;
+    private Pile trash;
     private String name;
+    private Game currentGame;
+    private Pile discardPile;
+    private int coin;
+    private int potion;
+    private int victoryPoint;
 
     public LocalPlayer() {
         this("Player");
@@ -23,20 +30,28 @@ public class LocalPlayer implements org.hopto.energy.energydominion.api.Player {
         this.name = name;
     }
 
+    public int getVictoryPoint() {
+        return victoryPoint;
+    }
+
+    public void setVictoryPoint(int victoryPoint) {
+        this.victoryPoint = victoryPoint;
+    }
+
+    @Override
+    public Game getCurrentGame() {
+        return currentGame;
+    }
+
+    @Override
+    public void setCurrentGame(Game currentGame) {
+        this.currentGame = currentGame;
+    }
+
     @Override
     public Hand getHand() {
 
-        return hand;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public Deck getDeck() {
-        return deck;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public String getName() {
-        return name;  //To change body of implemented methods use File | Settings | File Templates.
+        return hand;
     }
 
     @Override
@@ -45,17 +60,99 @@ public class LocalPlayer implements org.hopto.energy.energydominion.api.Player {
     }
 
     @Override
+    public Deck getDeck() {
+        return deck;
+    }
+
+    @Override
     public void setDeck(Deck deck) {
-        this.deck = deck;//To change body of implemented methods use File | Settings | File Templates.
+        this.deck = deck;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
     public void setName(String name) {
-        this.name = name;  //To change body of implemented methods use File | Settings | File Templates.
+        this.name = name;
     }
 
-    public void draw(int n) {
+    @Override
+    public void drawCardFromDeck(int n) {
         for (int i = 1; i <= n; i++)
-            getHand().addCard(getDeck().getTopCard());
+            getHand().addCard(getDeck().drawTopCard());
+    }
+
+    @Override
+    public Pile getDiscardPile() {
+        return this.discardPile;
+    }
+
+    public void setDiscardPile(Pile discardPile) {
+        this.discardPile = discardPile;
+    }
+
+    @Override
+    public void onTurnBegin() {
+
+
+    }
+
+    @Override
+    public void onActionPhase() {
+        //TODO: replace this with a better way for selecting card
+       // hand.playCard(hand.getCards().get(Integer.parseInt(JOptionPane.showInputDialog("Which card do you want play?"))));
+
+    }
+
+    @Override
+    public void onBuyPhase() {
+
+    }
+
+    @Override
+    public void onCleanUpPhase() {
+
+        hand.discardHand();
+        drawCardFromDeck(5);
+
+    }
+
+    @Override
+    public void onTurnEnd() {
+
+    }
+
+    @Override
+    public void addCoin(int i) {
+        setCoin(getCoin()+ i);
+    }
+
+    @Override
+    public void addVictoryPoint(int i) {
+        setVictoryPoint(getVictoryPoint()+i);
+    }
+
+    @Override
+    public void addPotion(int i) {
+        setPotion(getPotion() + i);
+    }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public int getPotion() {
+        return potion;
+    }
+
+    public void setPotion(int potion) {
+        this.potion = potion;
     }
 }

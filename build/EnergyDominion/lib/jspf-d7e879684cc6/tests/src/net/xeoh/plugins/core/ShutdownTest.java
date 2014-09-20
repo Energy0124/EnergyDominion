@@ -27,22 +27,20 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginConfiguration;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.uri.ClassURI;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- *
  */
 public class ShutdownTest {
 
@@ -60,7 +58,7 @@ public class ShutdownTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testShutdown() {
@@ -77,11 +75,11 @@ public class ShutdownTest {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testMany() {
-        for(int i=0; i<10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             System.out.println();
             System.out.println("Run " + i);
             PluginManager manager = PluginManagerFactory.createPluginManager();

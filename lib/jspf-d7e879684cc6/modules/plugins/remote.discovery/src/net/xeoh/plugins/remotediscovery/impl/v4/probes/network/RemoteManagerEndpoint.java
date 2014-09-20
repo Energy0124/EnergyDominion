@@ -3,14 +3,12 @@ package net.xeoh.plugins.remotediscovery.impl.v4.probes.network;
 import java.net.InetAddress;
 
 /**
- * 
  * @author rb
- *
  */
 public class RemoteManagerEndpoint {
     /** */
     public InetAddress address;
-    
+
     /** */
     public int port;
 
@@ -24,7 +22,7 @@ public class RemoteManagerEndpoint {
     }
 
     /**
-     * 
+     *
      */
     public RemoteManagerEndpoint() {
         // TODO Auto-generated constructor stub

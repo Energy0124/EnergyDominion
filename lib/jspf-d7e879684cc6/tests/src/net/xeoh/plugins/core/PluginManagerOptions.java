@@ -27,22 +27,20 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.getplugin.OptionCapabilities;
 import net.xeoh.plugins.remote.RemoteAPI;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerOptions {
 
@@ -65,7 +63,7 @@ public class PluginManagerOptions {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {
@@ -87,7 +85,5 @@ public class PluginManagerOptions {
         Assert.assertNotNull("Now plugin must be there", plugin);
     }
 
-    
-    
-    
+
 }

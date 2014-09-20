@@ -33,7 +33,7 @@ package net.xeoh.plugins.diagnosisreader.converters;
 public interface ConverterInfo {
     /**
      * Name of this converter.
-     * 
+     *
      * @return .
      */
     public String getName();

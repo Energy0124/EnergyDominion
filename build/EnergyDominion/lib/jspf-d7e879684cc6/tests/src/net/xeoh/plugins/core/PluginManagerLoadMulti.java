@@ -27,10 +27,6 @@
  */
 package net.xeoh.plugins.core;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginInformation.Information;
 import net.xeoh.plugins.base.PluginManager;
@@ -38,15 +34,17 @@ import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.options.addpluginsfrom.OptionReportAfter;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerLoadMulti {
 
@@ -76,7 +74,7 @@ public class PluginManagerLoadMulti {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {

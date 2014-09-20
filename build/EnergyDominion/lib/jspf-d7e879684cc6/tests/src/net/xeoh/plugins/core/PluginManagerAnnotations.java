@@ -32,7 +32,6 @@ import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.uri.ClassURI;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,7 +39,6 @@ import org.junit.Test;
 
 /**
  * @author rb
- * 
  */
 public class PluginManagerAnnotations {
 
@@ -65,7 +63,7 @@ public class PluginManagerAnnotations {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testAnnotations() {

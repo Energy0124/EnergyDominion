@@ -30,8 +30,8 @@ package net.xeoh.plugins.remotediscovery.options.discover;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
 /**
- * Requests the nearest service available. 
- * 
+ * Requests the nearest service available.
+ *
  * @author Ralf Biedert.
  */
 public class OptionNearest implements DiscoverOption {

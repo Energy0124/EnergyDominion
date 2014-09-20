@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.diagnosisreader.converters.impl.xml;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.File;
-import java.io.Serializable;
-
 import net.jcores.jre.interfaces.functions.F1;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
@@ -41,6 +36,11 @@ import net.xeoh.plugins.diagnosis.local.DiagnosisStatus;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 import net.xeoh.plugins.diagnosisreader.converters.Converter;
 import net.xeoh.plugins.diagnosisreader.converters.ConverterInfo;
+
+import java.io.File;
+import java.io.Serializable;
+
+import static net.jcores.jre.CoreKeeper.$;
 
 /**
  * @author Ralf Biedert

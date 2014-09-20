@@ -27,30 +27,23 @@
  */
 package net.xeoh.plugins.plugindoctor.analysis;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.xeoh.plugins.base.impl.classpath.locator.AbstractClassPathLocation;
-
 import org.gjt.jclasslib.io.ClassFileReader;
 import org.gjt.jclasslib.structures.CPInfo;
 import org.gjt.jclasslib.structures.ClassFile;
 import org.gjt.jclasslib.structures.InvalidByteCodeException;
 import org.gjt.jclasslib.structures.constants.ConstantClassInfo;
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.Attribute;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Analyzes a class and stores the result.
- * 
- * @author rb
  *
+ * @author rb
  */
 public class ClassClasspathElement extends AbstractClasspathElement {
     /** */
@@ -69,14 +62,14 @@ public class ClassClasspathElement extends AbstractClasspathElement {
     final Collection<String> annotations = new ArrayList<String>();
 
     /**
-     * @param location 
-     * @param name 
-     * @throws IOException 
-     * @throws InvalidByteCodeException 
+     * @param location
+     * @param name
+     * @throws IOException
+     * @throws InvalidByteCodeException
      */
     public ClassClasspathElement(AbstractClassPathLocation location, String name)
-                                                                                 throws IOException,
-                                                                                 InvalidByteCodeException {
+            throws IOException,
+            InvalidByteCodeException {
 
         super(location, name);
 
@@ -101,7 +94,7 @@ public class ClassClasspathElement extends AbstractClasspathElement {
     }
 
     /**
-     * 
+     *
      */
     private void detectAnnotations() {
         this.classReader.accept(new ClassVisitor() {
@@ -219,7 +212,7 @@ public class ClassClasspathElement extends AbstractClasspathElement {
             sb.append("   annotation = " + s + "\n");
         }
 
-        
+
         sb.append("}");
         return sb.toString();
     }

@@ -27,28 +27,27 @@
  */
 package net.xeoh.plugins.diagnosis.local.util;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.Serializable;
-
 import net.jcores.jre.interfaces.functions.Fn;
 import net.jcores.jre.utils.VanillaUtil;
 import net.xeoh.plugins.diagnosis.local.DiagnosisChannel;
 import net.xeoh.plugins.diagnosis.local.options.StatusOption;
 import net.xeoh.plugins.diagnosis.local.options.status.OptionInfo;
 
+import java.io.Serializable;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * Wraps a {@link DiagnosisChannel} and provides helper functions.
- * 
- * @author Ralf Biedert
  *
  * @param <T> The type of the diagnosis object.
+ * @author Ralf Biedert
  */
 public class DiagnosisChannelUtil<T> extends VanillaUtil<DiagnosisChannel<T>> implements DiagnosisChannel<T> {
 
     /**
      * Creates a new util with the given channel.
-     * 
+     *
      * @param object
      */
     public DiagnosisChannelUtil(DiagnosisChannel<T> object) {
@@ -62,16 +61,16 @@ public class DiagnosisChannelUtil<T> extends VanillaUtil<DiagnosisChannel<T>> im
     public void status(T value, StatusOption... options) {
         this.object.status(value, options);
     }
-    
+
     /**
-     * Logs the value and creates an {@link OptionInfo} for each 
+     * Logs the value and creates an {@link OptionInfo} for each
      * two info parameters (key, value).
-     * 
+     *
      * @param value The value to log.
      * @param infos The info parameters.
      */
     public void status(T value, Serializable... infos) {
-        if(infos == null) {
+        if (infos == null) {
             this.object.status(value);
             return;
         }
@@ -83,7 +82,7 @@ public class DiagnosisChannelUtil<T> extends VanillaUtil<DiagnosisChannel<T>> im
                 return new OptionInfo(arg0[0].toString(), arg0[1]);
             }
         }, 2).array(OptionInfo.class);
-        
+
         this.object.status(value, options);
     }
 }

@@ -26,30 +26,29 @@
  */
 package net.xeoh.plugins.base.annotations.events;
 
+import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
-
 /**
- * 
- * Called when a plugin of the given interface was registered. For example, if you want to 
- * be called when a new Plugin of the type <code>StorageService</code> was added, you could 
+ * Called when a plugin of the given interface was registered. For example, if you want to
+ * be called when a new Plugin of the type <code>StorageService</code> was added, you could
  * write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;PluginLoaded<br/>
  * public void checkPlugin(StorageService service) { ... }
  * </code><br/><br/>
- * 
+ * <p/>
  * This method is especially useful in the case of plugins added <i>in the future</i>. Sometimes
- * you rely on a plugin which is not there in the early stage of your application lifetime. If you 
+ * you rely on a plugin which is not there in the early stage of your application lifetime. If you
  * depended on it with {@link InjectPlugin}, you either would not see it, or your own plugin would
  * be suspended until it was loaded. Using the <code>PluginLoaded</code> you can start up anyway
- * and wait for it in this callback-like mechanism.<br/><br/> 
- *    
+ * and wait for it in this callback-like mechanism.<br/><br/>
+ * <p/>
  * Note: Methods annotated with this have to be PUBLIC, otherwise they won't be found.
  *
  * @author Ralf Biedert

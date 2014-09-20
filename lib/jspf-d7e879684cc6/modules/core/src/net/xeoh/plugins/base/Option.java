@@ -27,18 +27,18 @@
  */
 package net.xeoh.plugins.base;
 
-import java.io.Serializable;
-
 import net.xeoh.plugins.base.util.OptionUtils;
+
+import java.io.Serializable;
 
 /**
  * Used as optional arguments to classes. <br/><br/>
- * 
- * All options have to be serializable, because they might be transferred over 
+ * <p/>
+ * All options have to be serializable, because they might be transferred over
  * the network. Options are a great way of keeping interfaces small yet powerful.
- * See the <a href="http://code.google.com/p/jspf/wiki/UsageGuide">usage guide</a> 
- * for more infos on options.  
- * 
+ * See the <a href="http://code.google.com/p/jspf/wiki/UsageGuide">usage guide</a>
+ * for more infos on options.
+ *
  * @author Ralf Biedert
  * @see OptionUtils
  */

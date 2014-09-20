@@ -27,20 +27,18 @@
  */
 package net.xeoh.plugins.informationbroker;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.informationbroker.util.InformationBrokerUtil;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- * 
  */
 public class InformationBrokerTest2 {
 
@@ -91,7 +89,6 @@ public class InformationBrokerTest2 {
      * 
      * }
      */
-
     @Test
     public void testBroker() throws InterruptedException {
         Assert.assertNotNull(this.pm);
@@ -106,7 +103,9 @@ public class InformationBrokerTest2 {
         });
 
         final InformationBrokerUtil util = new InformationBrokerUtil(plugin);
-        util.subscribeAll(new InformationListener<Void>() {;
+        util.subscribeAll(new InformationListener<Void>() {
+            ;
+
             @Override
             public void update(Void item) {
                 System.out.println("Got both");

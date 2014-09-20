@@ -1,17 +1,16 @@
 package net.xeoh.plugins.remotediscovery.impl.v3;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 import net.xeoh.plugins.remotediscovery.options.discover.OptionCallback;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * A request for callbacks.
- * 
+ *
  * @author rb
- * 
  */
 public class CallbackRequest {
     /**   */
@@ -57,7 +56,7 @@ public class CallbackRequest {
     }
 
     /**
-     * 
+     *
      */
     public void cancelTimeout() {
         try {

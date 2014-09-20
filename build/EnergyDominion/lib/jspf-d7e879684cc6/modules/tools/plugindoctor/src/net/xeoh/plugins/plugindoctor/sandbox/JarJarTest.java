@@ -30,14 +30,13 @@ package net.xeoh.plugins.plugindoctor.sandbox;
 
 /**
  * @author rb
- *
  */
 public class JarJarTest {
     /**
      * @param args
      */
     public static void main(String[] args) {
-       // Main main = new Main();
+        // Main main = new Main();
         //main.process(rulesFile, inJar, outJar)
     }
 }

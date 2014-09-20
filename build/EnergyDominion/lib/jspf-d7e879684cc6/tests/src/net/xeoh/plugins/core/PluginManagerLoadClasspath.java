@@ -33,7 +33,6 @@ import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.uri.ClassURI;
 import net.xeoh.plugins.diagnosis.local.Diagnosis;
 import net.xeoh.plugins.remote.RemoteAPI;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -41,7 +40,6 @@ import org.junit.Test;
 
 /**
  * @author rb
- * 
  */
 public class PluginManagerLoadClasspath {
 
@@ -66,7 +64,7 @@ public class PluginManagerLoadClasspath {
         props.setProperty(Diagnosis.class, "analysis.stacktraces.enabled", "true");
         props.setProperty(Diagnosis.class, "analysis.stacktraces.depth", "10000");
 
-        
+
         this.pm = PluginManagerFactory.createPluginManager(props);
     }
 
@@ -79,11 +77,11 @@ public class PluginManagerLoadClasspath {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testGetPluginClassOfP() {
-        
+
 
         Assert.assertNotNull("Pluginmanager must be there", this.pm);
 
@@ -92,7 +90,7 @@ public class PluginManagerLoadClasspath {
         Assert.assertNull("Plugin must not be there at this point", plugin);
 
         this.pm.addPluginsFrom(ClassURI.CLASSPATH);
-        
+
         // this.pm.addPluginsFrom(new File("bin/").toURI());
         // this.pm.addPluginsFrom(new URI("classpath://net.xeoh.plugins.remote.impl.*.*"),
         // new OptionReportAfter());

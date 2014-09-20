@@ -30,14 +30,14 @@ package net.xeoh.plugins.remotediscovery.options.discover;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
 /**
- * Requests a plugin which has certain capabilities. 
- * 
+ * Requests a plugin which has certain capabilities.
+ *
  * @author Ralf Biedert.
  */
 public class OptionRemotePluginCapabilities implements DiscoverOption {
     /** */
     private static final long serialVersionUID = 6650512259925035708L;
-    
+
     private String[] caps;
 
     /**
@@ -49,7 +49,7 @@ public class OptionRemotePluginCapabilities implements DiscoverOption {
 
     /**
      * The caps to use.
-     * 
+     *
      * @param caps
      */
     public OptionRemotePluginCapabilities(String... caps) {

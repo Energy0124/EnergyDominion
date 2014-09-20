@@ -27,12 +27,12 @@
  */
 package net.xeoh.plugins.informationbroker;
 
-import java.util.Map;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.informationbroker.options.PublishOption;
 import net.xeoh.plugins.informationbroker.options.SubscribeOption;
 import net.xeoh.plugins.informationbroker.util.InformationBrokerUtil;
+
+import java.util.Map;
 
 /**
  * Think of the information broker as a large, shared and type-safe hybrid between a
@@ -43,13 +43,12 @@ import net.xeoh.plugins.informationbroker.util.InformationBrokerUtil;
  * certain
  * keys to be able to react on changes to them.<br>
  * </br>
- * 
+ * <p/>
  * The new InformationBroker interface supersedes the old Bus (previously present in
  * JSPF), as it provides similar functionality.<br>
  * </br>
- * 
+ *
  * @author Ralf Biedert
- * 
  * @see InformationItem
  * @see InformationBrokerUtil
  */
@@ -61,15 +60,15 @@ public interface InformationBroker extends Plugin {
      * user
      * name you could write:<br/>
      * <br/>
-     * 
+     * <p/>
      * <code>
      * publish(UserName.class, "John Doe");
      * </code><br/>
      * <br/>
-     * 
-     * @param <T> The type of the item to wait for.
+     *
+     * @param <T>     The type of the item to wait for.
      * @param channel The channel for which the new object should be published.
-     * @param item The items to publish.
+     * @param item    The items to publish.
      * @param options A number of options the <code>publish()</code> method understands.
      */
     public <T> void publish(Class<? extends InformationItem<T>> channel, T item,
@@ -81,7 +80,7 @@ public interface InformationBroker extends Plugin {
      * example, to subscribe to the latest location of a device (provided as a String)
      * you could write:<br/>
      * <br/>
-     * 
+     * <p/>
      * <code>
      * plugin.subscribe(UserName.class, new InformationListener&lt;String>() {<br/>
      * &nbsp;&nbsp;&nbsp;&nbsp;public void update(String item) {<br/>
@@ -90,16 +89,16 @@ public interface InformationBroker extends Plugin {
      * });
      * </code><br/>
      * <br/>
-     * 
+     * <p/>
      * Also see the {@link InformationBrokerUtil}, it contains many useful convenience
      * functions.
-     * 
-     * @param <T> The type of the item to wait for.
-     * @param channel The item / ID / channel to subscribe to
+     *
+     * @param <T>      The type of the item to wait for.
+     * @param channel  The item / ID / channel to subscribe to
      * @param listener The lister will be called whenever the value of the ID changes; and
-     * it will
-     * be called right away if the information item has already been set before.
-     * @param options A number of options the <code>subscribe()</code> method understands.
+     *                 it will
+     *                 be called right away if the information item has already been set before.
+     * @param options  A number of options the <code>subscribe()</code> method understands.
      */
     public <T> void subscribe(Class<? extends InformationItem<T>> channel,
                               InformationListener<T> listener, SubscribeOption... options);
@@ -107,7 +106,7 @@ public interface InformationBroker extends Plugin {
     /**
      * Unsubscribes the given information listener. It will not be called anymore
      * afterwards.
-     * 
+     *
      * @param listener The listener to unsubscribe.
      */
     public void unsubscribe(InformationListener<?> listener);

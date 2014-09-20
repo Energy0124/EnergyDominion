@@ -27,23 +27,21 @@
  */
 package net.xeoh.plugins.remote;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import junit.framework.Assert;
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.testplugins.testannotations.TestAnnotations;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  * @author rb
- *
  */
 public class DiscoverPluginTest {
 
@@ -73,7 +71,8 @@ public class DiscoverPluginTest {
     }
 
     /**
-     * @throws URISyntaxException   */
+     * @throws URISyntaxException
+     */
     @Test
     public void testDiscovery() throws URISyntaxException {
         RemoteAPILipe p = this.pm.getPlugin(RemoteAPILipe.class);

@@ -27,15 +27,15 @@
  */
 package net.xeoh.plugins.remotediscovery.options.discover;
 
-import java.util.Collection;
-
 import net.xeoh.plugins.remotediscovery.DiscoveredPlugin;
 import net.xeoh.plugins.remotediscovery.options.DiscoverOption;
 
+import java.util.Collection;
+
 /**
- * Requests a callback upon the detection of an appropriate plugin. The callback is executed as soon as the first matching 
- * plugin is detected and then removed.  
- * 
+ * Requests a callback upon the detection of an appropriate plugin. The callback is executed as soon as the first matching
+ * plugin is detected and then removed.
+ *
  * @author Ralf Biedert.
  */
 public class OptionCallback implements DiscoverOption {
@@ -43,12 +43,12 @@ public class OptionCallback implements DiscoverOption {
     private static final long serialVersionUID = 8533647106985234966L;
 
     /**
-     * Callback to implement for listeners. 
+     * Callback to implement for listeners.
      */
     public static interface Callback {
         /**
-         * Called with all plugins found since the request. 
-         * 
+         * Called with all plugins found since the request.
+         *
          * @param plugins
          */
         public void pluginsDiscovered(Collection<DiscoveredPlugin> plugins);
@@ -65,7 +65,8 @@ public class OptionCallback implements DiscoverOption {
 
     /**
      * The caps to use.
-     * @param callback 
+     *
+     * @param callback
      */
     public OptionCallback(Callback callback) {
         this(callback, 0);

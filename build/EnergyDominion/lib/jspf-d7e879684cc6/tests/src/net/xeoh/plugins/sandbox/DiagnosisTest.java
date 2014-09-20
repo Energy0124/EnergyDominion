@@ -27,11 +27,6 @@
  */
 package net.xeoh.plugins.sandbox;
 
-import static net.jcores.jre.CoreKeeper.$;
-
-import java.io.Serializable;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.uri.ClassURI;
@@ -39,9 +34,13 @@ import net.xeoh.plugins.diagnosis.local.Diagnosis;
 import net.xeoh.plugins.diagnosis.local.DiagnosisMonitor;
 import net.xeoh.plugins.diagnosis.local.DiagnosisStatus;
 
+import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static net.jcores.jre.CoreKeeper.$;
+
 /**
  * @author rb
- *
  */
 public class DiagnosisTest {
     /**
@@ -51,13 +50,13 @@ public class DiagnosisTest {
 
         PluginManager pm = PluginManagerFactory.createPluginManager();
         pm.addPluginsFrom(ClassURI.CLASSPATH);
-        
-        
+
+
         final AtomicInteger i = new AtomicInteger();
         pm.getPlugin(Diagnosis.class).replay("1", new DiagnosisMonitor<Serializable>() {
             @Override
             public void onStatusChange(DiagnosisStatus<Serializable> status) {
-                if(!$(status.getValue()).string().contains("processadditional/param")) return;
+                if (!$(status.getValue()).string().contains("processadditional/param")) return;
                 System.out.println(status.getValue());
                 i.incrementAndGet();
             }

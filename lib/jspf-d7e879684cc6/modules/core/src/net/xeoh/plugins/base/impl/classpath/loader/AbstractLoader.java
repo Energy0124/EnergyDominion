@@ -27,15 +27,6 @@
  */
 package net.xeoh.plugins.base.impl.classpath.loader;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Properties;
-import java.util.Set;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.configuration.ConfigurationFile;
@@ -54,6 +45,15 @@ import net.xeoh.plugins.base.options.AddPluginsFromOption;
 import net.xeoh.plugins.base.options.getplugin.OptionCapabilities;
 import net.xeoh.plugins.base.util.PluginConfigurationUtil;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Properties;
+import java.util.Set;
+import java.util.logging.Logger;
+
 /**
  * The abstract base class of all loaders, provides methods for spawning classes.
  *
@@ -64,7 +64,9 @@ public abstract class AbstractLoader {
     /** */
     protected final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    /** Grants access to various shared variables. */
+    /**
+     * Grants access to various shared variables.
+     */
     protected final PluginManagerImpl pluginManager;
 
     /**
@@ -84,7 +86,7 @@ public abstract class AbstractLoader {
      * Load plugins from a given source
      *
      * @param uri
-     * @param options 
+     * @param options
      */
     public abstract void loadFrom(URI uri, AddPluginsFromOption[] options);
 
@@ -95,7 +97,7 @@ public abstract class AbstractLoader {
      * @param location
      * @param name
      */
-    @SuppressWarnings({ "unchecked", "boxing" })
+    @SuppressWarnings({"unchecked", "boxing"})
     protected void tryToLoadClassAsPlugin(AbstractClassPathLocation location,
                                           final String name) {
         this.logger.finest("Trying to load " + name + " as a plugin.");
@@ -117,17 +119,18 @@ public abstract class AbstractLoader {
 
             // Don't load plugins already spawned.
             if (name.startsWith("net.xeoh.plugins.base") ||
-                name.startsWith("net.xeoh.plugins.diagnosis.") ||
-                name.startsWith("net.xeoh.plugins.informationbroker.")) return;
-            
+                    name.startsWith("net.xeoh.plugins.diagnosis.") ||
+                    name.startsWith("net.xeoh.plugins.informationbroker.")) return;
+
             // Get the plugin's annotation
             final PluginImplementation annotation = possiblePlugin.getAnnotation(PluginImplementation.class);
 
             // Nothing to load here if no annotation is present
-            if (annotation == null) { return; }
+            if (annotation == null) {
+                return;
+            }
 
 
-            
             // Don't load classes already loaded from this location
             final PluginClassMetaInformation preexistingMeta = pluginRegistry.getMetaInformationFor((Class<? extends Plugin>) possiblePlugin);
             if (preexistingMeta != null) {
@@ -135,7 +138,7 @@ public abstract class AbstractLoader {
                 return;
             }
 
-            
+
             // Register class at registry
             final PluginClassMetaInformation metaInformation = new PluginClassMetaInformation();
             metaInformation.pluginClassStatus = PluginClassStatus.ACCEPTED;
@@ -155,7 +158,7 @@ public abstract class AbstractLoader {
                 this.logger.fine("Ignoring " + name + " due to request.");
                 return;
             }
-            
+
             // Up from here we know we will (eventually) use the plugin. So load its
             // configuration.
             final String properties = (possiblePlugin.getAnnotation(ConfigurationFile.class) != null) ? possiblePlugin.getAnnotation(ConfigurationFile.class).file() : null;
@@ -211,7 +214,7 @@ public abstract class AbstractLoader {
     /**
      * Try to load a pending class.
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     protected void processPending() {
 
         // Obtain shared objects

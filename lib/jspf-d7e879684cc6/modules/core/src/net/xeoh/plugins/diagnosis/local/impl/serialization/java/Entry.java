@@ -34,37 +34,51 @@ import java.util.Map;
 
 /**
  * Reflects an entry on a given channel.
- * 
+ *
  * @author Ralf Biedert
  */
 public class Entry implements Serializable {
     /** */
     private static final long serialVersionUID = -361673738793578516L;
 
-    /** The actual version we serialize */
+    /**
+     * The actual version we serialize
+     */
     private short version = 1;
 
-    /** Specifies when this entry was observed */
+    /**
+     * Specifies when this entry was observed
+     */
     public long date;
 
-    /** Thread ID for which this entry was observed */
+    /**
+     * Thread ID for which this entry was observed
+     */
     public long threadID;
 
-    /** Stack trace for this call */
+    /**
+     * Stack trace for this call
+     */
     public String[] stackTrace;
 
-    /** Channel this entry was observed on */
+    /**
+     * Channel this entry was observed on
+     */
     public String channel;
 
-    /** Value that was observed */
+    /**
+     * Value that was observed
+     */
     public Object value;
 
-    /** Additional information */
+    /**
+     * Additional information
+     */
     public Map<String, Object> additionalInfo = new HashMap<String, Object>();
 
     /**
      * We do this ourself.
-     * 
+     *
      * @param stream
      * @throws IOException
      */
@@ -80,14 +94,14 @@ public class Entry implements Serializable {
 
     /**
      * We do this ourself.
-     * 
+     *
      * @param stream
      * @throws IOException
      * @throws ClassNotFoundException
      */
     @SuppressWarnings("unchecked")
     private void readObject(java.io.ObjectInputStream stream) throws IOException,
-                                                             ClassNotFoundException {
+            ClassNotFoundException {
 
         this.version = stream.readShort();
 
@@ -105,6 +119,6 @@ public class Entry implements Serializable {
             // FIXME: Due to a Java 'feature' we cannot prevent the CNFException to propagate upwards ... This means the object
             // will be missing ... 
             // System.err.println("Unknown type in infos (" + e.getMessage() + "). You should run this in the orig app's classpath!");
-        } 
+        }
     }
 }

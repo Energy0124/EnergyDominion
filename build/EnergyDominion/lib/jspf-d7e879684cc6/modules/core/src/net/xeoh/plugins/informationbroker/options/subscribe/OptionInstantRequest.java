@@ -32,15 +32,15 @@ import net.xeoh.plugins.informationbroker.options.SubscribeOption;
 
 /**
  * Requests the {@link InformationBroker} to call <code>subscribe()</code> to obtain the
- * current value instantly. The listener will not be registered. Instead, it is ensured 
+ * current value instantly. The listener will not be registered. Instead, it is ensured
  * that after <code>subscribe()</code> returns the listener will not be called again.<br/><br/>
- *    
+ * <p/>
  * For example, to make a single, instant request to an item, you could write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * informationBroker.subscribe(id, listener, new OptionInstantRequest());
  * </code>
- * 
+ *
  * @author Ralf Biedert
  * @see InformationBroker
  */

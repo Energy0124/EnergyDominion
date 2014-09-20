@@ -27,21 +27,19 @@
  */
 package net.xeoh.plugins.core;
 
-import java.net.URI;
-
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.testplugins.testinner.TestInnerInterface;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+
 /**
  * @author rb
- *
  */
 public class PluginManagerLoadInner {
 
@@ -66,7 +64,7 @@ public class PluginManagerLoadInner {
     }
 
     /**
-     * 
+     *
      */
     @Test
     public void testInner() {

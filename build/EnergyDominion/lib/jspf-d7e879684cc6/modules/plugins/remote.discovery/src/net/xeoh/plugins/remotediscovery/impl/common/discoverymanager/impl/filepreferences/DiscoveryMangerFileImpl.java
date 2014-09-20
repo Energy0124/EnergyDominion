@@ -27,22 +27,6 @@
 */
 package net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.filepreferences;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.logging.Logger;
-
 import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
@@ -54,23 +38,32 @@ import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.ExportedPlu
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.AbstractDiscoveryManager;
 import net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.impl.ExportEntry;
 
+import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
+import java.util.logging.Logger;
+
 /**
  * @author rb
- *
  */
 public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
         DiscoveryManager {
 
-    /** Discovery Root */
+    /**
+     * Discovery Root
+     */
     final File root = new File(System.getProperty("java.io.tmpdir") + "/jspf.discovery/");
 
     final String ourID = "" + new Random().nextInt(1000000000);
 
-    /** A list of all exported entities we have */
+    /**
+     * A list of all exported entities we have
+     */
     final Collection<LocalExportEntry> allExported = new ArrayList<LocalExportEntry>();
 
     /**
-     * Creates a new preferences manager 
+     * Creates a new preferences manager
      */
     public DiscoveryMangerFileImpl() {
         init();
@@ -95,7 +88,7 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
 
                         // Store our array
                         store();
-                        
+
                         // Clean up
                         final File r = DiscoveryMangerFileImpl.this.root;
                         final File[] list = r.listFiles();
@@ -113,7 +106,7 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         lgger.fine("Sleep Interrupted.");
-                    } 
+                    }
                 }
             }
         });
@@ -168,7 +161,7 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
         synchronized (this.allExported) {
             this.allExported.add(localExportEntry);
         }
-        
+
         store();
     }
 
@@ -194,7 +187,7 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
     /* (non-Javadoc)
      * @see net.xeoh.plugins.remotediscovery.impl.common.discoverymanager.DiscoveryManager#getExportInfoFor(java.lang.String)
      */
-    @SuppressWarnings( { "boxing", "unchecked" })
+    @SuppressWarnings({"boxing", "unchecked"})
     @Override
     public synchronized ExportInfo getExportInfoFor(String pluginInteraceName) {
         this.logger.fine("Was queried for plugin name " + pluginInteraceName);
@@ -271,7 +264,7 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
                 }
             }
 
-           
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -282,10 +275,10 @@ public class DiscoveryMangerFileImpl extends AbstractDiscoveryManager implements
     /**
      * @param args
      * @throws InterruptedException
-     * @throws URISyntaxException 
+     * @throws URISyntaxException
      */
     public static void main(String[] args) throws InterruptedException,
-                                          URISyntaxException {
+            URISyntaxException {
         final JSPFProperties props = new JSPFProperties();
 
         props.setProperty(PluginManager.class, "cache.enabled", "true");

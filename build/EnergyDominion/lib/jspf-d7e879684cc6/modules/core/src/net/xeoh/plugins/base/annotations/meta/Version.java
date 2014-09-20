@@ -27,25 +27,25 @@
  */
 package net.xeoh.plugins.base.annotations.meta;
 
+import net.xeoh.plugins.base.PluginInformation;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.xeoh.plugins.base.PluginInformation;
-
 /**
- * Version of the given plugin. For example, to specify that a given 
+ * Version of the given plugin. For example, to specify that a given
  * plugin is version 1.3.2, write:<br/><br/>
- * 
+ * <p/>
  * <code>
  * &#064;Version(version = 10302)<br/>
  * &#064;PluginImplementation<br/>
- * public class ServiceImpl implements Service { ... } 
+ * public class ServiceImpl implements Service { ... }
  * </code><br/><br/>
- * 
- * This information can be queried using the {@link PluginInformation} plugin. 
- * 
+ * <p/>
+ * This information can be queried using the {@link PluginInformation} plugin.
+ *
  * @author Ralf Biedert
  * @see PluginInformation.Information
  */
@@ -53,18 +53,24 @@ import net.xeoh.plugins.base.PluginInformation;
 @Target(ElementType.TYPE)
 public @interface Version {
 
-    /** Major version */
+    /**
+     * Major version
+     */
     public final static int UNIT_MAJOR = 10000;
 
-    /** Minor version */
+    /**
+     * Minor version
+     */
     public final static int UNIT_MINOR = 100;
 
-    /** Release version */
+    /**
+     * Release version
+     */
     public final static int UNIT_RELEASE = 1;
 
     /**
      * Version of this plugin. For example, a version of 10000 should be read as 1.00.00
-     * 
+     *
      * @return .
      */
     int version() default 1 * UNIT_MAJOR + 0 * UNIT_MINOR + 0 * UNIT_RELEASE;
