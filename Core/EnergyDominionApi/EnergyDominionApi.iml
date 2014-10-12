@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+<module type="JAVA_MODULE" version="4">
+  <component name="DBNavigator.Module.ConnectionManager">
+    <connections />
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/../../target/classes" />
     <output-test url="file://$MODULE_DIR$/../../target/test-classes" />
@@ -22,9 +25,8 @@
     <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.3.1" level="project" />
     <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.4c" level="project" />
     <orderEntry type="library" name="Maven: net.xeoh:nexus:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: ro.fortsoft.pf4j:pf4j:0.4" level="project" />
-    <orderEntry type="library" name="Maven: net.java.sezpoz:sezpoz:1.9" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
+    <orderEntry type="library" name="Maven: ro.fortsoft.pf4j:pf4j:0.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.9-RC2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.2-GA" level="project" />

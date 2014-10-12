@@ -11,8 +11,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>Core/EnergyDominionCore</module>
+        <module>Core/EnergyDominionApi</module>
+        <module>Core/EnergyDominion</module>
         <module>Expansions/BaseSet</module>
+
     </modules>
 
     <!--    <build>

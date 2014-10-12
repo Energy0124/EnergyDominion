@@ -153,7 +153,6 @@ public abstract class DominionCard implements Card {
     }
 
 
-
     @Override
     public void onDiscard(DiscardEvent event) {
 

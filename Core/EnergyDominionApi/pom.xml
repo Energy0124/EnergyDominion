@@ -4,18 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.hopto.energy.energydominion.expansion.base</groupId>
-    <artifactId>BaseSet</artifactId>
-    <description>Dominion Base</description>
+    <groupId>org.hopto.energy.energydominion</groupId>
+    <artifactId>EnergyDominionApi</artifactId>
+    <description>Dominion with Energy!</description>
     <version>0.0.1</version>
     <!--<packaging>jar</packaging>-->
-    <!--
-        <parent>
-            <groupId>org.hopto.energy.energydominion</groupId>
-            <artifactId>EnergyDominion</artifactId>
-            <version>0.0.1</version>
-        </parent>
-    -->
+
+    <!-- <modules>
+         <module>BaseSet</module>
+     </modules>-->
     <parent>
         <groupId>org.hopto.energy.energydominion</groupId>
         <artifactId>EnergyDominion</artifactId>
@@ -54,11 +51,6 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.hopto.energy.energydominion</groupId>
-            <artifactId>EnergyDominionCore</artifactId>
-            <version>0.0.1</version>
-        </dependency>
 
         <!-- <dependency>
                  <groupId>org.reflections</groupId>
@@ -92,11 +84,17 @@
 
         </dependency>
 
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.9-RC2</version>
+        </dependency>
+
     </dependencies>
 
 
     <build>
-        <directory>${project.basedir}/../../target/expansions</directory>
+        <directory>${project.basedir}/../../target</directory>
 
         <resources>
 
@@ -106,7 +104,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <!--<version>3.1</version>-->
+                <version>3.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -115,12 +113,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <!--<version>2.4</version>-->
+                <version>2.4</version>
                 <configuration>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
-                            <mainClass>org.hopto.energy.energydominion.expansion.base.BaseSet</mainClass>
+                            <mainClass>org.hopto.energy.energydominion.EnergyDominion</mainClass>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
@@ -130,26 +128,26 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <minimizeJar>false</minimizeJar>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.1</version>
             </plugin>
-            <!--           <plugin>
-                           <groupId>org.apache.maven.plugins</groupId>
-                           <artifactId>maven-shade-plugin</artifactId>
-                           <version>2.1</version>
-                           <executions>
-                               <execution>
-                                   <phase>package</phase>
-                                   <goals>
-                                       <goal>shade</goal>
-                                   </goals>
-                               </execution>
-                           </executions>
-                           <configuration>
-                               <minimizeJar>false</minimizeJar>
-                           </configuration>
-                       </plugin>-->
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
@@ -157,6 +155,7 @@
                         <phase>deploy</phase>
                         <configuration>
                             <tasks>
+
 
                                 <!--
                                   Place any Ant task here. You can add anything
