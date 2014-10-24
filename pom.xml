@@ -12,7 +12,7 @@
 
     <modules>
         <module>Core/EnergyDominionApi</module>
-        <module>Core/EnergyDominion</module>
+        <module>Core/EnergyDominionCore</module>
         <module>Expansions/BaseSet</module>
 
     </modules>
