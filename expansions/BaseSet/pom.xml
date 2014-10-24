@@ -55,7 +55,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.hopto.energy.energydominion</groupId>
+            <groupId>com.energy0124.energydominion</groupId>
             <artifactId>EnergyDominionCore</artifactId>
             <version>0.0.1</version>
         </dependency>
