@@ -1,10 +1,10 @@
-package org.hopto.energy.energydominion.expansion.base;
+package com.energy0124.energydominion.expansion.base;
 
+import com.energy0124.energydominion.api.core.DominionExpansion;
+import com.energy0124.energydominion.expansion.base.cards.Copper;
+import com.energy0124.energydominion.expansion.base.cards.Estate;
+import com.energy0124.energydominion.expansion.base.cards.Smithy;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
-import org.hopto.energy.energydominion.api.core.DominionExpansion;
-import org.hopto.energy.energydominion.expansion.base.cards.Copper;
-import org.hopto.energy.energydominion.expansion.base.cards.Estate;
-import org.hopto.energy.energydominion.expansion.base.cards.Smithy;
 
 
 @PluginImplementation

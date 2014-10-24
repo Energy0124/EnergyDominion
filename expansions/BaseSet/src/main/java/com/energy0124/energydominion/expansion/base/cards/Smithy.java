@@ -1,10 +1,10 @@
-package org.hopto.energy.energydominion.expansion.base.cards;
+package com.energy0124.energydominion.expansion.base.cards;
 
-import org.hopto.energy.energydominion.api.CardType;
-import org.hopto.energy.energydominion.api.Cost;
-import org.hopto.energy.energydominion.api.bahaviour.Playable;
-import org.hopto.energy.energydominion.api.core.DominionCard;
-import org.hopto.energy.energydominion.api.event.PlayEvent;
+import com.energy0124.energydominion.api.CardType;
+import com.energy0124.energydominion.api.Cost;
+import com.energy0124.energydominion.api.bahaviour.Playable;
+import com.energy0124.energydominion.api.core.DominionCard;
+import com.energy0124.energydominion.api.event.PlayEvent;
 
 public class Smithy extends DominionCard implements Playable {
 //    private String name="Smithy";
