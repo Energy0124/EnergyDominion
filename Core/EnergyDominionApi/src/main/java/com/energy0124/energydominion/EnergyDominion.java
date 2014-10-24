@@ -1,14 +1,14 @@
 package com.energy0124.energydominion;
 
+import com.energy0124.energydominion.api.*;
+import com.energy0124.energydominion.api.core.LocalPlayer;
+import com.energy0124.energydominion.api.game.CardManager;
+import com.energy0124.energydominion.api.game.ExpansionManager;
+import com.energy0124.energydominion.api.game.GameManager;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 import net.xeoh.plugins.base.util.uri.ClassURI;
-import org.hopto.energy.energydominion.api.*;
-import org.hopto.energy.energydominion.api.core.LocalPlayer;
-import org.hopto.energy.energydominion.api.game.CardManager;
-import org.hopto.energy.energydominion.api.game.ExpansionManager;
-import org.hopto.energy.energydominion.api.game.GameManager;
 
 import java.io.File;
 import java.util.ArrayList;

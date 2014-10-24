@@ -1,8 +1,8 @@
 package com.energy0124.energydominion.api;
 
 
-import net.xeoh.plugins.base.Plugin;
 import com.energy0124.energydominion.api.bahaviour.*;
+import net.xeoh.plugins.base.Plugin;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.energy0124.energydominion.api.game;
 
-import org.hopto.energy.energydominion.EnergyDominion;
+import com.energy0124.energydominion.EnergyDominion;
 import com.energy0124.energydominion.api.Expansion;
 
 import java.util.ArrayList;

@@ -25,15 +25,15 @@ public abstract class DominionCardEvent implements CardEvent {
     }
 
     @Override
-    public Player getTrigger() {
-        return trigger;
-    }
-
-    @Override
     public void setCardOwner(Player owner) {
         this.owner = owner;
 
 
+    }
+
+    @Override
+    public Player getTrigger() {
+        return trigger;
     }
 
     @Override

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>EnergyDominion</artifactId>
-        <groupId>org.hopto.energy.energydominion</groupId>
+        <groupId>com.energy0124.energydominion</groupId>
         <version>0.0.1</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.hopto.energy.energydominion</groupId>
+    <groupId>com.energy0124.energydominion</groupId>
     <artifactId>EnergyDominionApi</artifactId>
     <version>0.0.1</version>
     <description>Dominion with Energy!</description>
@@ -30,7 +30,7 @@
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
-                            <mainClass>org.hopto.energy.energydominion.EnergyDominion</mainClass>
+                            <mainClass>com.energy0124.energydominion.EnergyDominion</mainClass>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>

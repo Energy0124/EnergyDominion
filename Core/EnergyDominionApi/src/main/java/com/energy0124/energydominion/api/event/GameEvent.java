@@ -8,7 +8,7 @@ import com.energy0124.energydominion.api.Player;
 public interface GameEvent {
 
 
-    void setTrigger(Player trigger);
-
     Player getTrigger();
+
+    void setTrigger(Player trigger);
 }

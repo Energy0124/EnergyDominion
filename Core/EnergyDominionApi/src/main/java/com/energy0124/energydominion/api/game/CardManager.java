@@ -12,6 +12,9 @@ public class CardManager {
 
     private Set<Class<? extends Card>> cardSet = new HashSet<>();
 
+    public CardManager() {
+    }
+
     public void registerCard(Class<? extends Card> card) {
         cardSet.add(card);
     }
@@ -27,8 +30,5 @@ public class CardManager {
 
     public void setCardSet(Set<Class<? extends Card>> cardSet) {
         this.cardSet = cardSet;
-    }
-
-    public CardManager() {
     }
 }
