@@ -15,7 +15,7 @@
      </modules>-->
     <parent>
         <groupId>com.energy0124.energydominion</groupId>
-        <artifactId>EnergyDominion</artifactId>
+        <artifactId>com.energy0124.energydominion.EnergyDominion</artifactId>
         <version>0.0.1</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
@@ -32,23 +32,22 @@
             <url>file:${project.basedir}/lib</url>
         </repository>
 
-        <repository>
+        <!--<repository>
             <id>spout-repo</id>
             <url>http://repo.spout.org</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
-        </repository>
+        </repository>-->
     </repositories>
 
     <pluginRepositories>
-        <pluginRepository>
+        <!--<pluginRepository>
             <id>spout-repo</id>
             <url>http://repo.spout.org</url>
-        </pluginRepository>
+        </pluginRepository>-->
     </pluginRepositories>
-
 
     <dependencies>
 
@@ -58,11 +57,11 @@
                  <version>0.9.8</version>
              </dependency>-->
 
-        <dependency>
-            <groupId>net.xeoh.plugins</groupId>
-            <artifactId>jspf.core</artifactId>
-            <version>1.0.3</version>
-        </dependency>
+        <!-- <dependency>
+             <groupId>net.xeoh.plugins</groupId>
+             <artifactId>jspf.core</artifactId>
+             <version>1.0.3</version>
+         </dependency>-->
 
         <!-- <dependency>
              <groupId>org.net.jcores</groupId>
@@ -77,18 +76,18 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.net.jcores</groupId>
-            <artifactId>jcores</artifactId>
-            <version>0.8.0</version>
+        <!--  <dependency>
+              <groupId>org.net.jcores</groupId>
+              <artifactId>jcores</artifactId>
+              <version>0.8.0</version>
 
-        </dependency>
+          </dependency>-->
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>0.9.9-RC2</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
@@ -118,7 +117,7 @@
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
-                            <mainClass>com.energy0124.energydominion.EnergyDominion</mainClass>
+                            <!--<mainClass>com.energy0124.energydominion.EnergyDominion</mainClass>-->
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>

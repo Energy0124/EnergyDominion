@@ -4,10 +4,9 @@ import com.energy0124.energydominion.api.core.DominionExpansion;
 import com.energy0124.energydominion.expansion.base.cards.Copper;
 import com.energy0124.energydominion.expansion.base.cards.Estate;
 import com.energy0124.energydominion.expansion.base.cards.Smithy;
-import net.xeoh.plugins.base.annotations.PluginImplementation;
 
 
-@PluginImplementation
+
 public class BaseSet extends DominionExpansion {
 
  /*  static {

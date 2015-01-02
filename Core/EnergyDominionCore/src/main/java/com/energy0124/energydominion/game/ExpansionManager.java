@@ -1,4 +1,5 @@
-package com.energy0124.energydominion.api.game;
+package com.energy0124.energydominion.game;
+
 
 import com.energy0124.energydominion.EnergyDominion;
 import com.energy0124.energydominion.api.Expansion;
@@ -25,6 +26,7 @@ public class ExpansionManager {
 
     public void register(Expansion expansion) {
         add(expansion);
+        //todo:do not reference to EnergyDominion
         EnergyDominion.getCardManager().registerCards(expansion.getCardSet());
         //completeCardSet.addAll(expansion.getCardSet());
 

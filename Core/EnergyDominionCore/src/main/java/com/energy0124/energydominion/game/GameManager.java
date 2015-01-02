@@ -1,4 +1,4 @@
-package com.energy0124.energydominion.api.game;
+package com.energy0124.energydominion.game;
 
 import com.energy0124.energydominion.api.Deck;
 import com.energy0124.energydominion.api.Game;

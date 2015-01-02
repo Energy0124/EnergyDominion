@@ -2,18 +2,15 @@ package com.energy0124.energydominion;
 
 import com.energy0124.energydominion.api.*;
 import com.energy0124.energydominion.api.core.LocalPlayer;
-import com.energy0124.energydominion.api.game.CardManager;
-import com.energy0124.energydominion.api.game.ExpansionManager;
-import com.energy0124.energydominion.api.game.GameManager;
-import net.xeoh.plugins.base.PluginManager;
-import net.xeoh.plugins.base.impl.PluginManagerFactory;
-import net.xeoh.plugins.base.util.PluginManagerUtil;
-import net.xeoh.plugins.base.util.uri.ClassURI;
+import com.energy0124.energydominion.game.CardManager;
+import com.energy0124.energydominion.game.ExpansionManager;
+import com.energy0124.energydominion.game.GameManager;
+import ro.fortsoft.pf4j.DefaultPluginManager;
+import ro.fortsoft.pf4j.PluginManager;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -22,6 +19,7 @@ public class EnergyDominion {
     private static GameManager gameManager;
     private static CardManager cardManager;
     private static ExpansionManager expansionManager;
+    private static String pluginPath = "expansions/";
 
     public static void main(String[] args) {
 
@@ -42,24 +40,19 @@ public class EnergyDominion {
     }
 
     private static void init() {
-        pluginManager = PluginManagerFactory.createPluginManager();
+
+        pluginManager = new DefaultPluginManager(new File(pluginPath));
         gameManager = new GameManager();
+        pluginManager.loadPlugins();
+        pluginManager.startPlugins();
 
-        try {
-
-            pluginManager.addPluginsFrom(ClassURI.CLASSPATH);
-            pluginManager.addPluginsFrom(new File("expansions/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private static void test(PluginManager pm) {
 
 
-        PluginManagerUtil pmUtil = new PluginManagerUtil(pm);
-        Collection<Expansion> expansions = pmUtil.getPlugins(Expansion.class);
-        Collection<Card> cards = pmUtil.getPlugins(Card.class);
+        List<Expansion> expansions = pm.getExtensions(Expansion.class);
+        List<Card> cards = pm.getExtensions(Card.class);
         for (Card card : cards) {
             System.out.println("--------------------------------------");
             System.out.println(card.getClass().toString());

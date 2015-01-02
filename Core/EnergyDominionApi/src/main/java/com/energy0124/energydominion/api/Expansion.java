@@ -1,10 +1,11 @@
 package com.energy0124.energydominion.api;
 
-import net.xeoh.plugins.base.Plugin;
+
+import ro.fortsoft.pf4j.ExtensionPoint;
 
 import java.util.Set;
 
-public interface Expansion extends Plugin {
+public interface Expansion extends ExtensionPoint {
     String getName();
 
     Set<Class<? extends Card>> getCardSet();

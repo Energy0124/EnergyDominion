@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: . EnergyDominion.jar expansions/ lib/ lib/jspf.core-1.0.3.jar
+Class-Path: . com.energy0124.energydominion.EnergyDominion.jar expansions/ lib/ lib/jspf.core-1.0.3.jar
 Main-Class: com.energy0124.energydominion.EnergyDominion
 

@@ -219,7 +219,7 @@ pip-log.txt
 .idea/
 
 #misc
-build\EnergyDominion\lib\jspf-d7e879684cc6
+build\com.energy0124.energydominion.EnergyDominion\lib\jspf-d7e879684cc6
 
 target/
 

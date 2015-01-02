@@ -126,15 +126,15 @@ public abstract class DominionCard implements Card {
     }
 
     @Override
-    public void setCardTypes(List<CardType> cardTypes) {
-        this.cardTypes = cardTypes;
-    }
-
-    @Override
     public void setCardTypes(CardType cardType) {
         List<CardType> cardTypes = new ArrayList<>();
         cardTypes.add(cardType);
         setCardTypes(cardTypes);
+    }
+
+    @Override
+    public void setCardTypes(List<CardType> cardTypes) {
+        this.cardTypes = cardTypes;
     }
 
     @Override
