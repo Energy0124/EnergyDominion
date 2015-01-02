@@ -12,7 +12,7 @@
     <!--
         <parent>
             <groupId>com.energy0124.energydominion</groupId>
-            <artifactId>EnergyDominion</artifactId>
+            <artifactId>com.energy0124.energydominion.EnergyDominion</artifactId>
             <version>0.0.1</version>
         </parent>
     -->
@@ -26,6 +26,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <plugin.id>BaseSet</plugin.id>
+        <plugin.class>com.energy0124.energydominion.expansion.base.BaseSet</plugin.class>
+        <plugin.version>0.0.1</plugin.version>
+        <plugin.provider>Energy0124</plugin.provider>
+        <plugin.dependencies/>
+
     </properties>
 
     <repositories>
@@ -35,28 +42,28 @@
             <url>file:${project.basedir}/lib</url>
         </repository>
 
-        <repository>
+        <!--<repository>
             <id>spout-repo</id>
             <url>http://repo.spout.org</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
-        </repository>
+        </repository>-->
     </repositories>
 
     <pluginRepositories>
-        <pluginRepository>
+        <!--<pluginRepository>
             <id>spout-repo</id>
             <url>http://repo.spout.org</url>
-        </pluginRepository>
+        </pluginRepository>-->
     </pluginRepositories>
 
 
     <dependencies>
         <dependency>
             <groupId>com.energy0124.energydominion</groupId>
-            <artifactId>EnergyDominionCore</artifactId>
+            <artifactId>EnergyDominionApi</artifactId>
             <version>0.0.1</version>
         </dependency>
 
@@ -66,12 +73,12 @@
                  <version>0.9.8</version>
              </dependency>-->
 
-        <dependency>
-            <groupId>net.xeoh.plugins</groupId>
-            <artifactId>jspf.core</artifactId>
-            <version>1.0.3</version>
-        </dependency>
-
+        <!--  <dependency>
+              <groupId>net.xeoh.plugins</groupId>
+              <artifactId>jspf.core</artifactId>
+              <version>1.0.3</version>
+          </dependency>
+  -->
         <!-- <dependency>
              <groupId>org.net.jcores</groupId>
              <artifactId>jcores-core</artifactId>
@@ -84,13 +91,13 @@
             <version>0.9.0</version>
         </dependency>
 
+        <!--
+                <dependency>
+                    <groupId>org.net.jcores</groupId>
+                    <artifactId>jcores</artifactId>
+                    <version>0.8.0</version>
 
-        <dependency>
-            <groupId>org.net.jcores</groupId>
-            <artifactId>jcores</artifactId>
-            <version>0.8.0</version>
-
-        </dependency>
+                </dependency>-->
 
     </dependencies>
 
@@ -120,20 +127,68 @@
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
-                            <mainClass>com.energy0124.energydominion.expansion.base.BaseSet</mainClass>
+                            <!--<mainClass>com.energy0124.energydominion.expansion.base.BaseSet</mainClass>-->
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+
                         </manifest>
                         <manifestEntries>
+                            <Plugin-Id>${plugin.id}</Plugin-Id>
+                            <Plugin-Class>${plugin.class}</Plugin-Class>
+                            <Plugin-Version>${plugin.version}</Plugin-Version>
+                            <Plugin-Provider>${plugin.provider}</Plugin-Provider>
+                            <Plugin-Dependencies>${plugin.dependencies}</Plugin-Dependencies>
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
+
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>unzip jar file</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <unzip src="${project.basedir}/../../target/expansions/${artifactId}-${version}.${packaging}" dest="${project.basedir}/../../target/expansions/plugin-classes" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>
+                            src/main/assembly/assembly.xml
+                        </descriptor>
+                    </descriptors>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.1</version>
-            </plugin>
+            </plugin>-->
             <!--           <plugin>
                            <groupId>org.apache.maven.plugins</groupId>
                            <artifactId>maven-shade-plugin</artifactId>

@@ -30,7 +30,6 @@
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
-                            <mainClass>com.energy0124.energydominion.EnergyDominion</mainClass>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
@@ -80,20 +79,7 @@
             <name>project</name>
             <url>file:${project.basedir}/lib</url>
         </repository>
-        <repository>
-            <snapshots>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <id>spout-repo</id>
-            <url>http://repo.spout.org</url>
-        </repository>
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spout-repo</id>
-            <url>http://repo.spout.org</url>
-        </pluginRepository>
-    </pluginRepositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

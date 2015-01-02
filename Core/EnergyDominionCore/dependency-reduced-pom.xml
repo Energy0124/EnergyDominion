@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>com.energy0124.energydominion.EnergyDominion</artifactId>
+        <artifactId>EnergyDominion</artifactId>
     <groupId>com.energy0124.energydominion</groupId>
     <version>0.0.1</version>
         <relativePath>../../pom.xml</relativePath>
@@ -80,20 +80,7 @@
             <name>project</name>
             <url>file:${project.basedir}/lib</url>
         </repository>
-        <repository>
-            <snapshots>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <id>spout-repo</id>
-            <url>http://repo.spout.org</url>
-        </repository>
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spout-repo</id>
-            <url>http://repo.spout.org</url>
-        </pluginRepository>
-    </pluginRepositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
