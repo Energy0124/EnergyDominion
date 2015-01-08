@@ -1,4 +1,4 @@
-com.energy0124.energydominion.EnergyDominion
+EnergyDominion
 ==============
 
 Dominion with Energy!
