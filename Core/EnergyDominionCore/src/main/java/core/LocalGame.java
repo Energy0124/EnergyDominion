@@ -1,4 +1,4 @@
-package com.energy0124.energydominion.api.core;
+package core;
 
 import com.energy0124.energydominion.api.Board;
 import com.energy0124.energydominion.api.Deck;

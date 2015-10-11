@@ -1,15 +1,14 @@
-package com.energy0124.energydominion.api.core;
+package com.energy0124.energydominion.api;
 
-import com.energy0124.energydominion.api.Card;
-import com.energy0124.energydominion.api.CardType;
-import com.energy0124.energydominion.api.Cost;
-import com.energy0124.energydominion.api.Player;
 import com.energy0124.energydominion.api.event.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+* TODO: need heavy refactoring
+*
+* */
 public abstract class DominionCard implements Card {
     private String name;
     private List<CardType> cardTypes;
@@ -24,11 +23,11 @@ public abstract class DominionCard implements Card {
     }
 
     protected DominionCard(List<CardType> cardTypes) {
-        this(cardTypes, new Cost());
+        this(cardTypes, null);
     }
 
     protected DominionCard(CardType cardType) {
-        this(cardType, new Cost());
+        this(cardType, null);
     }
 
     protected DominionCard(String name, CardType cardType, Cost cost, String description, Player owner) {
@@ -41,11 +40,11 @@ public abstract class DominionCard implements Card {
     }
 
     protected DominionCard(String name, List<CardType> cardTypes) {
-        this(name, cardTypes, new Cost(), "", null);
+        this(name, cardTypes, null, "", null);
     }
 
     protected DominionCard(String name, CardType cardType) {
-        this(name, cardType, new Cost(), "", null);
+        this(name, cardType, null, "", null);
     }
 
     protected DominionCard(String name, List<CardType> cardTypes, Cost cost) {
@@ -82,6 +81,8 @@ public abstract class DominionCard implements Card {
         this.cost = cost;
         this.description = description;
         this.owner = owner;
+        //DominionExpansion.addCardClass(this.getClass());
+
 
     }
 
@@ -126,15 +127,15 @@ public abstract class DominionCard implements Card {
     }
 
     @Override
+    public void setCardTypes(List<CardType> cardTypes) {
+        this.cardTypes = cardTypes;
+    }
+
+    @Override
     public void setCardTypes(CardType cardType) {
         List<CardType> cardTypes = new ArrayList<>();
         cardTypes.add(cardType);
         setCardTypes(cardTypes);
-    }
-
-    @Override
-    public void setCardTypes(List<CardType> cardTypes) {
-        this.cardTypes = cardTypes;
     }
 
     @Override
@@ -183,5 +184,8 @@ public abstract class DominionCard implements Card {
 
     }
 
-
+    @Override
+    public Class<? extends Card> getCardClass() {
+        return this.getClass();
+    }
 }

@@ -1,10 +1,13 @@
 package com.energy0124.energydominion;
 
 import com.energy0124.energydominion.api.*;
-import com.energy0124.energydominion.api.core.LocalPlayer;
+import com.energy0124.energydominion.core.DominionGameManager;
 import com.energy0124.energydominion.game.CardManager;
+import com.energy0124.energydominion.game.DominionCostFactory;
 import com.energy0124.energydominion.game.ExpansionManager;
 import com.energy0124.energydominion.game.GameManager;
+import core.DominionDeck;
+import core.LocalPlayer;
 import ro.fortsoft.pf4j.DefaultPluginManager;
 import ro.fortsoft.pf4j.PluginManager;
 
@@ -20,18 +23,26 @@ public class EnergyDominion {
     private static CardManager cardManager;
     private static ExpansionManager expansionManager;
     private static String pluginPath = "expansions/";
+    private static boolean useDefaultBaseSet = true;
 
     public static void main(String[] args) {
 
-        init();
+        // System.out.println(System.getProperty("pf4j.pluginsDir", "plugins"));
+        pluginManager = new DefaultPluginManager(new File(pluginPath));
+        // pluginManager = new DefaultPluginManager();
+        gameManager = new GameManager();
+        pluginManager.loadPlugins();
+        pluginManager.startPlugins();
 
+
+        init();
 
         //simple test to check whether the expansion can be loaded
         test(pluginManager);
 
         //another test
-        List<Player> playerList = new ArrayList<Player>(Arrays.<Player>asList(new LocalPlayer("Energy"), new LocalPlayer("Star")));     //create sample list of player
-        Deck startingDeck = new Deck();
+        List<Player> playerList = new ArrayList(Arrays.asList(new LocalPlayer("Energy"), new LocalPlayer("Star")));     //create sample list of player
+        Deck startingDeck = new DominionDeck();
         Game testGame = gameManager.createLocalGame(playerList, startingDeck);    //create a test game
 
         testGame.start();                                    //start the test game
@@ -40,25 +51,27 @@ public class EnergyDominion {
     }
 
     private static void init() {
+        DominionGameManager.setCostFactory(new DominionCostFactory());
 
-        pluginManager = new DefaultPluginManager(new File(pluginPath));
-        gameManager = new GameManager();
-        pluginManager.loadPlugins();
-        pluginManager.startPlugins();
 
     }
 
     private static void test(PluginManager pm) {
 
+        //todo: fix the bug that no expansion is found
+        //may related to :
+        //  * if (type.isAssignableFrom(extensionClass) && extensionClass.isAnnotationPresent(Extension.class)) {
+        //use debug to check
 
-        List<Expansion> expansions = pm.getExtensions(Expansion.class);
+        List<DominionExpansion> expansions = pm.getExtensions(DominionExpansion.class);
         List<Card> cards = pm.getExtensions(Card.class);
-        for (Card card : cards) {
+        // List<Card> cards = pm.getExtensions(Card.class);
+      /*  for (Card card : cards) {
             System.out.println("--------------------------------------");
             System.out.println(card.getClass().toString());
             System.out.println(card.getName());
             System.out.println("--------------------------------------");
-        }
+        }              */
         for (Expansion expansion : expansions) {
 
             System.out.println("--------------------------------------");
@@ -69,8 +82,8 @@ public class EnergyDominion {
                 System.out.println("IsExpansion: True");
             }
             System.out.println("CardList:");
-            System.out.println(expansion.getCardSet().toString());
-            for (Class card : expansion.getCardSet()) {
+            System.out.println(expansion.getCardClassSet().toString());
+            for (Class card : expansion.getCardClassSet()) {
                 System.out.println("**********");
                 System.out.println(card.getSimpleName());
                 try {
@@ -83,6 +96,10 @@ public class EnergyDominion {
                 System.out.println("**********");
             }
             System.out.println("--------------------------------------");
+        }
+
+        for (Card card : cards) {
+            System.out.println(card.getCardClass());
         }
     }
 

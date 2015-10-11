@@ -1,62 +1,26 @@
 package com.energy0124.energydominion.api;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Deck implements Pile {
-    private Player owner;
-    private List<Card> cards;
+public interface Deck extends Pile {
 
-    public Deck() {
-        this(new ArrayList<Card>());
-    }
+     Player getOwner();
 
-    public Deck(List<Card> cards) {
-        this.cards = cards;
-    }
+     void setOwner(Player owner);
 
-    public Player getOwner() {
-        return owner;
-    }
+     boolean isEmpty();
 
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
+     List<Card> getCards();
 
-    @Override
-    public List<Card> getCards() {
-        return cards;
+     void setCards(List<Card> cards);
 
-    }
+     void shuffle();
 
-    @Override
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
-    }
+     void addCard(Card card);
 
-    public void shuffle() {
-        Collections.shuffle(cards);
+     void removeCard(Card card);
 
-    }
+     Card getTopCard();
 
-    @Override
-    public void addCard(Card card) {
-        cards.add(card);
-
-    }
-
-    @Override
-    public void removeCard(Card card) {
-        cards.remove(card);
-    }
-
-    public Card getTopCard() {
-        return cards.get(0);
-    }
-
-    public Card drawTopCard() {
-        //TODO:handle exceptions
-        return cards.remove(0);
-    }
+     Card drawTopCard();
 }

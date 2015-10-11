@@ -27,8 +27,8 @@ public class ExpansionManager {
     public void register(Expansion expansion) {
         add(expansion);
         //todo:do not reference to EnergyDominion
-        EnergyDominion.getCardManager().registerCards(expansion.getCardSet());
-        //completeCardSet.addAll(expansion.getCardSet());
+        EnergyDominion.getCardManager().registerCards(expansion.getCardClassSet());
+        //completeCardSet.addAll(expansion.getCardClassSet());
 
     }
 

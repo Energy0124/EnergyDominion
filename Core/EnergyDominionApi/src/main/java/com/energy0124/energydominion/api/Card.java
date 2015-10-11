@@ -6,7 +6,7 @@ import ro.fortsoft.pf4j.ExtensionPoint;
 
 import java.util.List;
 
-public interface Card extends ExtensionPoint, Buyable, Discardable, Drawable, Gainable, Playable, Trashable, VPCountable {
+public interface Card extends Buyable, Discardable, Drawable, Gainable, Playable, Trashable, VPCountable, ExtensionPoint {
 
     String getName();
 
@@ -26,13 +26,15 @@ public interface Card extends ExtensionPoint, Buyable, Discardable, Drawable, Ga
 
     List<CardType> getCardTypes();
 
-    void setCardTypes(CardType cardType);
-
     void setCardTypes(List<CardType> cardTypes);
+
+    void setCardTypes(CardType cardType);
 
     Player getOwner();
 
     void setOwner(Player owner);
+
+    Class<? extends Card> getCardClass();
 
 
 }

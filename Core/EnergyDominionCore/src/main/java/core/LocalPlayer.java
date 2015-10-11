@@ -1,6 +1,7 @@
-package com.energy0124.energydominion.api.core;
+package core;
 
 import com.energy0124.energydominion.api.*;
+
 
 
 public class LocalPlayer implements Player {
@@ -19,7 +20,7 @@ public class LocalPlayer implements Player {
     }
 
     public LocalPlayer(String name) {
-        this(name, new Hand(), new Deck());
+        this(name, new DominionHand(), new DominionDeck());
     }
 
     public LocalPlayer(String name, Hand hand, Deck deck) {
@@ -67,6 +68,7 @@ public class LocalPlayer implements Player {
         this.deck = deck;
     }
 
+
     @Override
     public String getName() {
         return name;
@@ -79,8 +81,14 @@ public class LocalPlayer implements Player {
 
     @Override
     public void drawCardFromDeck(int n) {
-        for (int i = 1; i <= n; i++)
-            getHand().addCard(getDeck().drawTopCard());
+        for (int i = 1; i <= n; i++) {
+            if (!getDeck().isEmpty()) {
+                getHand().addCard(getDeck().drawTopCard());
+            } else {
+                //todo:  show invalid action message to user
+                //throw new UnsupportedOperationException("Not implemented yet");
+            }
+        }
     }
 
     @Override

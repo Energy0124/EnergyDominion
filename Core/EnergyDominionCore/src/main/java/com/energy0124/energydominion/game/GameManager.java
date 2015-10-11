@@ -3,7 +3,7 @@ package com.energy0124.energydominion.game;
 import com.energy0124.energydominion.api.Deck;
 import com.energy0124.energydominion.api.Game;
 import com.energy0124.energydominion.api.Player;
-import com.energy0124.energydominion.api.core.LocalGame;
+import core.LocalGame;
 
 import java.util.ArrayList;
 import java.util.List;

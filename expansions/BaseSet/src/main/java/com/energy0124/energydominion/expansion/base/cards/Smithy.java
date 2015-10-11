@@ -1,10 +1,10 @@
 package com.energy0124.energydominion.expansion.base.cards;
 
 import com.energy0124.energydominion.api.CardType;
-import com.energy0124.energydominion.api.Cost;
+import com.energy0124.energydominion.api.DominionCard;
 import com.energy0124.energydominion.api.bahaviour.Playable;
-import com.energy0124.energydominion.api.core.DominionCard;
 import com.energy0124.energydominion.api.event.PlayEvent;
+import com.energy0124.energydominion.core.DominionGameManager;
 
 public class Smithy extends DominionCard implements Playable {
 //    private String name="Smithy";
@@ -14,7 +14,7 @@ public class Smithy extends DominionCard implements Playable {
 
     public Smithy() {
 
-        super("Smithy", CardType.Action, new Cost(4), "+3 Cards");
+        super("Smithy", CardType.Action, DominionGameManager.getCostFactory().createCost().setTreasureCost(4).getCost(), "+3 Cards");
 
     }
 

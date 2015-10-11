@@ -8,11 +8,11 @@ import java.util.Set;
 public interface Expansion extends ExtensionPoint {
     String getName();
 
-    Set<Class<? extends Card>> getCardSet();
+    Set<Class<? extends Card>> getCardClassSet();
 
-//     void addCard(Class<Card> card);
+//     void addCardClass(Class<Card> card);
 //
-//    void removeCard(Class<Card> card);
+//    void removeCardClass(Class<Card> card);
 
 
 //    List<Class> getClassList();

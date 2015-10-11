@@ -1,41 +1,15 @@
 package com.energy0124.energydominion.api;
 
-public class Cost {
+public interface Cost {
 
-    private int treasureCost;
-    private int potionCost;
 
-    public Cost() {
-        this(0);
-    }
+    int getPotionCost();
 
-    public Cost(int treasureCost) {
-        this(treasureCost, 0);
-    }
+    void setPotionCost(int potionCost);
 
-    public Cost(int treasureCost, int potionCost) {
-        this.potionCost = potionCost;
-        this.treasureCost = treasureCost;
-    }
+    int getTreasureCost();
 
-    public int getPotionCost() {
-        return potionCost;
-    }
+    void setTreasureCost(int treasureCost);
 
-    public void setPotionCost(int potionCost) {
-        this.potionCost = potionCost;
-    }
-
-    public int getTreasureCost() {
-        return treasureCost;
-    }
-
-    public void setTreasureCost(int treasureCost) {
-        this.treasureCost = treasureCost;
-    }
-
-    boolean needPotion() {
-        if (getPotionCost() >= 0) return true;
-        else return false;
-    }
+    boolean needPotion();
 }
